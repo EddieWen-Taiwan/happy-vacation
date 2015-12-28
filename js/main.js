@@ -1,11 +1,11 @@
 $(document).ready( function(){
 
 	// Get this from user
-	var finalDay = new Date('2016/05/27');
+	var finalDay = new Date('2016-05-27');
 	var eventArray = [
 		{
 			title: "退伍日",
-			start: '2016/05/27',
+			start: moment("2016-05-27", "YYYY-MM-DD"),
 			allDay: true,
 			className: 'retireDate'
 		}
