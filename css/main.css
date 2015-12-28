@@ -1,3 +1,7 @@
+body {
+	
+}
+
 header {
 	width: 100%;
 	background-color: #FF9800;
@@ -26,5 +30,16 @@ header .subtitle {
 }
 
 #calendar {
+	width: 96%;
 	margin-top: 150px;
+	margin-left: 2%;
+}
+
+.fc-view-container tr {
+	height: 40px;
+}
+
+.fc th {
+	vertical-align: middle;
+	font-weight: 400;
 }
