@@ -1,11 +1,17 @@
 $(document).ready( function(){
 
+	// Initialize FullCalendar
+	var $calendar = $('#calendar');
+	$calendar.fullCalendar();
+
+	// Initialize Pikaday
 	var picker = new Pikaday({
 		field: $('#datepicker')[0],
-		format: 'YYYY-MM-DD',
-		onSelect: function() {
-			console.log(this.getMoment().format('Do MMMM YYYY'));
-		}
+		format: 'YYYY-MM-DD'
+	});
+
+	$('.ok').on( 'click', function(){
+		console.log( $('#datepicker').val() );
 	});
 
 	// Get this from user
@@ -40,12 +46,6 @@ $(document).ready( function(){
 		eventArray.push(newEvent);
 
 	};
-
-	// Initialize calendar
-	var $calendar = $('#calendar');
-	$calendar.fullCalendar({
-		events: eventArray
-	});
 
 	// Trigger calendar to next/prev month
 	$('.month-btn.prev').on( 'click', function(){
