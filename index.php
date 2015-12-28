@@ -16,6 +16,7 @@
 				<div class="answer">
 				</div>
 			</div>
+			<div class="ok">確 定</div>
 		</div>
 	</div>
 
