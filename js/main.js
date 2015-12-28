@@ -1,27 +1,27 @@
 $(document).ready( function(){
 
 	// Get this from user
-	var finalDay = new Date('2016-05-27');
+	var finalDay = moment('2016-05-27');
 	var eventArray = [
 		{
 			title: "退伍日",
-			start: moment("2016-05-27", "YYYY-MM-DD"),
+			start: finalDay,
 			allDay: true,
 			className: 'retireDate'
 		}
 	];
 
-	var lastEvent = finalDay.minusDays();
+	var lastEvent = moment(finalDay).add( -10, 'days' );
 	for( i = 0; i < 9; i++ ) {
 		var newEvent = {
 			title: "*",
-			start: moment( lastEvent.yyyymmdd(), "YYYY-MM-DD" ),
+			start: lastEvent,
 			allDay: true,
 			className: 'tenDays'
 		};
 		eventArray.push(newEvent);
 
-		lastEvent = lastEvent.minusDays();
+		lastEvent = moment(lastEvent).add( -10, 'days' );
 	};
 
 	// Initialize calendar
@@ -41,28 +41,3 @@ $(document).ready( function(){
 	$calendar.fullCalendar('gotoDate', finalDay);
 
 });
-
-// new custom function
-Date.prototype.minusDays = function() {
-
-	var date = new Date( this );
-	date.setDate( date.getDate() - 10 );
-
-	return date;
-
-}
-
-Date.prototype.yyyymmdd = function() {
-
-	// year
-	var yyyy = this.getFullYear().toString();
-	// month
-	var mm = this.getMonth() +1;
-	mm = mm < 10 ? "0" + mm.toString() : mm.toString();
-	// date
-	var dd = this.getDate();
-	dd = dd < 10 ? "0" + dd.toString() : dd.toString();
-
-	return yyyy + "-" + mm + "-" + dd;
-
-}
