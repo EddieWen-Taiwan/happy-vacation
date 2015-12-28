@@ -2,7 +2,7 @@ $(document).ready( function(){
 
 	// Initialize FullCalendar
 	var $calendar = $('#calendar');
-	$calendar.fullCalendar();
+	// $calendar.fullCalendar();
 
 	// Initialize Pikaday
 	var picker = new Pikaday({
@@ -11,41 +11,47 @@ $(document).ready( function(){
 	});
 
 	$('.ok').on( 'click', function(){
-		console.log( $('#datepicker').val() );
-	});
 
-	// Get this from user
-	var finalDay = moment('2016-05-27');
-	var eventArray = [
-		{
-			title: "退伍日",
-			start: finalDay,
-			allDay: true,
-			className: 'retireDate'
-		}
-	];
+		// Get this from user
+		var finalDay = moment( $('#datepicker').val() );
+		var eventArray = [
+			{
+				title: "退伍日",
+				start: finalDay,
+				allDay: true,
+				className: 'retireDate'
+			}
+		];
 
-	var lastEvent = finalDay;
-	for( i = 0; i < 9; i++ ) {
+		var lastEvent = finalDay;
+		for( i = 0; i < 9; i++ ) {
 
-		lastEvent = moment(lastEvent).add( -10, 'days' );
-		// lastEvent.day()
-		// 0 -> Sun. // 6 -> Sat.
-		if ( lastEvent.day() == 0 ) {
-			lastEvent = moment(lastEvent).add( 1, 'days' );
-		} else if ( lastEvent.day() == 6 ) {
-			lastEvent = moment(lastEvent).add( 2, 'days' );
-		}
+			lastEvent = moment(lastEvent).add( -10, 'days' );
+			// lastEvent.day()
+			// 0 -> Sun. // 6 -> Sat.
+			if ( lastEvent.day() == 0 ) {
+				lastEvent = moment(lastEvent).add( 1, 'days' );
+			} else if ( lastEvent.day() == 6 ) {
+				lastEvent = moment(lastEvent).add( 2, 'days' );
+			}
 
-		var newEvent = {
-			title: "*",
-			start: lastEvent,
-			allDay: true,
-			className: 'tenDays'
+			var newEvent = {
+				title: "*",
+				start: lastEvent,
+				allDay: true,
+				className: 'tenDays'
+			};
+			eventArray.push(newEvent);
+
 		};
-		eventArray.push(newEvent);
+		$calendar.fullCalendar({
+			events: eventArray
+		});
 
-	};
+		$calendar.fullCalendar('gotoDate', finalDay);
+
+		$('.overlay').fadeOut(700);
+	});
 
 	// Trigger calendar to next/prev month
 	$('.month-btn.prev').on( 'click', function(){
@@ -54,7 +60,5 @@ $(document).ready( function(){
 	$('.month-btn.next').on( 'click', function(){
 		$calendar.fullCalendar('next');
 	});
-
-	$calendar.fullCalendar('gotoDate', finalDay);
 
 });
