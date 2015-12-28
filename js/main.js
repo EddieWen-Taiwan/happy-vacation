@@ -17,4 +17,16 @@ $(document).ready( function(){
 		$('#calendar').fullCalendar('next');
 	});
 
+	var finalDay = new Date('2016/05/27');
+
 });
+
+// new custom function
+Date.prototype.minusDays = function(days) {
+
+	var date = new Date( this.valueOf() );
+	date.setDate( date.getDate() - days );
+
+	return date;
+
+}
