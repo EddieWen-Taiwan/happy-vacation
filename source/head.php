@@ -36,6 +36,9 @@
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.css" />
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.print.css" />
 
+	<!-- Pikaday -->
+	<script type="text/javascript" src="library/Pikaday/pikaday.js"></script>
+
 	<!-- my CSS -->
 	<link rel="stylesheet" href="css/reset.css" />
 	<link rel="stylesheet" href="css/main.css" />
