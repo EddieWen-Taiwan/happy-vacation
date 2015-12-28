@@ -31,6 +31,7 @@
 	<script type="text/javascript" src="library/jquery.min.js"></script>
 
 	<!-- FullCalendar -->
+	<script type="text/javascript" src="library/moment/moment.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.js"></script>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.css" />
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.print.css" />
