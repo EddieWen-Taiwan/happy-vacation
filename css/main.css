@@ -1,7 +1,6 @@
 header {
 	background-color: #FF9800;
-	height: 100px;
-	padding-top: 20px;
+	padding: 20px 0px;
 	box-shadow: 0px 3px 4px rgba( 0, 0, 0, 0.2 );
 }
 
@@ -16,6 +15,7 @@ header h2 {
 header .subtitle {
 	color: white;
 	font-size: 18px;
+	letter-spacing: 1px;
 	margin-left: 30px;
 	margin-top: 20px;
 }
