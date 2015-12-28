@@ -30,9 +30,9 @@ header .subtitle {
 }
 
 #calendar {
-	width: 96%;
+	width: 90%;
 	margin-top: 150px;
-	margin-left: 2%;
+	margin-left: 5%;
 }
 
 .fc-toolbar h2 {
@@ -40,12 +40,16 @@ header .subtitle {
 	font-weight: 400;
 }
 
-.fc-view-container tr {
-	height: 40px;
-}
-
 .fc th {
 	vertical-align: middle;
 	font-weight: 400;
 	background: rgba( 0, 0, 0, 0.12 ) !important;
+}
+
+.fc-view-container tr {
+	height: 40px;
+}
+
+.fc-basic-view .fc-day-number {
+	padding: 0px 5px;
 }
