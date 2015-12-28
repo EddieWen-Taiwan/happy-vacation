@@ -1,16 +1,21 @@
 header {
 	background-color: #FF9800;
-	height: 120px;
+	height: 100px;
+	padding-top: 20px;
 	box-shadow: 0px 3px 4px rgba( 0, 0, 0, 0.2 );
-	position: relative;
 }
 
 header h2 {
 	margin: 0px;
+	margin-left: 30px;
 	color: white;
 	font-weight: 300;
 	font-size: 44px;
-	position: absolute;
-	bottom: 30px;
-	left: 50px;
+}
+
+header .subtitle {
+	color: white;
+	font-size: 18px;
+	margin-left: 30px;
+	margin-top: 20px;
 }
