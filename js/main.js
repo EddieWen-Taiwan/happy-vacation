@@ -12,7 +12,7 @@ $(document).ready( function(){
 	];
 
 	var lastEvent = finalDay.minusDays();
-	for( i = 0; i < 10; i++ ) {
+	for( i = 0; i < 9; i++ ) {
 		var newEvent = {
 			title: "*",
 			start: moment( lastEvent.yyyymmdd(), "YYYY-MM-DD" ),
