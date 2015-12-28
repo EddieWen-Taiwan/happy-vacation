@@ -118,3 +118,7 @@ header .subtitle {
 	font-weight: 300;
 	letter-spacing: 2px;
 }
+
+.tenDays {
+	border-color: #FF4081;
+}
