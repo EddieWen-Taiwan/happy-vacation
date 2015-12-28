@@ -1,10 +1,4 @@
-var windowH;
-var windowW;
-
 $(document).ready( function(){
-
-	windowW = $(window).width();
-	windowH = $(window).height();
 
 	// Get this from user
 	var finalDay = new Date('2016/05/27');
