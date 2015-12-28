@@ -11,14 +11,17 @@ $(document).ready( function(){
 		}
 	];
 
-	for( i = 0; i < 5; i++ ) {
+	var lastEvent = finalDay.minusDays();
+	for( i = 0; i < 10; i++ ) {
 		var newEvent = {
 			title: "*",
-			start: finalDay.minusDays(),
+			start: moment( lastEvent.yyyymmdd(), "YYYY-MM-DD" ),
 			allDay: true,
 			className: 'tenDays'
 		};
 		eventArray.push(newEvent);
+
+		lastEvent = lastEvent.minusDays();
 	};
 
 	// Initialize calendar
