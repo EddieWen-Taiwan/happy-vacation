@@ -42,7 +42,7 @@ $(document).ready( function(){
 // new custom function
 Date.prototype.minusDays = function() {
 
-	var date = new Date( this.valueOf() );
+	var date = new Date( this );
 	date.setDate( date.getDate() - 10 );
 
 
