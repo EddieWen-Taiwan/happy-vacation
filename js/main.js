@@ -11,8 +11,11 @@ $(document).ready( function(){
 		}
 	];
 
-	var lastEvent = moment(finalDay).add( -10, 'days' );
+	var lastEvent = finalDay;
 	for( i = 0; i < 9; i++ ) {
+
+		lastEvent = moment(lastEvent).add( -10, 'days' );
+
 		var newEvent = {
 			title: "*",
 			start: lastEvent,
@@ -21,7 +24,6 @@ $(document).ready( function(){
 		};
 		eventArray.push(newEvent);
 
-		lastEvent = moment(lastEvent).add( -10, 'days' );
 	};
 
 	// Initialize calendar
