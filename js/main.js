@@ -11,6 +11,16 @@ $(document).ready( function(){
 		}
 	];
 
+	for( i = 0; i < 5; i++ ) {
+		var newEvent = {
+			title: "*",
+			start: finalDay.minusDays(10),
+			allDay: true,
+			className: 'tenDays'
+		};
+		eventArray.push(newEvent);
+	};
+
 	// Initialize calendar
 	var $calendar = $('#calendar');
 	$calendar.fullCalendar({
