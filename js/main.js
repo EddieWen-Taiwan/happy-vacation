@@ -1,5 +1,13 @@
 $(document).ready( function(){
 
+	var picker = new Pikaday({
+		field: $('#datepicker')[0],
+		format: 'D MMM YYYY',
+		onSelect: function() {
+			console.log(this.getMoment().format('Do MMMM YYYY'));
+		}
+	});
+console.log( picker );
 	// Get this from user
 	var finalDay = moment('2016-05-27');
 	var eventArray = [
