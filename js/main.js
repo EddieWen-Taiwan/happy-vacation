@@ -14,7 +14,7 @@ $(document).ready( function(){
 	for( i = 0; i < 5; i++ ) {
 		var newEvent = {
 			title: "*",
-			start: finalDay.minusDays(10),
+			start: finalDay.minusDays(),
 			allDay: true,
 			className: 'tenDays'
 		};
@@ -40,10 +40,12 @@ $(document).ready( function(){
 });
 
 // new custom function
-Date.prototype.minusDays = function(days) {
+Date.prototype.minusDays = function() {
 
 	var date = new Date( this.valueOf() );
-	date.setDate( date.getDate() - days );
+	date.setDate( date.getDate() - 10 );
+
+
 
 	return date;
 
