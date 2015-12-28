@@ -104,3 +104,17 @@ header .subtitle {
 .fc-basic-view .fc-day-number {
 	padding: 0px 5px;
 }
+
+/********************/
+/*      CUSTOM      */
+/********************/
+
+.retireDate {
+	background: #303F9F !important;
+	color: white !important;
+	border-radius: 1px;
+	border: none;
+	padding: 3px;
+	font-weight: 300;
+	letter-spacing: 2px;
+}
