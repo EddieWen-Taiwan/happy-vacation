@@ -29,6 +29,38 @@ header .subtitle {
 	margin-top: 20px;
 }
 
+.month-btn {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	position: absolute;
+	bottom: -20px;
+	background-color: #FF4081;
+	box-shadow:  0px 2px 4px rgba( 0, 0, 0, 0.4 );
+	cursor: pointer;
+
+	-webkit-transition: all 0.2s;
+	   -moz-transition: all 0.2s;
+		 -o-transition: all 0.2s;
+			transition: all 0.2s;
+}
+
+.month-btn:hover {
+	box-shadow:  0px 2px 7px rgba( 0, 0, 0, 0.5 );
+}
+
+.month-btn.prev {
+	right: 100px;
+}
+
+.month-btn.next {
+	right: 30px;
+}
+
+/********************/
+/*     CALENDAR     */
+/********************/
+
 #calendar {
 	width: 90%;
 	margin-top: 150px;
