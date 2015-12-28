@@ -17,7 +17,10 @@ $(document).ready( function(){
 		$('#calendar').fullCalendar('next');
 	});
 
+	// Get this from user
 	var finalDay = new Date('2016/05/27');
+
+	$('#calendar').fullCalendar('gotoDate', finalDay);
 
 });
 
