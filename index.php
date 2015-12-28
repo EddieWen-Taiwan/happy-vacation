@@ -13,7 +13,7 @@
 			</div>
 			<div class="content">
 				<div class="question"><img src="images/retireDate.png" />入伍日期：</div>
-				<input type="text" id="datepicker" value="9 Oct 2014"/>
+				<input type="text" id="datepicker" />
 			</div>
 			<div class="ok">確 定</div>
 		</div>
