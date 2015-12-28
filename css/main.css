@@ -139,7 +139,7 @@ header .subtitle {
 
 .card {
 	width: 400px;
-	height: 500px;
+	height: 450px;
 	margin: 0px auto;
 	border-radius: 16px;
 	background-color: white;
@@ -161,4 +161,25 @@ header .subtitle {
 	position: absolute;
 	bottom: 10px;
 	left: 20px;
+}
+
+.question {
+	color: #202020;
+	margin-left: 25px;
+	margin-top: 60px;
+
+}
+
+.question img {
+	width: 22px;
+	vertical-align: bottom;
+	margin-right: 5px;
+}
+
+.answer {
+	width: 350px;
+	height: 30px;
+	margin-left: 25px;
+	margin-top: 20px;
+	border-bottom: 1px solid rgba( 0, 0, 0, 0.12 );
 }

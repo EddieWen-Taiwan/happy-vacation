@@ -11,6 +11,11 @@
 			<div class="title">
 				<div class="welcome">歡迎來到快樂假期</div>
 			</div>
+			<div class="content">
+				<div class="question"><img src="images/retireDate.png" />入伍日期：</div>
+				<div class="answer">
+				</div>
+			</div>
 		</div>
 	</div>
 
