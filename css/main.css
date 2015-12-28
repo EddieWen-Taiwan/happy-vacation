@@ -35,6 +35,11 @@ header .subtitle {
 	margin-left: 2%;
 }
 
+.fc-toolbar h2 {
+	color: rgba( 0, 0, 0, 0.38 );
+	font-weight: 400;
+}
+
 .fc-view-container tr {
 	height: 40px;
 }
@@ -42,4 +47,5 @@ header .subtitle {
 .fc th {
 	vertical-align: middle;
 	font-weight: 400;
+	background: rgba( 0, 0, 0, 0.12 ) !important;
 }
