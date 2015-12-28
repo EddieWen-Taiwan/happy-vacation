@@ -45,8 +45,21 @@ Date.prototype.minusDays = function() {
 	var date = new Date( this );
 	date.setDate( date.getDate() - 10 );
 
-
-
 	return date;
+
+}
+
+Date.prototype.yyyymmdd = function() {
+
+	// year
+	var yyyy = this.getFullYear().toString();
+	// month
+	var mm = this.getMonth() +1;
+	mm = mm < 10 ? "0" + mm.toString() : mm.toString();
+	// date
+	var dd = this.getDate();
+	dd = dd < 10 ? "0" + dd.toString() : dd.toString();
+
+	return yyyy + "-" + mm + "-" + dd;
 
 }
