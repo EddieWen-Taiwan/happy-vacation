@@ -15,6 +15,13 @@ $(document).ready( function(){
 	for( i = 0; i < 9; i++ ) {
 
 		lastEvent = moment(lastEvent).add( -10, 'days' );
+		// lastEvent.day()
+		// 0 -> Sun. // 6 -> Sat.
+		if ( lastEvent.day() == 0 ) {
+			lastEvent = moment(lastEvent).add( 1, 'days' );
+		} else if ( lastEvent.day() == 6 ) {
+			lastEvent = moment(lastEvent).add( 2, 'days' );
+		}
 
 		var newEvent = {
 			title: "*",
