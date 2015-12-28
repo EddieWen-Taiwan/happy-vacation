@@ -82,6 +82,15 @@ header .subtitle {
 	font-weight: 400;
 }
 
+.fc-day-number.fc-other-month {
+	opacity: 1;
+	color: rgba( 0, 0, 0, 0.12 );
+}
+
+.fc-day-number {
+	font-weight: 300;
+}
+
 .fc th {
 	vertical-align: middle;
 	font-weight: 400;
