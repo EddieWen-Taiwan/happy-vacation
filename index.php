@@ -19,8 +19,8 @@
 		</div>
 	</div>
 
-	<div class="mobile">
-		<div class="text">用大一點的螢幕辣</div>
+	<div class="mobile v-mid">
+		<div class="text">手機禁止</div>
 	</div>
 
 </body>
