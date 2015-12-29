@@ -20,7 +20,10 @@
 	</div>
 
 	<div class="mobile v-mid">
-		<div class="text">手機禁止</div>
+		<div class="text">
+			<img src="images/warning.png" />
+			手機禁止
+		</div>
 	</div>
 
 </body>
