@@ -1,0 +1,225 @@
+body {
+	
+}
+
+header {
+	width: 100%;
+	background-color: #3F51B5;
+	padding: 20px 0px;
+	box-shadow: 0px 4px 4px rgba( 0, 0, 0, 0.2 );
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 5;
+}
+
+header h2 {
+	margin: 0px;
+	margin-left: 30px;
+	color: white;
+	font-weight: 300;
+	font-size: 44px;
+}
+
+header .subtitle {
+	color: white;
+	font-size: 18px;
+	letter-spacing: 1px;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+
+.month-btn {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	position: absolute;
+	bottom: -20px;
+	background-color: #FF4081;
+	box-shadow:  0px 2px 4px rgba( 0, 0, 0, 0.4 );
+	cursor: pointer;
+
+	-webkit-transition: all 0.2s;
+	   -moz-transition: all 0.2s;
+		 -o-transition: all 0.2s;
+			transition: all 0.2s;
+}
+
+.month-btn img {
+	margin-top: 9px;
+	margin-left: 7px;
+}
+
+.month-btn.prev img {
+	transform: rotate(180deg);
+	margin-top: 6px;
+}
+
+.month-btn:hover {
+	box-shadow:  0px 2px 7px rgba( 0, 0, 0, 0.5 );
+}
+
+.month-btn.prev {
+	right: 100px;
+}
+
+.month-btn.next {
+	right: 30px;
+}
+
+/********************/
+/*     CALENDAR     */
+/********************/
+
+#calendar {
+	width: 90%;
+	margin-top: 150px;
+	margin-left: 5%;
+}
+
+.fc-toolbar h2 {
+	color: rgba( 0, 0, 0, 0.38 );
+	font-weight: 400;
+}
+
+.fc-day-number.fc-other-month {
+	opacity: 1;
+	color: rgba( 0, 0, 0, 0.12 );
+}
+
+.fc-day-number {
+	font-weight: 300;
+}
+
+.fc th {
+	vertical-align: middle;
+	font-weight: 400;
+	background: rgba( 0, 0, 0, 0.12 ) !important;
+}
+
+.fc-view-container tr {
+	height: 40px;
+}
+
+.fc-basic-view .fc-day-number {
+	padding: 0px 5px;
+}
+
+/********************/
+/*      CUSTOM      */
+/********************/
+
+.retireDate {
+	background: #3F51B5 !important;
+	color: white !important;
+	border-radius: 1px;
+	border: none;
+	padding: 3px;
+	font-weight: 300;
+	letter-spacing: 2px;
+}
+
+.tenDays {
+	background: #FF4081 !important;
+	color: white !important;
+	border-radius: 1px;
+	border: none;
+	padding: 3px;
+	font-weight: 300;
+	letter-spacing: 2px;
+}
+
+/********************/
+/*      OVERLAY     */
+/********************/
+
+.overlay {
+	width: 100%;
+	height: 100vh;
+	background-image: url(../images/overlay.png);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+}
+
+.card {
+	width: 400px;
+	height: 400px;
+	margin: 0px auto;
+	border-radius: 16px;
+	background-color: white;
+	box-shadow: 1px 3px 3px 1px rgba( 0, 0, 0, 0.3 );
+	position: relative;
+}
+
+.card .title {
+	width: 100%;
+	height: 100px;
+	background-color: #3F51B5;
+	border-radius: 16px 16px 0px 0px;
+	position: relative;
+}
+
+.welcome {
+	color: white;
+	font-size: 24px;
+	font-weight: 300;
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+}
+
+.question {
+	color: #202020;
+	margin-left: 25px;
+	margin-top: 60px;
+
+}
+
+.question img {
+	width: 22px;
+	vertical-align: bottom;
+	margin-right: 5px;
+}
+
+#datepicker {
+	width: 330px;
+	height: 30px;
+	padding: 0px 10px;
+	padding-bottom: 10px;
+	margin-left: 25px;
+	margin-top: 20px;
+	font-size: 20px;
+	border: none;
+	border-bottom: 1px solid rgba( 0, 0, 0, 0.12 );
+}
+
+.ok {
+	width: 60px;
+	display: inline-block;
+	padding: 7px 0px;
+	text-align: center;
+	color: white;
+	background-color: #FF4081;
+	border-radius: 3px;
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	margin-left: -30px;
+	cursor: pointer;
+	box-shadow: 0px 2px 2px rgba( 0, 0, 0, 0.2 );
+}
+
+.is-today .pika-button {
+	color: #303F9F;
+}
+
+.pika-button:hover {
+	background-color: #FF4081;
+}
+
+.is-selected .pika-button {
+	background-color: #3F51B5;
+	box-shadow: inset 0 1px 3px #283593;
+}

@@ -1,0 +1,134 @@
+/*
+
+	EEEEEEEEEEEE             DDD             DDD
+	EEEEEEEEEEEE             DDD             DDD     II
+	EEEE                     DDD             DDD
+	EEEE                     DDD             DDD
+	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII	 EEEEEEEEEE
+	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII	EEE      EEE
+	EEEE            DDD      DDD    DDD      DDD    IIII	EEE      EEE
+	EEEE            DDD      DDD    DDD      DDD    IIII	EEEEEEEEEEEE
+	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII	EEE
+	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII     EEEEEEEEEE
+
+
+	WWWW            WWWW
+	WWWW    WWWW    WWWW
+	WWWW    WWWW    WWWW
+	WWWW    WWWW    WWWW
+	WWWW    WWWW    WWWW     EEEEEEEEEE     NN  NNNNNN
+	WWWW    WWWW    WWWW    EEE      EEE    NN NNNNNNNN
+	WWWW    WWWW    WWWW    EEE      EEE    NNNNN  NNNNN
+	 WWWW WWWWWWWW WWWW     EEEEEEEEEEEE    NNNN    NNNN
+	  WWWWWWW  WWWWWWW      EEE             NNNN    NNNN
+	   WWWWW    WWWWW        EEEEEEEEEE     NNNN    NNNN    from TAIWAN
+
+*/
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	color: #000000;
+	font-family: "Open Sans";
+	/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, "LiHei Pro", "Microsoft JhengHei";*/
+}
+
+.f-left {
+	float: left;
+}
+
+.f-right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.stop-scrolling {
+	height: 100%;
+	overflow: hidden;
+}
+
+.v-mid {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -moz-box;
+	display: flex;
+
+	-webkit-align-items: center;
+	   -moz-align-items: center;
+		-ms-align-items: center;
+			align-items: center;
+}
+
+.center {
+	text-align: center;
+}
+
+.more_height {
+	height: 100px;
+}
+
+:focus {
+	outline: none !important;
+}
+
+/*::selection {
+	background: transparent;
+	color: #9E0360;
+}
+
+::-moz-selection {
+	background: transparent;
+	color: #9E0360;
+}*/
+
+h1 {
+	font-size: 44px;
+	line-height: 50px;
+}
+
+h2 {
+	font-size: 32px;
+	line-height: 38px;
+}
+
+h3 {
+	font-size: 26px;
+	line-height: 32px;
+}
+
+h4 {
+	font-size: 20px;
+	line-height: 26px;
+}
+
+h5 {
+	font-size: 16px;
+	line-height: 22px;
+}
+
+h6 {
+	font-size: 10px;
+	line-height: 16px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
