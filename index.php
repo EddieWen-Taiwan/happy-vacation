@@ -15,8 +15,9 @@
 				<div class="question"><img src="images/retireDate.png" />退伍日期：</div>
 				<input type="text" id="datepicker" />
 				<div class="radio-btns">
-					<div class="options option1">
-						<div class="radio valuable">
+					<div class="options option1 valuable">
+						<div class="radio">
+							<div class="wave"></div>
 							<div class="real-circle">
 								<div class="heart"></div>
 							</div>
@@ -25,6 +26,7 @@
 					</div>
 					<div class="options option2">
 						<div class="radio">
+							<div class="wave"></div>
 							<div class="real-circle">
 								<div class="heart"></div>
 							</div>
@@ -33,6 +35,7 @@
 					</div>
 					<div class="options option3">
 						<div class="radio">
+							<div class="wave"></div>
 							<div class="real-circle">
 								<div class="heart"></div>
 							</div>

@@ -10,6 +10,11 @@ $(document).ready( function(){
 		format: 'YYYY-MM-DD'
 	});
 
+	$('.options').on( 'click', function(){
+		$('.options').removeClass('valuable');
+		$(this).addClass('valuable');
+	});
+
 	$('.ok').on( 'click', function(){
 
 		if( $('#datepicker').val() == "" ) {
