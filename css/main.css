@@ -120,10 +120,12 @@ header .subtitle {
 }
 
 .tenDays {
+	background: #FF4081 !important;
+	color: white !important;
+	border-radius: 1px;
+	border: none;
 	padding: 3px;
 	font-weight: 300;
-	border-color: #FF4081;
-	border-radius: 1px;
 	letter-spacing: 2px;
 }
 
