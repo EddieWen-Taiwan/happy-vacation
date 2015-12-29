@@ -218,6 +218,7 @@ header .subtitle {
 	width: 20px;
 	height: 20px;
 	padding: 10px;
+	position: relative;
 }
 
 .real-circle {
@@ -226,11 +227,44 @@ header .subtitle {
 	background-image: url(../images/radio.png);
 	background-size: 20px 40px;
 	background-position: 0px 0px;
+	position: relative;
+	z-index: 5;
 }
 
 .options:hover .real-circle,
 .valuable .real-circle {
 	background-position: 0px 20px;
+}
+
+.wave {
+	width: 0px;
+	height: 0px;
+	border: 20px solid white;
+	border-radius: 20px;
+	background-color: rgba( 0, 150, 136, 1 );
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	-webkit-transition: all 0.5s;
+	   -moz-transition: all 0.5s;
+		 -o-transition: all 0.5s;
+			transition: all 0.5s;
+}
+
+.wave.show {
+	width: 40px;
+	height: 40px;
+	border: 0px solid white;
+	opacity: 0;
+}
+
+.wave.fadeOut {
+	opacity: 0;
+	-webkit-transition-delay: 0.1s;
+	   -moz-transition-delay: 0.1s;
+		 -o-transition-delay: 0.1s;
+			transition-delay: 0.1s;
 }
 
 .options .text {

@@ -17,21 +17,21 @@
 				<div class="radio-btns">
 					<div class="options option1 valuable">
 						<div class="radio">
-							<!-- <div class="wave"></div> -->
+							<div class="wave"></div>
 							<div class="real-circle"></div>
 						</div>
 						<span class="text">整日</span>
 					</div>
 					<div class="options option2">
 						<div class="radio">
-							<!-- <div class="wave"></div> -->
+							<div class="wave"></div>
 							<div class="real-circle"></div>
 						</div>
 						<span class="text">上午</span>
 					</div>
 					<div class="options option3">
 						<div class="radio">
-							<!-- <div class="wave"></div> -->
+							<div class="wave"></div>
 							<div class="real-circle"></div>
 						</div>
 						<span class="text">下午</span>
