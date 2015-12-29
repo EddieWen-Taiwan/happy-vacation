@@ -2,7 +2,7 @@ $(document).ready( function(){
 
 	// Initialize FullCalendar
 	var $calendar = $('#calendar');
-	// $calendar.fullCalendar();
+	$calendar.fullCalendar();
 
 	// Initialize Pikaday
 	var picker = new Pikaday({
@@ -48,11 +48,9 @@ $(document).ready( function(){
 				eventArray.push(newEvent);
 
 			};
-			$calendar.fullCalendar({
-				events: eventArray
-			});
+			$calendar.fullCalendar( 'addEventSource', eventArray );
 
-			$calendar.fullCalendar('gotoDate', finalDay);
+			$calendar.fullCalendar( 'gotoDate', finalDay );
 
 			$('.overlay').fadeOut(300);
 
