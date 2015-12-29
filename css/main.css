@@ -149,11 +149,25 @@ header .subtitle {
 }
 
 .row-1 {
-	background-color: red;
+
 }
 
 .row-2 {
-	background-color: green;
+
+}
+
+.left, .right {
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+}
+
+.left {
+	
+}
+
+.right {
+	
 }
 
 .card {
