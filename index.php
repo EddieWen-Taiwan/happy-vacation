@@ -14,6 +14,32 @@
 			<div class="content">
 				<div class="question"><img src="images/retireDate.png" />退伍日期：</div>
 				<input type="text" id="datepicker" />
+				<div class="radio-btns">
+					<div class="options option1">
+						<div class="radio">
+							<div class="real-circle">
+								<div class="heart"></div>
+							</div>
+						</div>
+						<span class="text">整日</span>
+					</div>
+					<div class="options option2">
+						<div class="radio">
+							<div class="real-circle">
+								<div class="heart"></div>
+							</div>
+						</div>
+						<span class="text">上午</span>
+					</div>
+					<div class="options option3">
+						<div class="radio">
+							<div class="real-circle">
+								<div class="heart"></div>
+							</div>
+						</div>
+						<span class="text">下午</span>
+					</div>
+				</div>
 			</div>
 			<div class="ok">確 定</div>
 		</div>
