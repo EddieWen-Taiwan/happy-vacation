@@ -12,7 +12,9 @@ $(document).ready( function(){
 
 	$('.options').on( 'click', function(){
 		$('.options').removeClass('valuable');
+		$('.wave').removeClass('show');
 		$(this).addClass('valuable');
+		$(this).find('.wave').addClass('show');
 	});
 
 	$('.ok').on( 'click', function(){
