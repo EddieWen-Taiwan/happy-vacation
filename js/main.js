@@ -12,45 +12,52 @@ $(document).ready( function(){
 
 	$('.ok').on( 'click', function(){
 
-		// Get this from user
-		var finalDay = moment( $('#datepicker').val() );
-		var eventArray = [
-			{
-				title: "退伍日",
-				start: finalDay,
-				allDay: true,
-				className: 'retireDate'
-			}
-		];
+		if( $('#datepicker').val() == "" ) {
+			alert("好歹跟我說哪天退伍吧~");
+		} else {
 
-		var lastEvent = finalDay;
-		for( i = 0; i < 9; i++ ) {
+			// Get this from user
+			var finalDay = moment( $('#datepicker').val() );
+			var eventArray = [
+				{
+					title: "退伍日",
+					start: finalDay,
+					allDay: true,
+					className: 'retireDate'
+				}
+			];
 
-			lastEvent = moment(lastEvent).add( -10, 'days' );
-			// lastEvent.day()
-			// 0 -> Sun. // 6 -> Sat.
-			if ( lastEvent.day() == 0 ) {
-				lastEvent = moment(lastEvent).add( 1, 'days' );
-			} else if ( lastEvent.day() == 6 ) {
-				lastEvent = moment(lastEvent).add( 2, 'days' );
-			}
+			var lastEvent = finalDay;
+			for( i = 0; i < 9; i++ ) {
 
-			var newEvent = {
-				title: "*該上勤了吧",
-				start: lastEvent,
-				allDay: true,
-				className: 'tenDays'
+				lastEvent = moment(lastEvent).add( -10, 'days' );
+				// lastEvent.day()
+				// 0 -> Sun. // 6 -> Sat.
+				if ( lastEvent.day() == 0 ) {
+					lastEvent = moment(lastEvent).add( 1, 'days' );
+				} else if ( lastEvent.day() == 6 ) {
+					lastEvent = moment(lastEvent).add( 2, 'days' );
+				}
+
+				var newEvent = {
+					title: "*該上勤了吧",
+					start: lastEvent,
+					allDay: true,
+					className: 'tenDays'
+				};
+				eventArray.push(newEvent);
+
 			};
-			eventArray.push(newEvent);
+			$calendar.fullCalendar({
+				events: eventArray
+			});
 
-		};
-		$calendar.fullCalendar({
-			events: eventArray
-		});
+			$calendar.fullCalendar('gotoDate', finalDay);
 
-		$calendar.fullCalendar('gotoDate', finalDay);
+			$('.overlay').fadeOut(300);
 
-		$('.overlay').fadeOut(300);
+		}
+
 	});
 
 	// Trigger calendar to next/prev month
