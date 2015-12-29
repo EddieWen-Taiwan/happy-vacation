@@ -36,7 +36,7 @@ $(document).ready( function(){
 			}
 
 			var newEvent = {
-				title: "*",
+				title: "*該上勤了吧",
 				start: lastEvent,
 				allDay: true,
 				className: 'tenDays'
@@ -50,7 +50,7 @@ $(document).ready( function(){
 
 		$calendar.fullCalendar('gotoDate', finalDay);
 
-		$('.overlay').fadeOut(700);
+		$('.overlay').fadeOut(300);
 	});
 
 	// Trigger calendar to next/prev month
