@@ -16,7 +16,7 @@
 				<input type="text" id="datepicker" />
 				<div class="radio-btns">
 					<div class="options option1">
-						<div class="radio">
+						<div class="radio valuable">
 							<div class="real-circle">
 								<div class="heart"></div>
 							</div>
