@@ -7,16 +7,6 @@
 	<div id="calendar"></div>
 
 	<div class="overlay">
-		<div class="mask">
-			<div class="row-1">
-				<div class="left"></div>
-				<div class="right"></div>
-			</div>
-			<div class="row-2">
-				<div class="left"></div>
-				<div class="right"></div>
-			</div>
-		</div>
 		<div class="card">
 			<div class="title">
 				<div class="welcome">歡迎來到快樂假期</div>
