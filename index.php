@@ -6,7 +6,7 @@
 
 	<div id="calendar"></div>
 
-	<div class="overlay v-mid">
+	<div class="overlay">
 		<div class="card">
 			<div class="title">
 				<div class="welcome">歡迎來到快樂假期</div>
