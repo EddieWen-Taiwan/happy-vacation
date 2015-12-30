@@ -22,28 +22,51 @@ $(document).ready( function(){
 
 		var move = $(this).attr('data-move');
 
-		for( i = eventOrdering; i < 9+1; i++ ) {
+		// Check minus or plus too much
+		var actionPermission = "OK";
+		var preDate = eventArray[eventOrdering].start;
+		if( move == "minus" ) {
+			// Prevent more then ten days
+			// Should not be before this date
+			var limitDate = moment(eventArray[eventOrdering-1].start).add( -10, 'days' );
 
-			var updatedDate = eventArray[i].start;
-			if( i == eventOrdering ) {
-				// From Mon. to Fri.
-				var dayToMove = 1;
-				if( move == "minus" ) {
-					dayToMove = updatedDate.day() == 1 ? -3 : -1;
-				}
-				// Event be moved
-				updatedDate = moment(updatedDate).add( dayToMove, 'days' );
-			} else {
-				// after that event
-				updatedDate = moment(eventArray[i-1].start).add( -10, 'days' );
+			preDate = moment(preDate).add( preDate.day() == 1 ? -3 : -1, 'days' );
+			if( preDate.isBefore(limitDate) ) {
+				actionPermission = "NOT ALLOWED";
 			}
-			updatedDate.fixWeekend();
-
-			eventArray[i].start = updatedDate;
-
+		} else {
+			// Prevent conflicts
+			preDate = moment(preDate).add( 1, 'days' );
+			preDate.fixWeekend();
+			if( preDate.isSame(eventArray[eventOrdering-1].start) ) {
+				actionPermission = "NOT ALLOWED";
+			}
 		}
-		$calendar.fullCalendar( 'removeEvents' );
-		$calendar.fullCalendar( 'addEventSource', eventArray );
+
+		if( actionPermission == "OK" ) {
+			for( i = eventOrdering; i < 9+1; i++ ) {
+
+				var updatedDate = eventArray[i].start;
+				if( i == eventOrdering ) {
+					// From Mon. to Fri.
+					var dayToMove = 1;
+					if( move == "minus" ) {
+						dayToMove = updatedDate.day() == 1 ? -3 : -1;
+					}
+					// Event be moved
+					updatedDate = moment(updatedDate).add( dayToMove, 'days' );
+				} else {
+					// after that event
+					updatedDate = moment(eventArray[i-1].start).add( -10, 'days' );
+				}
+				updatedDate.fixWeekend();
+
+				eventArray[i].start = updatedDate;
+
+			}
+			$calendar.fullCalendar( 'removeEvents' );
+			$calendar.fullCalendar( 'addEventSource', eventArray );
+		}
 	});
 
 	// Initialize Pikaday
