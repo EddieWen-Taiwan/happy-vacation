@@ -6,7 +6,7 @@
 
 	<div id="calendar"></div>
 
-	<div class="overlay">
+	<!-- <div class="overlay">
 		<div class="card">
 			<div class="title">
 				<div class="welcome">歡迎來到快樂假期</div>
@@ -33,6 +33,18 @@
 				</div>
 			</div>
 			<div class="ok">確 定</div>
+		</div>
+	</div> -->
+
+	<div class="alert">
+		<div class="dialog">
+			<div class="title">禁止</div>
+			<div class="content">
+				<span>你不可以這樣。</span>
+			</div>
+			<div class="btn-row">
+				<div class="fine">確定</div>
+			</div>
 		</div>
 	</div>
 
