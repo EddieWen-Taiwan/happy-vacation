@@ -9,7 +9,7 @@ $(document).ready( function(){
 		},
 		eventAfterAllRender: function(event) {
 			$.each( $('.tenDays'), function(){
-				$(this).children('.fc-content').append('<div class="arrow minus"></div><div class="arrow plus"></div>');
+				$(this).children('.fc-content').append('<div class="arrow minus"></div><div class="arrow plus"></div><div class="event-background"></div>');
 			});
 		}
 	});
