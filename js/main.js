@@ -5,7 +5,7 @@ $(document).ready( function(){
 	$calendar.fullCalendar({
 		eventAfterAllRender: function(event) {
 			$.each( $('.tenDays'), function(){
-				$(this).children('.fc-content').append('<div class="fuck"></div>');
+				$(this).children('.fc-content').append('<div class="arrow minus"></div><div class="arrow plus"></div>');
 			});
 		}
 	});

@@ -116,6 +116,33 @@ header .subtitle {
 	overflow: visible;
 }
 
+.tenDays .arrow {
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: -20px;
+	left: -3px;
+	background-color: red;
+	cursor: pointer;
+
+	-webkit-transition: all 0.4s;
+	   -moz-transition: all 0.4s;
+		 -o-transition: all 0.4s;
+			transition: all 0.4s;
+}
+
+.tenDays .arrow.minus:hover {
+	left: -5px;
+}
+
+.tenDays .arrow.plus {
+	left: 12px;
+}
+
+.tenDays .arrow.plus:hover {
+	left: 15px;
+}
+
 /********************/
 /*      CUSTOM      */
 /********************/
