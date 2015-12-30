@@ -1,3 +1,4 @@
+var eventArray;
 var movedEvent;
 
 $(document).ready( function(){
@@ -17,14 +18,14 @@ $(document).ready( function(){
 
 	// Arrows in Calendar
 	$('#calendar').on( 'click', '.arrow', function(){
-		var eventOrdering = movedEvent.className[1].substring(6,7);
+		var eventOrdering = parseInt( movedEvent.className[1].substring(6,7) )+1;
 
 		var move = $(this).attr('data-move');
 
-		// var lastEvent = retireEvent.start;
+		var lastEvent = eventArray[eventOrdering].start;
 
-		for( i = eventOrdering; i < 9; i++ ) {
-
+		for( i = eventOrdering; i < 9+1; i++ ) {
+			
 		}
 	});
 
@@ -51,7 +52,7 @@ $(document).ready( function(){
 
 			// Get this from user
 			var finalDay = moment( $('#datepicker').val() );
-			var eventArray = [
+			eventArray = [
 				{
 					title: "退伍日",
 					start: finalDay,
