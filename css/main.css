@@ -133,6 +133,10 @@ header .subtitle {
 }
 
 .fc-event-container:hover .arrow {
+	opacity: 0.5;
+}
+
+.tenDays .arrow:hover {
 	opacity: 1;
 }
 
