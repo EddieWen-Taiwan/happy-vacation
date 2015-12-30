@@ -123,12 +123,17 @@ header .subtitle {
 	top: -20px;
 	left: -3px;
 	background-image: url(../images/arrow_left.png);
+	opacity: 0;
 	cursor: pointer;
 
 	-webkit-transition: all 0.4s;
 	   -moz-transition: all 0.4s;
 		 -o-transition: all 0.4s;
 			transition: all 0.4s;
+}
+
+.fc-event-container:hover .arrow {
+	opacity: 1;
 }
 
 .tenDays .arrow.minus:hover {

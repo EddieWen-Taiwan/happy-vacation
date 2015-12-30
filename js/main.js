@@ -3,6 +3,10 @@ $(document).ready( function(){
 	// Initialize FullCalendar
 	var $calendar = $('#calendar');
 	$calendar.fullCalendar({
+		eventClick: function( calEvent, jsEvent, view ) {
+			console.log($(this));
+			console.log('Event: ' + calEvent);
+		},
 		eventAfterAllRender: function(event) {
 			$.each( $('.tenDays'), function(){
 				$(this).children('.fc-content').append('<div class="arrow minus"></div><div class="arrow plus"></div>');
