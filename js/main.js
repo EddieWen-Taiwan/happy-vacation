@@ -6,8 +6,8 @@ $(document).ready( function(){
 	// Initialize FullCalendar
 	var $calendar = $('#calendar');
 	$calendar.fullCalendar({
-		eventClick: function( calEvent, jsEvent, view ) {
-			movedEvent = calEvent;
+		eventClick: function( thisEvent, jsEvent, view ) {
+			movedEvent = thisEvent;
 		},
 		eventAfterAllRender: function(event) {
 			$.each( $('.tenDays'), function(){
@@ -18,8 +18,7 @@ $(document).ready( function(){
 
 	// Arrows in Calendar
 	$('#calendar').on( 'click', '.arrow', function(){
-		console.log($(this));
-		console.log(movedEvent);
+		console.log(movedEvent.className[1]);
 		var move = $(this).attr('data-move');
 		console.log(move);
 	});
