@@ -68,11 +68,8 @@ $(document).ready( function(){
 	});
 
 	// Trigger calendar to next/prev month
-	$('.month-btn.prev').on( 'click', function(){
-		$calendar.fullCalendar('prev');
-	});
-	$('.month-btn.next').on( 'click', function(){
-		$calendar.fullCalendar('next');
+	$('.month-btn').on( 'click', function(){
+		$calendar.fullCalendar( $(this).hasClass('prev') ? 'prev' : 'next' );
 	});
 
 });
