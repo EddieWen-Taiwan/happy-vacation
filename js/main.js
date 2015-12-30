@@ -17,16 +17,28 @@ $(document).ready( function(){
 	});
 
 	// Arrows in Calendar
-	$('#calendar').on( 'click', '.arrow', function(){
+	$calendar.on( 'click', '.arrow', function(){
 		var eventOrdering = parseInt( movedEvent.className[1].substring(6,7) )+1;
 
 		var move = $(this).attr('data-move');
 
-		var lastEvent = eventArray[eventOrdering].start;
-
 		for( i = eventOrdering; i < 9+1; i++ ) {
-			
+
+			var updatedDate;
+			if( i == eventOrdering ) {
+				// Event be moved
+				updatedDate = moment(eventArray[i].start).add( move == "minus" ? -1 : 1, 'days' );
+			} else {
+				// after that event
+				updatedDate = moment(eventArray[i-1].start).add( -10, 'days' );
+			}
+			updatedDate.fixWeekend();
+
+			eventArray[i].start = updatedDate;
+
 		}
+		$calendar.fullCalendar( 'removeEvents' );
+		$calendar.fullCalendar( 'addEventSource', eventArray );
 	});
 
 	// Initialize Pikaday
