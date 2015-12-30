@@ -18,9 +18,17 @@ $(document).ready( function(){
 
 	// Arrows in Calendar
 	$('#calendar').on( 'click', '.arrow', function(){
-		console.log(movedEvent.className[1]);
+		var eventOrdering = movedEvent.className[1].substring(6,7);
+
 		var move = $(this).attr('data-move');
-		console.log(move);
+
+
+		var lastEvent = retireEvent.start;
+		var eventArray = [];
+		eventArray.push(retireEvent);
+		for( i = 0; i < 9; i++ ) {
+
+		}
 	});
 
 	// Initialize Pikaday
@@ -59,13 +67,7 @@ $(document).ready( function(){
 			for( i = 0; i < 9; i++ ) {
 
 				lastEvent = moment(lastEvent).add( -10, 'days' );
-				// lastEvent.day()
-				// 0 -> Sun. // 6 -> Sat.
-				if ( lastEvent.day() == 0 ) {
-					lastEvent = moment(lastEvent).add( 1, 'days' );
-				} else if ( lastEvent.day() == 6 ) {
-					lastEvent = moment(lastEvent).add( 2, 'days' );
-				}
+				lastEvent.fixWeekend();
 
 				var newEvent = {
 					title: "*該上勤了吧",
@@ -97,3 +99,14 @@ $(document).ready( function(){
 	});
 
 });
+
+moment.fn.fixWeekend = function() {
+	// lastEvent.day()
+	// 0 -> Sun. // 6 -> Sat.
+	if ( this.day() == 0 ) {
+		this.add( 1, 'days' );
+	} else if ( this.day() == 6 ) {
+		this.add( 2, 'days' );
+	}
+}
+
