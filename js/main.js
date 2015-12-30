@@ -1,4 +1,3 @@
-var retireEvent;
 var movedEvent;
 
 $(document).ready( function(){
@@ -22,11 +21,9 @@ $(document).ready( function(){
 
 		var move = $(this).attr('data-move');
 
+		// var lastEvent = retireEvent.start;
 
-		var lastEvent = retireEvent.start;
-		var eventArray = [];
-		eventArray.push(retireEvent);
-		for( i = 0; i < 9; i++ ) {
+		for( i = eventOrdering; i < 9; i++ ) {
 
 		}
 	});
@@ -54,16 +51,16 @@ $(document).ready( function(){
 
 			// Get this from user
 			var finalDay = moment( $('#datepicker').val() );
-			retireEvent = {
-				title: "退伍日",
-				start: finalDay,
-				allDay: true,
-				className: 'retireDate'
-			};
+			var eventArray = [
+				{
+					title: "退伍日",
+					start: finalDay,
+					allDay: true,
+					className: 'retireDate'
+				}
+			];
 
 			var lastEvent = finalDay;
-			var eventArray = [];
-			eventArray.push(retireEvent);
 			for( i = 0; i < 9; i++ ) {
 
 				lastEvent = moment(lastEvent).add( -10, 'days' );
@@ -103,7 +100,7 @@ $(document).ready( function(){
 moment.fn.fixWeekend = function() {
 	// lastEvent.day()
 	// 0 -> Sun. // 6 -> Sat.
-	if ( this.day() == 0 ) {
+	if( this.day() == 0 ) {
 		this.add( 1, 'days' );
 	} else if ( this.day() == 6 ) {
 		this.add( 2, 'days' );
