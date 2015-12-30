@@ -58,7 +58,7 @@ $(document).ready( function(){
 					title: "*該上勤了吧",
 					start: lastEvent,
 					allDay: true,
-					className: 'tenDays'
+					className: 'tenDays event-'+i
 				};
 				eventArray.push(newEvent);
 
