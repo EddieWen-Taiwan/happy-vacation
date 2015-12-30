@@ -1,17 +1,27 @@
+var retireEvent;
+var movedEvent;
+
 $(document).ready( function(){
 
 	// Initialize FullCalendar
 	var $calendar = $('#calendar');
 	$calendar.fullCalendar({
 		eventClick: function( calEvent, jsEvent, view ) {
-			console.log($(this));
-			console.log('Event: ' + calEvent);
+			movedEvent = calEvent;
 		},
 		eventAfterAllRender: function(event) {
 			$.each( $('.tenDays'), function(){
-				$(this).children('.fc-content').append('<div class="arrow minus"></div><div class="arrow plus"></div><div class="event-background"></div>');
+				$(this).children('.fc-content').append('<div class="arrow minus" data-move="minus"></div><div class="arrow plus" data-move="plus"></div><div class="event-background"></div>');
 			});
 		}
+	});
+
+	// Arrows in Calendar
+	$('#calendar').on( 'click', '.arrow', function(){
+		console.log($(this));
+		console.log(movedEvent);
+		var move = $(this).attr('data-move');
+		console.log(move);
 	});
 
 	// Initialize Pikaday
@@ -37,16 +47,16 @@ $(document).ready( function(){
 
 			// Get this from user
 			var finalDay = moment( $('#datepicker').val() );
-			var eventArray = [
-				{
-					title: "退伍日",
-					start: finalDay,
-					allDay: true,
-					className: 'retireDate'
-				}
-			];
+			retireEvent = {
+				title: "退伍日",
+				start: finalDay,
+				allDay: true,
+				className: 'retireDate'
+			};
 
 			var lastEvent = finalDay;
+			var eventArray = [];
+			eventArray.push(retireEvent);
 			for( i = 0; i < 9; i++ ) {
 
 				lastEvent = moment(lastEvent).add( -10, 'days' );
