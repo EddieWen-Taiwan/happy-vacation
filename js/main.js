@@ -15,6 +15,8 @@ $(document).ready( function(){
 		$('.wave').removeClass('show');
 		$(this).addClass('valuable');
 		$(this).find('.wave').addClass('show');
+
+		$('.day-value').text( $(this).attr('data-day') == "all-day" ? "整天" : "半天" );
 	});
 
 	$('.ok').on( 'click', function(){
