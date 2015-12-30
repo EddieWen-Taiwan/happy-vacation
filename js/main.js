@@ -57,6 +57,7 @@ $(document).ready( function(){
 				eventArray.push(newEvent);
 
 			};
+			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
 
 			$calendar.fullCalendar( 'gotoDate', finalDay );
