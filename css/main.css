@@ -29,12 +29,13 @@ header .subtitle {
 	margin-top: 20px;
 }
 
-.month-btn {
+.circle-btn {
 	width: 50px;
 	height: 50px;
 	border-radius: 25px;
 	position: absolute;
-	bottom: -20px;
+	bottom: -15px;
+	right: 30px;
 	background-color: #FF4081;
 	box-shadow:  0px 2px 4px rgba( 0, 0, 0, 0.4 );
 	cursor: pointer;
@@ -43,6 +44,10 @@ header .subtitle {
 	   -moz-transition: all 0.2s;
 		 -o-transition: all 0.2s;
 			transition: all 0.2s;
+}
+
+.circle-btn:hover {
+	box-shadow:  0px 2px 7px rgba( 0, 0, 0, 0.5 );
 }
 
 .month-btn img {
@@ -55,16 +60,18 @@ header .subtitle {
 	margin-top: 6px;
 }
 
-.month-btn:hover {
-	box-shadow:  0px 2px 7px rgba( 0, 0, 0, 0.5 );
-}
-
 .month-btn.prev {
-	right: 100px;
+	right: 190px;
 }
 
 .month-btn.next {
-	right: 30px;
+	right: 120px;
+}
+
+.setting-btn img {
+	width: 24px;
+	margin-top: 13px;
+	margin-left: 13px;
 }
 
 /********************/
