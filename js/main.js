@@ -2,7 +2,13 @@ $(document).ready( function(){
 
 	// Initialize FullCalendar
 	var $calendar = $('#calendar');
-	$calendar.fullCalendar();
+	$calendar.fullCalendar({
+		eventAfterAllRender: function(event) {
+			$.each( $('.tenDays'), function(){
+				console.log(this);
+			});
+		}
+	});
 
 	// Initialize Pikaday
 	var picker = new Pikaday({
