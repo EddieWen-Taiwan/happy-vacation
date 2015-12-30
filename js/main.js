@@ -72,4 +72,8 @@ $(document).ready( function(){
 		$calendar.fullCalendar( $(this).hasClass('prev') ? 'prev' : 'next' );
 	});
 
+	$('.setting-btn').on( 'click', function(){
+		$('.overlay').fadeIn(500);
+	});
+
 });
