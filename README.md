@@ -4,11 +4,9 @@
 
 ---
 
-＃12/31
 現行版本: v1.1
 
-純屬娛樂性質帶點實用，<br/>
-一個晚上趕出來的，有點倉促，接下來的版本再慢慢改。
+純屬娛樂性質帶點實用
 
 [http://github.eddiewen.me/happy-vacation/](http://github.eddiewen.me/happy-vacation/)
 
