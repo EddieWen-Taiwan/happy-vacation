@@ -138,16 +138,17 @@ $(document).ready( function(){
 		$('.overlay').fadeIn(500);
 	});
 
-	$('.dialog .fine').on( 'click', function(){
-		$('.alert').removeClass('show left right');
-		$('.dialog').removeClass('bounceIn');
-	});
-
 });
 
 function showDialog( action ) {
 	$('.alert').addClass('show ' + action);
 	$('.dialog').addClass('bounceIn');
+
+	$('.dialog .fine').on( 'click', function(){
+		$('.alert').removeClass('show left right');
+		$('.dialog').removeClass('bounceIn');
+		$(this).off('click');
+	});
 }
 
 moment.fn.fixWeekend = function() {
