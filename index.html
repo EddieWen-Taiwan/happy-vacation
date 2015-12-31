@@ -52,21 +52,24 @@
 
 	<header>
 
-	<h2>替代役男與他的快樂假期</h2>
+		<h2>替代役男與他的快樂假期</h2>
 		<div class="subtitle">＃你媽知道你在這當爽兵嗎？</div>
 
-		<div class="month-btn prev">
+		<div class="circle-btn month-btn prev">
 			<img src="images/arrow_down.png" />
 		</div>
-		<div class="month-btn next">
+		<div class="circle-btn month-btn next">
 			<img src="images/arrow_down.png" />
+		</div>
+		<div class="circle-btn setting-btn">
+			<img src="images/setting.png" />
 		</div>
 
 	</header>
 
 	<div id="calendar"></div>
 
-	<div class="overlay v-mid">
+	<div class="overlay">
 		<div class="card">
 			<div class="title">
 				<div class="welcome">歡迎來到快樂假期</div>
@@ -76,6 +79,19 @@
 				<input type="text" id="datepicker" />
 			</div>
 			<div class="ok">確 定</div>
+		</div>
+	</div>
+
+	<div class="alert">
+		<div class="dialog animated">
+			<div class="title">不可以</div>
+			<div class="content">
+				<span class="not-allow-to-right">上勤日會重疊啦。</span>
+				<span class="not-allow-to-left">這樣會連放太多假喔。</span>
+			</div>
+			<div class="btn-row">
+				<div class="fine">確定</div>
+			</div>
 		</div>
 	</div>
 
