@@ -129,11 +129,18 @@ $(document).ready( function(){
 
 	// Trigger calendar to next/prev month
 	$('.month-btn').on( 'click', function(){
-		$calendar.fullCalendar( $(this).hasClass('prev') ? 'prev' : 'next' );
+		// $calendar.fullCalendar( $(this).hasClass('prev') ? 'prev' : 'next' );
+		$('.alert').addClass('show');
+		$('.dialog').addClass('bounceIn');
 	});
 
 	$('.setting-btn').on( 'click', function(){
 		$('.overlay').fadeIn(500);
+	});
+
+	$('.dialog .fine').on( 'click', function(){
+		$('.alert').removeClass('show');
+		$('.dialog').removeClass('bounceIn');
 	});
 
 });

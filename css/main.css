@@ -412,7 +412,12 @@ header .subtitle {
 	position: fixed;
 	top: 0px;
 	left: 0px;
+	display: none;
 	z-index: 10;
+}
+
+.alert.show {
+	display: block;
 }
 
 .dialog {
@@ -424,6 +429,7 @@ header .subtitle {
 	border-radius: 3px;
 	background-color: white;
 	box-shadow: 2px 7px 15px rgba( 0, 0, 0, 0.4 );
+	/*display: none;*/
 }
 
 .dialog .title {

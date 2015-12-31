@@ -37,7 +37,7 @@
 	</div> -->
 
 	<div class="alert">
-		<div class="dialog">
+		<div class="dialog animated">
 			<div class="title">禁止</div>
 			<div class="content">
 				<span>你不可以這樣。</span>
