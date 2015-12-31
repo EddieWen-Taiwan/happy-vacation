@@ -33,6 +33,7 @@ $(document).ready( function(){
 			preDate = moment(preDate).add( preDate.day() == 1 ? -3 : -1, 'days' );
 			if( preDate.isBefore(limitDate) ) {
 				actionPermission = "NOT ALLOWED";
+				showDialog('left');
 			}
 		} else {
 			// Prevent conflicts
@@ -40,6 +41,7 @@ $(document).ready( function(){
 			preDate.fixWeekend();
 			if( preDate.isSame(eventArray[eventOrdering-1].start) ) {
 				actionPermission = "NOT ALLOWED";
+				showDialog('right');
 			}
 		}
 
@@ -129,9 +131,7 @@ $(document).ready( function(){
 
 	// Trigger calendar to next/prev month
 	$('.month-btn').on( 'click', function(){
-		// $calendar.fullCalendar( $(this).hasClass('prev') ? 'prev' : 'next' );
-		$('.alert').addClass('show');
-		$('.dialog').addClass('bounceIn');
+		$calendar.fullCalendar( $(this).hasClass('prev') ? 'prev' : 'next' );
 	});
 
 	$('.setting-btn').on( 'click', function(){
@@ -139,11 +139,16 @@ $(document).ready( function(){
 	});
 
 	$('.dialog .fine').on( 'click', function(){
-		$('.alert').removeClass('show');
+		$('.alert').removeClass('show left right');
 		$('.dialog').removeClass('bounceIn');
 	});
 
 });
+
+function showDialog( action ) {
+	$('.alert').addClass('show ' + action);
+	$('.dialog').addClass('bounceIn');
+}
 
 moment.fn.fixWeekend = function() {
 	// lastEvent.day()
