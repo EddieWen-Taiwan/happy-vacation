@@ -6,6 +6,7 @@ $(document).ready( function(){
 	// Initialize FullCalendar
 	var $calendar = $('#calendar');
 	$calendar.fullCalendar({
+		allDayDefault: true,
 		eventClick: function( thisEvent, jsEvent, view ) {
 			movedEvent = thisEvent;
 		},
@@ -98,7 +99,6 @@ $(document).ready( function(){
 				{
 					title: "退伍日",
 					start: finalDay,
-					allDay: true,
 					className: 'retireDate'
 				}
 			];
@@ -112,7 +112,6 @@ $(document).ready( function(){
 				var newEvent = {
 					title: "*該上勤了吧",
 					start: lastEvent,
-					allDay: true,
 					className: 'tenDays event-'+i
 				};
 				eventArray.push(newEvent);
