@@ -5,6 +5,9 @@
 	<?php include("source/header.php"); ?>
 
 	<div id="calendar"></div>
+	<div class="document">
+		<a href="https://github.com/EddieWen-Taiwan/happy-vacation" target="_blank">使用文件</a>
+	</div>
 
 	<div class="overlay">
 		<div class="card">
