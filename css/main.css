@@ -169,6 +169,21 @@ header .subtitle {
 	z-index: -1;
 }
 
+.fc-event-container {
+	position: relative;
+}
+
+.fc-event.hourDay {
+	width: 156px;
+	height: 70px;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	top: -36px;
+	left: 3px;
+	opacity: 0.4;
+}
+
 /********************/
 /*      CUSTOM      */
 /********************/
