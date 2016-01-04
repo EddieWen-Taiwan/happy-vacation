@@ -1,6 +1,7 @@
 var eventArray;
 var hourArray;
 var targetEvent;
+var back2workStatus;
 
 $(document).ready( function(){
 
@@ -31,6 +32,7 @@ $(document).ready( function(){
 		$(this).find('.wave').addClass('show');
 
 		$('.day-value').text( $(this).attr('data-day') == "all-day" ? "整天" : "半天" );
+		back2workStatus = $(this).attr('data-day');
 	});
 
 	$('.ok').on( 'click', function(){
@@ -178,7 +180,10 @@ $(document).ready( function(){
 		// How many back-to-work events
 		for( i = 1; i < eventArray.length; i++ ) {
 			if( targetEvent.start.isSameOrBefore( eventArray[i].start, 'day' ) ) {
-				neededHours += 4; // Or not plus (all-day work)
+				if( back2workStatus == "half-day" ) {
+					neededHours += 4;
+				}
+				// Don't plus (all-day work)
 			} else {
 				break;
 			}
