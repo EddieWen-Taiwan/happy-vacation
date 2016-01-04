@@ -173,6 +173,10 @@ header .subtitle {
 	position: relative;
 }
 
+.fc-event {
+	cursor: pointer;
+}
+
 .fc-event.hourDay {
 	width: 156px;
 	height: 70px;
@@ -181,7 +185,7 @@ header .subtitle {
 	position: absolute;
 	top: -36px;
 	left: 3px;
-	opacity: 0.4;
+	opacity: 0;
 }
 
 /********************/

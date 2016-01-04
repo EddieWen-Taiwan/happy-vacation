@@ -1,7 +1,7 @@
 var eventArray;
 var hourArray;
 var targetEvent;
-var back2workStatus;
+var back2workStatus = "all-day";
 
 $(document).ready( function(){
 
