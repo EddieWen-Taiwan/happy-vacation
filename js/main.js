@@ -24,6 +24,77 @@ $(document).ready( function(){
 		format: 'YYYY-MM-DD'
 	});
 
+	$('.options').on( 'click', function(){
+		$('.options').removeClass('valuable');
+		$('.wave').removeClass('show');
+		$(this).addClass('valuable');
+		$(this).find('.wave').addClass('show');
+
+		$('.day-value').text( $(this).attr('data-day') == "all-day" ? "整天" : "半天" );
+	});
+
+	$('.ok').on( 'click', function(){
+
+		if( $('#datepicker').val() == "" ) {
+			alert("好歹跟我說哪天退伍吧~");
+		} else {
+
+			// Get this from user
+			var finalDay = moment( $('#datepicker').val() );
+			eventArray = [
+				{
+					title: "退伍日",
+					start: finalDay,
+					className: 'retireDate'
+				}
+			];
+
+			var lastEvent = finalDay;
+			hourArray = [];
+			for( i = 0; i < 9; i++ ) {
+
+				// * Stort lastEvent first.
+				var hourStart = moment(lastEvent);
+
+				lastEvent = moment(lastEvent).add( -10, 'days' );
+				var fixedDays = lastEvent.fixWeekend();
+
+				//////
+				// * Add hourDay event between each goBackEvents
+				for( j = 0; j < 9-fixedDays; j++ ) {
+
+					hourStart = moment(hourStart).add( -1, 'days' );
+					var hourEvent = {
+						title: hourStart.day() == 0 || hourStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
+						start: hourStart,
+						className: 'hourDay'
+					};
+
+					hourArray.push( hourEvent );
+
+				}
+				//////
+
+				var newEvent = {
+					title: "*該上勤了吧",
+					start: lastEvent,
+					className: 'tenDays event-'+i
+				};
+				eventArray.push(newEvent);
+
+			};
+			$calendar.fullCalendar( 'removeEvents' );
+			$calendar.fullCalendar( 'addEventSource', eventArray );
+			$calendar.fullCalendar( 'addEventSource', hourArray );
+
+			$calendar.fullCalendar( 'gotoDate', finalDay );
+
+			$('.overlay').fadeOut(300);
+
+		}
+
+	});
+
 	// Arrows in Calendar
 	$calendar.on( 'click', '.arrow', function(e){
 		e.stopPropagation();
@@ -125,77 +196,6 @@ $(document).ready( function(){
 
 		$('.need-hours .value').text(neededHours);
 		showDialog('hour');
-
-	});
-
-	$('.options').on( 'click', function(){
-		$('.options').removeClass('valuable');
-		$('.wave').removeClass('show');
-		$(this).addClass('valuable');
-		$(this).find('.wave').addClass('show');
-
-		$('.day-value').text( $(this).attr('data-day') == "all-day" ? "整天" : "半天" );
-	});
-
-	$('.ok').on( 'click', function(){
-
-		if( $('#datepicker').val() == "" ) {
-			alert("好歹跟我說哪天退伍吧~");
-		} else {
-
-			// Get this from user
-			var finalDay = moment( $('#datepicker').val() );
-			eventArray = [
-				{
-					title: "退伍日",
-					start: finalDay,
-					className: 'retireDate'
-				}
-			];
-
-			var lastEvent = finalDay;
-			hourArray = [];
-			for( i = 0; i < 9; i++ ) {
-
-				// * Stort lastEvent first.
-				var hourStart = moment(lastEvent);
-
-				lastEvent = moment(lastEvent).add( -10, 'days' );
-				var fixedDays = lastEvent.fixWeekend();
-
-				//////
-				// * Add hourDay event between each goBackEvents
-				for( j = 0; j < 9-fixedDays; j++ ) {
-
-					hourStart = moment(hourStart).add( -1, 'days' );
-					var hourEvent = {
-						title: hourStart.day() == 0 || hourStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
-						start: hourStart,
-						className: 'hourDay'
-					};
-
-					hourArray.push( hourEvent );
-
-				}
-				//////
-
-				var newEvent = {
-					title: "*該上勤了吧",
-					start: lastEvent,
-					className: 'tenDays event-'+i
-				};
-				eventArray.push(newEvent);
-
-			};
-			$calendar.fullCalendar( 'removeEvents' );
-			$calendar.fullCalendar( 'addEventSource', eventArray );
-			$calendar.fullCalendar( 'addEventSource', hourArray );
-
-			$calendar.fullCalendar( 'gotoDate', finalDay );
-
-			$('.overlay').fadeOut(300);
-
-		}
 
 	});
 
