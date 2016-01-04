@@ -14,7 +14,7 @@
 
 	<!-- Open Graph -->
 	<meta property="og:site_name" content="替代役男與他的快樂假期" />
-	<meta property="og:title" content="移民署的役男們" />
+	<meta property="og:title" content="替代役男與他的快樂假期" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="http://github.eddiewen.me/happy-vacation/"  />
 	<meta property="og:image" content="images/website-image.png" />
