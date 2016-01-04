@@ -38,7 +38,7 @@ $(document).ready( function(){
 	$('.ok').on( 'click', function(){
 
 		if( $('#datepicker').val() == "" ) {
-			alert("好歹跟我說哪天退伍吧~");
+			alert("跟我說哪天退伍麻~");
 		} else {
 
 			// Get this from user
