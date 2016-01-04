@@ -125,7 +125,7 @@ $(document).ready( function(){
 
 					hourStart = moment(hourStart).add( -1, 'days' );
 					var hourEvent = {
-						title: hourStart.day() == 0 || hourStart.day() == 6 ? "0hr" : "8hr",
+						title: hourStart.day() == 0 || hourStart.day() == 6 ? "0hr＊＊＊＊＊＊" : "8hr",
 						start: hourStart,
 						className: 'hourDay'
 					};
