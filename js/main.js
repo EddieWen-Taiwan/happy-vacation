@@ -1,4 +1,5 @@
 var eventArray;
+var hourArray;
 var targetEvent;
 
 $(document).ready( function(){
@@ -109,6 +110,7 @@ $(document).ready( function(){
 			];
 
 			var lastEvent = finalDay;
+			hourArray = [];
 			for( i = 0; i < 9; i++ ) {
 
 				// * Stort lastEvent first.
@@ -128,7 +130,7 @@ $(document).ready( function(){
 						className: 'hourDay'
 					};
 
-					eventArray.push( hourEvent );
+					hourArray.push( hourEvent );
 
 				}
 				//////
@@ -143,6 +145,7 @@ $(document).ready( function(){
 			};
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
+			$calendar.fullCalendar( 'addEventSource', hourArray );
 
 			$calendar.fullCalendar( 'gotoDate', finalDay );
 
