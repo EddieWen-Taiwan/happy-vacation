@@ -95,10 +95,12 @@ $(document).ready( function(){
 
 	$('#calendar').on( 'click', '.fc-event', function(){
 		targetEvent = moment(targetEvent.start);
+		var neededHours = 0;
 
-		for( i = 0; i < eventArray.length; i++ ) {
+		// Calculate how many back-to-work events
+		for( i = 1; i < eventArray.length; i++ ) {
 			if( targetEvent.isBefore( eventArray[i].start ) ) {
-console.log(targetEvent);
+				neededHours += 4; // Or not plus (all-day work)
 			} else {
 				break;
 			}
