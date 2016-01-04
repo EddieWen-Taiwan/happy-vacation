@@ -117,16 +117,8 @@ $(document).ready( function(){
 			}
 		}
 
-		$('.alert').addClass('show hour');
-		$('.dialog').addClass('bounceIn');
 		$('.need-hours .value').text(neededHours);
-
-		$('.dialog .fine').on( 'click', function(){
-			$('.alert').removeClass('show hour');
-			$('.dialog').removeClass('bounceIn');
-			$('.need-hour .value').text('');
-			$(this).off('click');
-		});
+		showDialog('hour');
 
 	});
 
@@ -223,7 +215,7 @@ function showDialog( action ) {
 	$('.dialog').addClass('bounceIn');
 
 	$('.dialog .fine').on( 'click', function(){
-		$('.alert').removeClass('show left right');
+		$('.alert').removeClass('show left right hour');
 		$('.dialog').removeClass('bounceIn');
 		$(this).off('click');
 	});
