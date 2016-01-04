@@ -94,7 +94,16 @@ $(document).ready( function(){
 	}); // Arrows in Calendar -----
 
 	$('#calendar').on( 'click', '.fc-event', function(){
-		alert("WAIT");
+		targetEvent = moment(targetEvent.start);
+
+		for( i = 0; i < eventArray.length; i++ ) {
+			if( targetEvent.isBefore( eventArray[i].start ) ) {
+console.log(targetEvent);
+			} else {
+				break;
+			}
+		}
+
 	});
 
 	// Initialize Pikaday
