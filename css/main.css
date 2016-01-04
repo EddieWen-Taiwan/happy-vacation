@@ -151,7 +151,7 @@ header .subtitle {
 		 -o-transform: scaleX(-1);
 			transform: scaleX(-1);
 	-ms-filter: "FlipH";
-	filter: FlipH;
+		filter: FlipH;
 }
 
 .tenDays .arrow.plus:hover {
