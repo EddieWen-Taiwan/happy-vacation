@@ -106,8 +106,15 @@ $(document).ready( function(){
 			var lastEvent = finalDay;
 			for( i = 0; i < 9; i++ ) {
 
-				var hourStart = lastEvent;
-				for( j = 0; j < 9; j++ ) {
+				// * Stort lastEvent first.
+				var hourStart = moment(lastEvent);
+
+				lastEvent = moment(lastEvent).add( -10, 'days' );
+				var fixedDays = lastEvent.fixWeekend();
+
+				//////
+				// * Add hourDay event between each goBackEvents
+				for( j = 0; j < 9-fixedDays; j++ ) {
 
 					hourStart = moment(hourStart).add( -1, 'days' );
 					var hourEvent = {
@@ -119,9 +126,7 @@ $(document).ready( function(){
 					eventArray.push( hourEvent );
 
 				}
-
-				lastEvent = moment(lastEvent).add( -10, 'days' );
-				var fixedDays = lastEvent.fixWeekend();
+				//////
 
 				var newEvent = {
 					title: "*該上勤了吧",
