@@ -106,9 +106,6 @@ $(document).ready( function(){
 			var lastEvent = finalDay;
 			for( i = 0; i < 9; i++ ) {
 
-				lastEvent = moment(lastEvent).add( -10, 'days' );
-				var fixedDays = lastEvent.fixWeekend();
-
 				var hourStart = lastEvent;
 				for( j = 0; j < 9; j++ ) {
 
@@ -122,6 +119,9 @@ $(document).ready( function(){
 					eventArray.push( hourEvent );
 
 				}
+
+				lastEvent = moment(lastEvent).add( -10, 'days' );
+				var fixedDays = lastEvent.fixWeekend();
 
 				var newEvent = {
 					title: "*該上勤了吧",
