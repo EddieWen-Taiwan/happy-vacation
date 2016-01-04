@@ -17,7 +17,7 @@
 	<meta property="og:title" content="替代役男與他的快樂假期" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="http://github.eddiewen.me/happy-vacation/"  />
-	<meta property="og:image" content="images/website-image.png" />
+	<meta property="og:image" content="http://github.eddiewen.me/happy-vacation/images/website-image.png" />
 	<meta property="og:description" content="＃你媽知道你在這當爽兵嗎？" />
 
 	<title>替代役男與他的快樂假期</title>
