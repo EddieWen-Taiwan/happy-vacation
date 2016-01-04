@@ -18,7 +18,8 @@ $(document).ready( function(){
 	});
 
 	// Arrows in Calendar
-	$calendar.on( 'click', '.arrow', function(){
+	$calendar.on( 'click', '.arrow', function(e){
+		e.stopPropagation();
 		var eventOrdering = parseInt( targetEvent.className[1].substring(6,7) )+1;
 
 		var move = $(this).attr('data-move');
@@ -70,6 +71,10 @@ $(document).ready( function(){
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
 		}
+	});
+
+	$('#calendar').on( 'click', '.fc-event', function(){
+		alert(targetEvent);
 	});
 
 	// Initialize Pikaday
