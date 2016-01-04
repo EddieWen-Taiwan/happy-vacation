@@ -457,12 +457,20 @@ header .subtitle {
 	margin-bottom: 24px;
 }
 
+.dialog .title > div,
 .dialog .content > span {
 	display: none;
 }
 
+.left .title .bad,
+.right .title .bad,
+.hour .title .good {
+	display: block;
+}
+
 .right .content .not-allow-to-right,
-.left .content .not-allow-to-left {
+.left .content .not-allow-to-left,
+.hour .content .need-hours {
 	display: inline-block;
 }
 

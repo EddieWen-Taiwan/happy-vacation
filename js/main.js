@@ -93,6 +93,7 @@ $(document).ready( function(){
 		}
 	}); // Arrows in Calendar -----
 
+	// Get how many hours does user need
 	$('#calendar').on( 'click', '.fc-event', function(){
 
 		var neededHours = 0;
@@ -115,6 +116,17 @@ $(document).ready( function(){
 				break;
 			}
 		}
+
+		$('.alert').addClass('show hour');
+		$('.dialog').addClass('bounceIn');
+		$('.need-hours .value').text(neededHours);
+
+		$('.dialog .fine').on( 'click', function(){
+			$('.alert').removeClass('show hour');
+			$('.dialog').removeClass('bounceIn');
+			$('.need-hour .value').text('');
+			$(this).off('click');
+		});
 
 	});
 
