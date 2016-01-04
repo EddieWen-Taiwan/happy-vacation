@@ -107,7 +107,7 @@ $(document).ready( function(){
 			for( i = 0; i < 9; i++ ) {
 
 				lastEvent = moment(lastEvent).add( -10, 'days' );
-				lastEvent.fixWeekend();
+				var fixedDays = lastEvent.fixWeekend();
 
 				var hourStart = lastEvent;
 				for( j = 0; j < 9; j++ ) {
@@ -116,7 +116,7 @@ $(document).ready( function(){
 					var hourEvent = {
 						title: "8hr",
 						start: hourStart,
-						className: 'hours'
+						className: 'hourDay'
 					};
 
 					eventArray.push( hourEvent );
@@ -167,10 +167,16 @@ function showDialog( action ) {
 moment.fn.fixWeekend = function() {
 	// lastEvent.day()
 	// 0 -> Sun. // 6 -> Sat.
+	var fixedDays = 0;
+
 	if( this.day() == 0 ) {
-		this.add( 1, 'days' );
+		fixedDays = 1;
 	} else if ( this.day() == 6 ) {
-		this.add( 2, 'days' );
+		fixedDays = 2;
 	}
+
+	this.add( fixedDays, 'days' );
+	return fixedDays;
+
 }
 
