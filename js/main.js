@@ -18,6 +18,12 @@ $(document).ready( function(){
 		}
 	});
 
+	// Initialize Pikaday
+	var picker = new Pikaday({
+		field: $('#datepicker')[0],
+		format: 'YYYY-MM-DD'
+	});
+
 	// Arrows in Calendar
 	$calendar.on( 'click', '.arrow', function(e){
 		e.stopPropagation();
@@ -120,12 +126,6 @@ $(document).ready( function(){
 		$('.need-hours .value').text(neededHours);
 		showDialog('hour');
 
-	});
-
-	// Initialize Pikaday
-	var picker = new Pikaday({
-		field: $('#datepicker')[0],
-		format: 'YYYY-MM-DD'
 	});
 
 	$('.options').on( 'click', function(){
