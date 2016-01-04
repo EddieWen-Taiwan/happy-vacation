@@ -38,10 +38,14 @@
 
 	<div class="alert">
 		<div class="dialog animated">
-			<div class="title">不可以</div>
+			<div class="title">
+				<div class="bad">不可以</div>
+				<div class="good">提示</div>
+			</div>
 			<div class="content">
 				<span class="not-allow-to-right">上勤日會重疊啦。</span>
 				<span class="not-allow-to-left">這樣會連放太多假喔。</span>
+				<span class="need-hours">共需要 <span class="value"></span> 小時的假。</span>
 			</div>
 			<div class="btn-row">
 				<div class="fine">確定</div>
