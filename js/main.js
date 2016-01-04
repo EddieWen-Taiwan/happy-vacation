@@ -1,5 +1,5 @@
 var eventArray;
-var movedEvent;
+var targetEvent;
 
 $(document).ready( function(){
 
@@ -8,7 +8,7 @@ $(document).ready( function(){
 	$calendar.fullCalendar({
 		allDayDefault: true,
 		eventClick: function( thisEvent, jsEvent, view ) {
-			movedEvent = thisEvent;
+			targetEvent = thisEvent;
 		},
 		eventAfterAllRender: function(event) {
 			$.each( $('.tenDays'), function(){
@@ -19,7 +19,7 @@ $(document).ready( function(){
 
 	// Arrows in Calendar
 	$calendar.on( 'click', '.arrow', function(){
-		var eventOrdering = parseInt( movedEvent.className[1].substring(6,7) )+1;
+		var eventOrdering = parseInt( targetEvent.className[1].substring(6,7) )+1;
 
 		var move = $(this).attr('data-move');
 
