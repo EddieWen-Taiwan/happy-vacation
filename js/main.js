@@ -71,11 +71,30 @@ $(document).ready( function(){
 			}
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
+
+			// Reset hourArray
+			hourArray = [];
+			for( i = 0; i < eventArray.length-1; i++ ) {
+				var eventHead = eventArray[i].start;
+				var eventTail = eventArray[i+1].start;
+
+				for( j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
+					var newStart = moment(eventHead).add( j*(-1), 'days' );
+					var newEvent = {
+						title: newStart.day() == 0 || newStart.day() == 6 ? "0hr＊＊＊＊＊＊" : "8hr",
+						start: newStart,
+						className: "hourDay"
+					}
+					hourArray.push(newEvent);
+				}
+			}
+			$calendar.fullCalendar( 'addEventSource', hourArray );
+
 		}
-	});
+	}); // Arrows in Calendar -----
 
 	$('#calendar').on( 'click', '.fc-event', function(){
-		alert(targetEvent);
+		alert("WAIT");
 	});
 
 	// Initialize Pikaday
