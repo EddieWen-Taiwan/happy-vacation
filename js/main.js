@@ -109,6 +109,20 @@ $(document).ready( function(){
 				lastEvent = moment(lastEvent).add( -10, 'days' );
 				lastEvent.fixWeekend();
 
+				var hourStart = lastEvent;
+				for( j = 0; j < 9; j++ ) {
+
+					hourStart = moment(hourStart).add( -1, 'days' );
+					var hourEvent = {
+						title: "8hr",
+						start: hourStart,
+						className: 'hours'
+					};
+
+					eventArray.push( hourEvent );
+
+				}
+
 				var newEvent = {
 					title: "*該上勤了吧",
 					start: lastEvent,
