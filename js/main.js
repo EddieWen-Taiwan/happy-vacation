@@ -72,10 +72,10 @@ $(document).ready( function(){
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
 		}
-	});
+	}); // Arrows in Calendar -----
 
 	$('#calendar').on( 'click', '.fc-event', function(){
-		alert(targetEvent);
+		alert("WAIT");
 	});
 
 	// Initialize Pikaday
