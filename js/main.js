@@ -1,13 +1,16 @@
 var eventArray;
-var movedEvent;
+var hourArray;
+var targetEvent;
+var back2workStatus = "all-day";
 
 $(document).ready( function(){
 
 	// Initialize FullCalendar
 	var $calendar = $('#calendar');
 	$calendar.fullCalendar({
+		allDayDefault: true,
 		eventClick: function( thisEvent, jsEvent, view ) {
-			movedEvent = thisEvent;
+			targetEvent = thisEvent;
 		},
 		eventAfterAllRender: function(event) {
 			$.each( $('.tenDays'), function(){
@@ -16,9 +19,88 @@ $(document).ready( function(){
 		}
 	});
 
+	// Initialize Pikaday
+	var picker = new Pikaday({
+		field: $('#datepicker')[0],
+		format: 'YYYY-MM-DD'
+	});
+
+	$('.options').on( 'click', function(){
+		$('.options').removeClass('valuable');
+		$('.wave').removeClass('show');
+		$(this).addClass('valuable');
+		$(this).find('.wave').addClass('show');
+
+		$('.day-value').text( $(this).attr('data-day') == "all-day" ? "整天" : "半天" );
+		back2workStatus = $(this).attr('data-day');
+	});
+
+	$('.ok').on( 'click', function(){
+
+		if( $('#datepicker').val() == "" ) {
+			alert("跟我說哪天退伍麻~");
+		} else {
+
+			// Get this from user
+			var finalDay = moment( $('#datepicker').val() );
+			eventArray = [
+				{
+					title: "退伍日",
+					start: finalDay,
+					className: 'retireDate'
+				}
+			];
+
+			var lastEvent = finalDay;
+			hourArray = [];
+			for( i = 0; i < 9; i++ ) {
+
+				// * Stort lastEvent first.
+				var hourStart = moment(lastEvent);
+
+				lastEvent = moment(lastEvent).add( -10, 'days' );
+				var fixedDays = lastEvent.fixWeekend();
+
+				//////
+				// * Add hourDay event between each goBackEvents
+				for( j = 0; j < 9-fixedDays; j++ ) {
+
+					hourStart = moment(hourStart).add( -1, 'days' );
+					var hourEvent = {
+						title: hourStart.day() == 0 || hourStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
+						start: hourStart,
+						className: 'hourDay'
+					};
+
+					hourArray.push( hourEvent );
+
+				}
+				//////
+
+				var newEvent = {
+					title: "*該上勤了吧",
+					start: lastEvent,
+					className: 'tenDays event-'+i
+				};
+				eventArray.push(newEvent);
+
+			};
+			$calendar.fullCalendar( 'removeEvents' );
+			$calendar.fullCalendar( 'addEventSource', eventArray );
+			$calendar.fullCalendar( 'addEventSource', hourArray );
+
+			$calendar.fullCalendar( 'gotoDate', finalDay );
+
+			$('.overlay').fadeOut(300);
+
+		}
+
+	});
+
 	// Arrows in Calendar
-	$calendar.on( 'click', '.arrow', function(){
-		var eventOrdering = parseInt( movedEvent.className[1].substring(6,7) )+1;
+	$calendar.on( 'click', '.arrow', function(e){
+		e.stopPropagation();
+		var eventOrdering = parseInt( targetEvent.className[1].substring(6,7) )+1;
 
 		var move = $(this).attr('data-move');
 
@@ -68,55 +150,57 @@ $(document).ready( function(){
 			}
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
-		}
-	});
 
-	// Initialize Pikaday
-	var picker = new Pikaday({
-		field: $('#datepicker')[0],
-		format: 'YYYY-MM-DD'
-	});
+			// Reset hourArray
+			hourArray = [];
+			for( i = 0; i < eventArray.length-1; i++ ) {
+				var eventHead = eventArray[i].start;
+				var eventTail = eventArray[i+1].start;
 
-	$('.ok').on( 'click', function(){
-
-		if( $('#datepicker').val() == "" ) {
-			alert("好歹跟我說哪天退伍吧~");
-		} else {
-
-			// Get this from user
-			var finalDay = moment( $('#datepicker').val() );
-			eventArray = [
-				{
-					title: "退伍日",
-					start: finalDay,
-					allDay: true,
-					className: 'retireDate'
+				for( j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
+					var newStart = moment(eventHead).add( j*(-1), 'days' );
+					var newEvent = {
+						title: newStart.day() == 0 || newStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
+						start: newStart,
+						className: "hourDay"
+					}
+					hourArray.push(newEvent);
 				}
-			];
-
-			var lastEvent = finalDay;
-			for( i = 0; i < 9; i++ ) {
-
-				lastEvent = moment(lastEvent).add( -10, 'days' );
-				lastEvent.fixWeekend();
-
-				var newEvent = {
-					title: "*該上勤了吧",
-					start: lastEvent,
-					allDay: true,
-					className: 'tenDays event-'+i
-				};
-				eventArray.push(newEvent);
-
-			};
-			$calendar.fullCalendar( 'removeEvents' );
-			$calendar.fullCalendar( 'addEventSource', eventArray );
-
-			$calendar.fullCalendar( 'gotoDate', finalDay );
-
-			$('.overlay').fadeOut(300);
+			}
+			$calendar.fullCalendar( 'addEventSource', hourArray );
 
 		}
+	}); // Arrows in Calendar -----
+
+	// Get how many hours does user need
+	$('#calendar').on( 'click', '.fc-event', function(){
+
+		var neededHours = 0;
+
+		// How many back-to-work events
+		for( i = 1; i < eventArray.length; i++ ) {
+			if( targetEvent.start.isSameOrBefore( eventArray[i].start, 'day' ) ) {
+				if( back2workStatus == "half-day" ) {
+					neededHours += 4;
+				}
+				// Don't plus (all-day work)
+			} else {
+				break;
+			}
+		}
+
+		for( i = 0; i < hourArray.length; i++ ) {
+			if( targetEvent.start.isSameOrBefore( hourArray[i].start, 'day' ) ) {
+				if( hourArray[i].title == "8hr" ) {
+					neededHours += 8;
+				}
+			} else {
+				break;
+			}
+		}
+
+		$('.need-hours .value').text(neededHours);
+		showDialog('hour');
 
 	});
 
@@ -136,7 +220,7 @@ function showDialog( action ) {
 	$('.dialog').addClass('bounceIn');
 
 	$('.dialog .fine').on( 'click', function(){
-		$('.alert').removeClass('show left right');
+		$('.alert').removeClass('show left right hour');
 		$('.dialog').removeClass('bounceIn');
 		$(this).off('click');
 	});
@@ -145,10 +229,16 @@ function showDialog( action ) {
 moment.fn.fixWeekend = function() {
 	// lastEvent.day()
 	// 0 -> Sun. // 6 -> Sat.
+	var fixedDays = 0;
+
 	if( this.day() == 0 ) {
-		this.add( 1, 'days' );
+		fixedDays = 1;
 	} else if ( this.day() == 6 ) {
-		this.add( 2, 'days' );
+		fixedDays = 2;
 	}
+
+	this.add( fixedDays, 'days' );
+	return fixedDays;
+
 }
 

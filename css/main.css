@@ -2,6 +2,23 @@ body {
 	
 }
 
+.document {
+	margin: 7px 5% 30px 0px;
+	text-align: right;
+	color: rgba( 0, 0, 0, 0.38 );
+	font-size: 13px;
+	letter-spacing: 1px;
+
+	-webkit-transition: all 0.2s;
+	   -moz-transition: all 0.2s;
+		 -o-transition: all 0.2s;
+			transition: all 0.2s;
+}
+
+.document:hover {
+	color: rgba( 0, 0, 0, 0.54 );
+}
+
 header {
 	width: 100%;
 	background-color: #3F51B5;
@@ -151,7 +168,7 @@ header .subtitle {
 		 -o-transform: scaleX(-1);
 			transform: scaleX(-1);
 	-ms-filter: "FlipH";
-	filter: FlipH;
+		filter: FlipH;
 }
 
 .tenDays .arrow.plus:hover {
@@ -167,6 +184,25 @@ header .subtitle {
 	top: -22px;
 	left: -3px;
 	z-index: -1;
+}
+
+.fc-event-container {
+	position: relative;
+}
+
+.fc-event {
+	cursor: pointer;
+}
+
+.fc-event.hourDay {
+	width: 156px;
+	height: 70px;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	top: -36px;
+	left: 3px;
+	opacity: 0;
 }
 
 /********************/
@@ -210,7 +246,7 @@ header .subtitle {
 
 .card {
 	width: 400px;
-	height: 350px;
+	height: 450px;
 	margin: 0px auto;
 	border-radius: 16px;
 	background-color: white;
@@ -264,6 +300,80 @@ header .subtitle {
 	font-size: 20px;
 	border: none;
 	border-bottom: 1px solid rgba( 0, 0, 0, 0.12 );
+}
+
+.day-value {
+	display: inline-block;
+	padding: 0px 5px 0px 5px;
+	border-bottom: 1px solid #C9C9C9;
+	color: rgba( 0, 0, 0, 0.54 );
+}
+
+.radio-btns {
+	width: 330px;
+	margin-top: 20px;
+	margin-left: 25px;
+}
+
+.options {
+	display: inline-block;
+	width: 80px;
+	margin-right: 25px;
+	margin-left: 10px;
+	position: relative;
+	cursor: pointer;
+}
+
+.radio {
+	width: 20px;
+	height: 20px;
+	padding: 10px;
+	position: relative;
+}
+
+.real-circle {
+	width: 20px;
+	height: 20px;
+	background-image: url(../images/radio.png);
+	background-size: 20px 40px;
+	background-position: 0px 0px;
+	position: relative;
+	z-index: 5;
+}
+
+.options:hover .real-circle,
+.valuable .real-circle {
+	background-position: 0px 20px;
+}
+
+.wave {
+	width: 12px;
+	height: 12px;
+	border: 14px solid white;
+	border-radius: 20px;
+	background-color: white;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.wave.show {
+	width: 40px;
+	height: 40px;
+	border: 0px solid white;
+	background-color: rgba( 0, 150, 136, 1 );
+	opacity: 0;
+
+	-webkit-transition: all 0.6s, background-color 0s;
+	   -moz-transition: all 0.6s, background-color 0s;
+		 -o-transition: all 0.6s, background-color 0s;
+			transition: all 0.6s, background-color 0s;
+}
+
+.options .text {
+	position: absolute;
+	top: 10px;
+	left: 45px;
 }
 
 .ok {
@@ -368,12 +478,20 @@ header .subtitle {
 	margin-bottom: 24px;
 }
 
+.dialog .title > div,
 .dialog .content > span {
 	display: none;
 }
 
+.left .title .bad,
+.right .title .bad,
+.hour .title .good {
+	display: block;
+}
+
 .right .content .not-allow-to-right,
-.left .content .not-allow-to-left {
+.left .content .not-allow-to-left,
+.hour .content .need-hours {
 	display: inline-block;
 }
 
