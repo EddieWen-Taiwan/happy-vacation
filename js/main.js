@@ -94,13 +94,23 @@ $(document).ready( function(){
 	}); // Arrows in Calendar -----
 
 	$('#calendar').on( 'click', '.fc-event', function(){
-		targetEvent = moment(targetEvent.start);
+
 		var neededHours = 0;
 
-		// Calculate how many back-to-work events
+		// How many back-to-work events
 		for( i = 1; i < eventArray.length; i++ ) {
-			if( targetEvent.isBefore( eventArray[i].start ) ) {
+			if( targetEvent.start.isSameOrBefore( eventArray[i].start, 'day' ) ) {
 				neededHours += 4; // Or not plus (all-day work)
+			} else {
+				break;
+			}
+		}
+
+		for( i = 0; i < hourArray.length; i++ ) {
+			if( targetEvent.start.isSameOrBefore( hourArray[i].start, 'day' ) ) {
+				if( hourArray[i].title == "8hr" ) {
+					neededHours += 8;
+				}
 			} else {
 				break;
 			}
