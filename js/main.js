@@ -2,6 +2,32 @@ var eventArray;
 var hourArray;
 var targetEvent;
 var back2workStatus = "all-day";
+var national_holiday = [
+	{
+		title: "新年",
+		start: moment('2016-02-08')
+	},
+	{
+		title: "新年",
+		start: moment('2016-02-09')
+	},
+	{
+		title: "新年",
+		start: moment('2016-02-10')
+	},
+	{
+		title: "新年",
+		start: moment('2016-02-11')
+	},
+	{
+		title: "新年",
+		start: moment('2016-02-12')
+	},
+	{
+		title: "228補假",
+		start: moment('2016-02-29')
+	},
+];
 
 $(document).ready( function(){
 
@@ -88,6 +114,7 @@ $(document).ready( function(){
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
 			$calendar.fullCalendar( 'addEventSource', hourArray );
+			$calendar.fullCalendar( 'addEventSource', national_holiday );
 
 			$calendar.fullCalendar( 'gotoDate', finalDay );
 
