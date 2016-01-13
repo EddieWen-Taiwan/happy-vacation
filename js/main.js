@@ -310,3 +310,21 @@ moment.fn.makeOnWorkDay = function() {
 
 }
 
+moment.fn.isThislegal = function() {
+
+	// Weekend
+	if( this.day() == 0 || this.day() == 6 ) {
+		return false;
+	}
+
+	// National holidays
+	for( i = 0; i < national_holiday.length; i++ ) {
+		if( this.isSame( national_holiday[i].start ) ) {
+			return false;
+		}
+	}
+
+	return true;
+
+}
+
