@@ -293,30 +293,25 @@ function setHourArray( hourStart ) {
 
 }
 
-moment.fn.makeOnWorkDay = function() {
+moment.fn.makeOnWorkDay = function( action ) {
+
+	if( typeof action == 'undefined' ) action = 1;
+
 	// lastEvent.day()
 	// 0 -> Sun. // 6 -> Sat.
-	var fixedDays = 0;
+	if( this.day() == 0 )
+		this.add( action > 0 ? 1 : -2, 'days' );
+	else if ( this.day() == 6 )
+		this.add( action > 0 ? 2 : -1, 'days' );
 
-	if( this.day() == 0 ) {
-		fixedDays = 1;
-	} else if ( this.day() == 6 ) {
-		fixedDays = 2;
-	}
-	this.add( fixedDays, 'days' );
-
-	fixedDays = 0;
 	for( k = 0; k < national_holiday.length; k++ ) {
 		if( this.isSame( national_holiday[k].start ) ) {
-			fixedDays = 1;
+			this.add( action, 'days' );
 			break;
 		}
 	}
-	this.add( fixedDays, 'days' );
 
-	if( this.isThislegal() ) {
-		return fixedDays;
-	} else
+	if( this.isThislegal() == false )
 		this.makeOnWorkDay();
 
 }
