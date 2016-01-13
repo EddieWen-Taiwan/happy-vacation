@@ -272,12 +272,22 @@ function setHourArray( hourStart ) {
 
 		for( j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
 			var newStart = moment(eventHead).add( j*(-1), 'days' );
-			var newEvent = {
-				title: newStart.day() == 0 || newStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
-				start: newStart,
-				className: "hourDay"
+			var isThisHoliday = false;
+			for( k = 0; k < national_holiday.length; k++ ) {
+				if( newStart.isSame( national_holiday[k].start ) ) {
+					isThisHoliday = true;
+					break;
+				}
 			}
-			hourArray.push(newEvent);
+
+			if( isThisHoliday == false ) {
+				var newEvent = {
+					title: newStart.day() == 0 || newStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
+					start: newStart,
+					className: "hourDay"
+				}
+				hourArray.push(newEvent);
+			}
 		}
 	}
 	$('#calendar').fullCalendar( 'addEventSource', hourArray );
