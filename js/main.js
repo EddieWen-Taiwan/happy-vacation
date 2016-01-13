@@ -27,6 +27,34 @@ var national_holiday = [
 		title: "228補假",
 		start: moment('2016-02-29')
 	},
+	{
+		title: "清明節",
+		start: moment('2016-04-04')
+	},
+	{
+		title: "兒童節補假",
+		start: moment('2016-04-05')
+	},
+	{
+		title: "端午節",
+		start: moment('2016-06-09')
+	},
+	{
+		title: "彈性放假",
+		start: moment('2016-06-10')
+	},
+	{
+		title: "中秋節",
+		start: moment('2016-09-15')
+	},
+	{
+		title: "彈性放假",
+		start: moment('2016-09-16')
+	},
+	{
+		title: "雙十節",
+		start: moment('2016-10-10')
+	}
 ];
 
 $(document).ready( function(){
