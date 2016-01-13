@@ -128,22 +128,6 @@ $(document).ready( function(){
 				lastEvent = moment(lastEvent).add( -10, 'days' );
 				var fixedDays = lastEvent.makeOnWorkDay();
 
-				//////
-				// * Add hourDay event between each goBackEvents
-				for( j = 0; j < 9-fixedDays; j++ ) {
-
-					hourStart = moment(hourStart).add( -1, 'days' );
-					var hourEvent = {
-						title: hourStart.day() == 0 || hourStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
-						start: hourStart,
-						className: "hourDay"
-					};
-
-					hourArray.push( hourEvent );
-
-				}
-				//////
-
 				var newEvent = {
 					title: "*該上勤了吧",
 					start: lastEvent,
@@ -154,8 +138,8 @@ $(document).ready( function(){
 			};
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
-			$calendar.fullCalendar( 'addEventSource', hourArray );
 			$calendar.fullCalendar( 'addEventSource', national_holiday );
+			setHourArray();
 
 			$calendar.fullCalendar( 'gotoDate', finalDay );
 
@@ -219,23 +203,7 @@ $(document).ready( function(){
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
 
-			// Reset hourArray
-			hourArray = [];
-			for( i = 0; i < eventArray.length-1; i++ ) {
-				var eventHead = eventArray[i].start;
-				var eventTail = eventArray[i+1].start;
-
-				for( j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
-					var newStart = moment(eventHead).add( j*(-1), 'days' );
-					var newEvent = {
-						title: newStart.day() == 0 || newStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
-						start: newStart,
-						className: "hourDay"
-					}
-					hourArray.push(newEvent);
-				}
-			}
-			$calendar.fullCalendar( 'addEventSource', hourArray );
+			setHourArray();
 
 		}
 	}); // Arrows in Calendar -----
@@ -294,6 +262,28 @@ function showDialog( action ) {
 	});
 }
 
+function setHourArray( hourStart ) {
+
+	// Reset hourArray
+	hourArray = [];
+	for( i = 0; i < eventArray.length-1; i++ ) {
+		var eventHead = eventArray[i].start;
+		var eventTail = eventArray[i+1].start;
+
+		for( j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
+			var newStart = moment(eventHead).add( j*(-1), 'days' );
+			var newEvent = {
+				title: newStart.day() == 0 || newStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
+				start: newStart,
+				className: "hourDay"
+			}
+			hourArray.push(newEvent);
+		}
+	}
+	$('#calendar').fullCalendar( 'addEventSource', hourArray );
+
+}
+
 moment.fn.makeOnWorkDay = function() {
 	// lastEvent.day()
 	// 0 -> Sun. // 6 -> Sat.
@@ -315,7 +305,10 @@ moment.fn.makeOnWorkDay = function() {
 	}
 	this.add( fixedDays, 'days' );
 
-	return this.isThislegal() ? fixedDays : this.makeOnWorkDay();
+	if( this.isThislegal() ) {
+		return fixedDays;
+	} else
+		this.makeOnWorkDay();
 
 }
 
