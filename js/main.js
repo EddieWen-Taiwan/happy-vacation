@@ -126,7 +126,7 @@ $(document).ready( function(){
 				var hourStart = moment(lastEvent);
 
 				lastEvent = moment(lastEvent).add( -10, 'days' );
-				var fixedDays = lastEvent.fixWeekend();
+				var fixedDays = lastEvent.makeOnWorkDay();
 
 				//////
 				// * Add hourDay event between each goBackEvents
@@ -294,7 +294,7 @@ function showDialog( action ) {
 	});
 }
 
-moment.fn.fixWeekend = function() {
+moment.fn.makeOnWorkDay = function() {
 	// lastEvent.day()
 	// 0 -> Sun. // 6 -> Sat.
 	var fixedDays = 0;
@@ -304,9 +304,36 @@ moment.fn.fixWeekend = function() {
 	} else if ( this.day() == 6 ) {
 		fixedDays = 2;
 	}
-
 	this.add( fixedDays, 'days' );
-	return fixedDays;
+
+	fixedDays = 0;
+	for( k = 0; k < national_holiday.length; k++ ) {
+		if( this.isSame( national_holiday[k].start ) ) {
+			fixedDays = 1;
+			break;
+		}
+	}
+	this.add( fixedDays, 'days' );
+
+	return this.isThislegal() ? fixedDays : this.makeOnWorkDay();
+
+}
+
+moment.fn.isThislegal = function() {
+
+	// Weekend
+	if( this.day() == 0 || this.day() == 6 ) {
+		return false;
+	}
+
+	// National holidays
+	for( k = 0; k < national_holiday.length; k++ ) {
+		if( this.isSame( national_holiday[k].start ) ) {
+			return false;
+		}
+	}
+
+	return true;
 
 }
 
