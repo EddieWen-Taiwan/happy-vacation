@@ -172,7 +172,7 @@ $(document).ready( function(){
 		} else {
 			// Prevent conflicts
 			preDate = moment(preDate).add( 1, 'days' );
-			preDate.fixWeekend();
+			preDate.makeOnWorkDay();
 			if( preDate.isSame(eventArray[eventOrdering-1].start) ) {
 				actionPermission = "NOT ALLOWED";
 				showDialog('right');
@@ -195,7 +195,7 @@ $(document).ready( function(){
 					// after that event
 					updatedDate = moment(eventArray[i-1].start).add( -10, 'days' );
 				}
-				updatedDate.fixWeekend();
+				updatedDate.makeOnWorkDay();
 
 				eventArray[i].start = updatedDate;
 
