@@ -294,7 +294,7 @@ function showDialog( action ) {
 	});
 }
 
-moment.fn.fixWeekend = function() {
+moment.fn.makeOnWorkDay = function() {
 	// lastEvent.day()
 	// 0 -> Sun. // 6 -> Sat.
 	var fixedDays = 0;
