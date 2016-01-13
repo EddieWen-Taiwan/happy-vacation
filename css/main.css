@@ -125,6 +125,11 @@ header .subtitle {
 	height: 40px;
 }
 
+.fc-row .fc-content-skeleton td:first-child,
+.fc-row .fc-content-skeleton td:last-child {
+	background: rgba( 0, 0, 0, 0.02 ) !important;
+}
+
 .fc-basic-view .fc-day-number {
 	padding: 0px 5px;
 }
