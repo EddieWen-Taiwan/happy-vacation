@@ -2,6 +2,73 @@ var eventArray;
 var hourArray;
 var targetEvent;
 var back2workStatus = "all-day";
+var national_holiday = [
+	{
+		title: "新年",
+		start: moment('2016-02-08'),
+		className: "national"
+	},
+	{
+		title: "新年",
+		start: moment('2016-02-09'),
+		className: "national"
+	},
+	{
+		title: "新年",
+		start: moment('2016-02-10'),
+		className: "national"
+	},
+	{
+		title: "新年",
+		start: moment('2016-02-11'),
+		className: "national"
+	},
+	{
+		title: "新年",
+		start: moment('2016-02-12'),
+		className: "national"
+	},
+	{
+		title: "228補假",
+		start: moment('2016-02-29'),
+		className: "national"
+	},
+	{
+		title: "清明節",
+		start: moment('2016-04-04'),
+		className: "national"
+	},
+	{
+		title: "兒童節補假",
+		start: moment('2016-04-05'),
+		className: "national"
+	},
+	{
+		title: "端午節",
+		start: moment('2016-06-09'),
+		className: "national"
+	},
+	{
+		title: "彈性放假",
+		start: moment('2016-06-10'),
+		className: "national"
+	},
+	{
+		title: "中秋節",
+		start: moment('2016-09-15'),
+		className: "national"
+	},
+	{
+		title: "彈性放假",
+		start: moment('2016-09-16'),
+		className: "national"
+	},
+	{
+		title: "雙十節",
+		start: moment('2016-10-10'),
+		className: "national"
+	}
+];
 
 $(document).ready( function(){
 
@@ -47,7 +114,7 @@ $(document).ready( function(){
 				{
 					title: "退伍日",
 					start: finalDay,
-					className: 'retireDate'
+					className: "retireDate"
 				}
 			];
 
@@ -59,35 +126,20 @@ $(document).ready( function(){
 				var hourStart = moment(lastEvent);
 
 				lastEvent = moment(lastEvent).add( -10, 'days' );
-				var fixedDays = lastEvent.fixWeekend();
-
-				//////
-				// * Add hourDay event between each goBackEvents
-				for( j = 0; j < 9-fixedDays; j++ ) {
-
-					hourStart = moment(hourStart).add( -1, 'days' );
-					var hourEvent = {
-						title: hourStart.day() == 0 || hourStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
-						start: hourStart,
-						className: 'hourDay'
-					};
-
-					hourArray.push( hourEvent );
-
-				}
-				//////
+				var fixedDays = lastEvent.makeOnWorkDay();
 
 				var newEvent = {
 					title: "*該上勤了吧",
 					start: lastEvent,
-					className: 'tenDays event-'+i
+					className: "tenDays event-"+i
 				};
 				eventArray.push(newEvent);
 
 			};
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
-			$calendar.fullCalendar( 'addEventSource', hourArray );
+			$calendar.fullCalendar( 'addEventSource', national_holiday );
+			setHourArray();
 
 			$calendar.fullCalendar( 'gotoDate', finalDay );
 
@@ -113,6 +165,20 @@ $(document).ready( function(){
 			var limitDate = moment(eventArray[eventOrdering-1].start).add( -10, 'days' );
 
 			preDate = moment(preDate).add( preDate.day() == 1 ? -3 : -1, 'days' );
+			var checkingHoliday = true;
+			while( checkingHoliday ) {
+				checkingHoliday = false;
+				for( i = 0; i < national_holiday.length; i++ ) {
+					if( preDate.isSame( national_holiday[i].start ) ) {
+						preDate = moment(preDate).add( -1, 'days' );
+						checkingHoliday = true;
+					}
+				}
+			}
+			// Perhaps it's Sunday
+			if( preDate.day() == 0 )
+				preDate = moment(preDate).add( -2, 'days' );
+
 			if( preDate.isBefore(limitDate) ) {
 				actionPermission = "NOT ALLOWED";
 				showDialog('left');
@@ -120,7 +186,7 @@ $(document).ready( function(){
 		} else {
 			// Prevent conflicts
 			preDate = moment(preDate).add( 1, 'days' );
-			preDate.fixWeekend();
+			preDate.makeOnWorkDay();
 			if( preDate.isSame(eventArray[eventOrdering-1].start) ) {
 				actionPermission = "NOT ALLOWED";
 				showDialog('right');
@@ -132,42 +198,21 @@ $(document).ready( function(){
 
 				var updatedDate = eventArray[i].start;
 				if( i == eventOrdering ) {
-					// From Mon. to Fri.
-					var dayToMove = 1;
-					if( move == "minus" ) {
-						dayToMove = updatedDate.day() == 1 ? -3 : -1;
-					}
-					// Event be moved
-					updatedDate = moment(updatedDate).add( dayToMove, 'days' );
+					updatedDate = preDate;
 				} else {
 					// after that event
 					updatedDate = moment(eventArray[i-1].start).add( -10, 'days' );
 				}
-				updatedDate.fixWeekend();
+				updatedDate.makeOnWorkDay();
 
 				eventArray[i].start = updatedDate;
 
 			}
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
+			$calendar.fullCalendar( 'addEventSource', national_holiday );
 
-			// Reset hourArray
-			hourArray = [];
-			for( i = 0; i < eventArray.length-1; i++ ) {
-				var eventHead = eventArray[i].start;
-				var eventTail = eventArray[i+1].start;
-
-				for( j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
-					var newStart = moment(eventHead).add( j*(-1), 'days' );
-					var newEvent = {
-						title: newStart.day() == 0 || newStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
-						start: newStart,
-						className: "hourDay"
-					}
-					hourArray.push(newEvent);
-				}
-			}
-			$calendar.fullCalendar( 'addEventSource', hourArray );
+			setHourArray();
 
 		}
 	}); // Arrows in Calendar -----
@@ -226,19 +271,71 @@ function showDialog( action ) {
 	});
 }
 
-moment.fn.fixWeekend = function() {
-	// lastEvent.day()
-	// 0 -> Sun. // 6 -> Sat.
-	var fixedDays = 0;
+function setHourArray( hourStart ) {
 
-	if( this.day() == 0 ) {
-		fixedDays = 1;
-	} else if ( this.day() == 6 ) {
-		fixedDays = 2;
+	// Reset hourArray
+	hourArray = [];
+	for( i = 0; i < eventArray.length-1; i++ ) {
+		var eventHead = eventArray[i].start;
+		var eventTail = eventArray[i+1].start;
+
+		for( j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
+			var newStart = moment(eventHead).add( j*(-1), 'days' );
+			var isThisHoliday = false;
+			national_holiday.map( function(holiday) {
+				if( newStart.isSame( holiday.start ) )
+					isThisHoliday = true;
+			});
+
+			if( isThisHoliday == false ) {
+				var newEvent = {
+					title: newStart.day() == 0 || newStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
+					start: newStart,
+					className: "hourDay"
+				}
+				hourArray.push(newEvent);
+			}
+		}
+	}
+	$('#calendar').fullCalendar( 'addEventSource', hourArray );
+
+}
+
+moment.fn.makeOnWorkDay = function() {
+	// Just plus day
+	// 0 -> Sun. // 6 -> Sat.
+	if( this.day() == 0 )
+		this.add( 1, 'days' );
+	else if ( this.day() == 6 )
+		this.add( 2, 'days' );
+
+	for( k = 0; k < national_holiday.length; k++ ) {
+		if( this.isSame( national_holiday[k].start ) ) {
+			this.add( 1, 'days' );
+			break;
+		}
 	}
 
-	this.add( fixedDays, 'days' );
-	return fixedDays;
+	if( this.isThislegal() == false )
+		this.makeOnWorkDay();
+
+}
+
+moment.fn.isThislegal = function() {
+
+	// Weekend
+	if( this.day() == 0 || this.day() == 6 ) {
+		return false;
+	}
+
+	// National holidays
+	for( k = 0; k < national_holiday.length; k++ ) {
+		if( this.isSame( national_holiday[k].start ) ) {
+			return false;
+		}
+	}
+
+	return true;
 
 }
 

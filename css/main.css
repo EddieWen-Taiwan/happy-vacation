@@ -125,6 +125,11 @@ header .subtitle {
 	height: 40px;
 }
 
+.fc-row .fc-content-skeleton td:first-child,
+.fc-row .fc-content-skeleton td:last-child {
+	background: rgba( 0, 0, 0, 0.02 ) !important;
+}
+
 .fc-basic-view .fc-day-number {
 	padding: 0px 5px;
 }
@@ -193,9 +198,28 @@ header .subtitle {
 
 .fc-event {
 	cursor: pointer;
+	letter-spacing: 2px;
 }
 
-.fc-event.hourDay {
+.retireDate {
+	background: #3F51B5 !important;
+	color: white !important;
+	border-radius: 1px;
+	border: none;
+	padding: 3px;
+	font-weight: 300;
+}
+
+.tenDays {
+	background: #FF4081 !important;
+	color: white !important;
+	border-radius: 1px;
+	border: none;
+	padding: 3px;
+	font-weight: 300;
+}
+
+.hourDay {
 	width: 156px;
 	height: 70px;
 	margin: 0px;
@@ -206,28 +230,10 @@ header .subtitle {
 	opacity: 0;
 }
 
-/********************/
-/*      CUSTOM      */
-/********************/
-
-.retireDate {
-	background: #3F51B5 !important;
-	color: white !important;
-	border-radius: 1px;
+.national {
+	text-align: center;
 	border: none;
-	padding: 3px;
-	font-weight: 300;
-	letter-spacing: 2px;
-}
-
-.tenDays {
-	background: #FF4081 !important;
-	color: white !important;
-	border-radius: 1px;
-	border: none;
-	padding: 3px;
-	font-weight: 300;
-	letter-spacing: 2px;
+	color: rgba( 0, 0, 0, 0.38 ) !important;
 }
 
 /********************/
