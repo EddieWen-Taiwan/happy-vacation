@@ -165,6 +165,20 @@ $(document).ready( function(){
 			var limitDate = moment(eventArray[eventOrdering-1].start).add( -10, 'days' );
 
 			preDate = moment(preDate).add( preDate.day() == 1 ? -3 : -1, 'days' );
+			var checkingHoliday = true;
+			while( checkingHoliday ) {
+				checkingHoliday = false;
+				for( i = 0; i < national_holiday.length; i++ ) {
+					if( preDate.isSame( national_holiday[i].start ) ) {
+						preDate = moment(preDate).add( -1, 'days' );
+						checkingHoliday = true;
+					}
+				}
+			}
+			// Perhaps it's Sunday
+			if( preDate.day() == 0 )
+				preDate = moment(preDate).add( -2, 'days' );
+
 			if( preDate.isBefore(limitDate) ) {
 				actionPermission = "NOT ALLOWED";
 				showDialog('left');
