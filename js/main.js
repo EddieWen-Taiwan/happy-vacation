@@ -198,13 +198,7 @@ $(document).ready( function(){
 
 				var updatedDate = eventArray[i].start;
 				if( i == eventOrdering ) {
-					// From Mon. to Fri.
-					var dayToMove = 1;
-					if( move == "minus" ) {
-						dayToMove = updatedDate.day() == 1 ? -3 : -1;
-					}
-					// Event be moved
-					updatedDate = moment(updatedDate).add( dayToMove, 'days' );
+					updatedDate = preDate;
 				} else {
 					// after that event
 					updatedDate = moment(eventArray[i-1].start).add( -10, 'days' );
