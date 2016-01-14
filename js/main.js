@@ -303,7 +303,6 @@ function setHourArray( hourStart ) {
 
 moment.fn.makeOnWorkDay = function() {
 	// Just plus day
-	// lastEvent.day()
 	// 0 -> Sun. // 6 -> Sat.
 	if( this.day() == 0 )
 		this.add( 1, 'days' );
