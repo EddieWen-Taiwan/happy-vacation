@@ -125,6 +125,11 @@ header .subtitle {
 	height: 40px;
 }
 
+.fc-row .fc-content-skeleton td:first-child,
+.fc-row .fc-content-skeleton td:last-child {
+	background: rgba( 0, 0, 0, 0.02 ) !important;
+}
+
 .fc-basic-view .fc-day-number {
 	padding: 0px 5px;
 }
@@ -176,13 +181,14 @@ header .subtitle {
 }
 
 .tenDays .event-background {
-	width: 100%;
-	height: 20px;
-	padding: 0px 3px;
-	background-color: transparent;
+	width: 159px;
+	height: 72px;
+	margin: 0px;
+	padding: 0px;
 	position: absolute;
-	top: -22px;
+	top: -39px;
 	left: -3px;
+	opacity: 0;
 	z-index: -1;
 }
 
@@ -192,22 +198,8 @@ header .subtitle {
 
 .fc-event {
 	cursor: pointer;
+	letter-spacing: 2px;
 }
-
-.fc-event.hourDay {
-	width: 156px;
-	height: 70px;
-	margin: 0px;
-	padding: 0px;
-	position: absolute;
-	top: -36px;
-	left: 3px;
-	opacity: 0;
-}
-
-/********************/
-/*      CUSTOM      */
-/********************/
 
 .retireDate {
 	background: #3F51B5 !important;
@@ -216,7 +208,6 @@ header .subtitle {
 	border: none;
 	padding: 3px;
 	font-weight: 300;
-	letter-spacing: 2px;
 }
 
 .tenDays {
@@ -226,7 +217,23 @@ header .subtitle {
 	border: none;
 	padding: 3px;
 	font-weight: 300;
-	letter-spacing: 2px;
+}
+
+.hourDay {
+	width: 156px;
+	height: 70px;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	top: -35px;
+	left: 3px;
+	opacity: 0;
+}
+
+.national {
+	text-align: center;
+	border: none;
+	color: rgba( 0, 0, 0, 0.38 ) !important;
 }
 
 /********************/
