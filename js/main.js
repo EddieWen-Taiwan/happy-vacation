@@ -301,20 +301,18 @@ function setHourArray( hourStart ) {
 
 }
 
-moment.fn.makeOnWorkDay = function( action ) {
-
-	if( typeof action == 'undefined' ) action = 1;
+moment.fn.makeOnWorkDay = function() {
 
 	// lastEvent.day()
 	// 0 -> Sun. // 6 -> Sat.
 	if( this.day() == 0 )
-		this.add( action > 0 ? 1 : -2, 'days' );
+		this.add( 1, 'days' );
 	else if ( this.day() == 6 )
-		this.add( action > 0 ? 2 : -1, 'days' );
+		this.add( 2, 'days' );
 
 	for( k = 0; k < national_holiday.length; k++ ) {
 		if( this.isSame( national_holiday[k].start ) ) {
-			this.add( action, 'days' );
+			this.add( 1, 'days' );
 			break;
 		}
 	}
