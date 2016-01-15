@@ -75,12 +75,6 @@ header .subtitle {
 	right: 120px;
 }
 
-.setting-btn img {
-	width: 24px;
-	margin-top: 13px;
-	margin-left: 13px;
-}
-
 /********************/
 /*     CALENDAR     */
 /********************/
@@ -134,7 +128,8 @@ header .subtitle {
 	position: absolute;
 	top: -20px;
 	left: -3px;
-	background-image: url(../images/arrow_left.png);
+	background-image: url(../images/all-images.png);
+	background-position: -22px -38px;
 	opacity: 0;
 	cursor: pointer;
 
@@ -325,14 +320,14 @@ header .subtitle {
 	width: 20px;
 	height: 20px;
 	background-image: url(../images/all-images.png);
-	background-position: -38px -44px;
+	background-position: 0px -36px;
 	position: relative;
 	z-index: 5;
 }
 
 .options:hover .real-circle,
 .valuable .real-circle {
-	background-position: -38px -64px;
+	background-position: 0px -56px;
 }
 
 .wave {
@@ -543,6 +538,13 @@ header .css-sprite {
 	margin-top: 6px;
 }
 
+.css-sprite.setting {
+	width: 24px;
+	height: 24px;
+	background-position: -34px -52px;
+	margin-top: 13px;
+	margin-left: 13px;
+}
 
 
 
