@@ -15,9 +15,9 @@
 				<div class="welcome">歡迎來到快樂假期</div>
 			</div>
 			<div class="content">
-				<div class="question"><img src="images/retireDate.png" />退伍日期：</div>
+				<div class="question"><div class="css-sprite retire"></div>退伍日期：</div>
 				<input type="text" id="datepicker" />
-				<div class="question"><img src="images/work.png" />每次回來上勤我要上<div class="day-value">整天</div>班</div>
+				<div class="question"><div class="css-sprite work"></div>每次回來上勤我要上<div class="day-value">整天</div>班</div>
 				<div class="radio-btns">
 					<div class="options all-day valuable" data-day="all-day">
 						<div class="radio">

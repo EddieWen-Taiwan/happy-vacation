@@ -524,6 +524,29 @@ header .subtitle {
 	background-color: rgba( 0, 0, 0, 0.12 );
 }
 
+/********************/
+/*    CSS-Sprite    */
+/********************/
+
+.css-sprite {
+	display: inline-block;
+	background-image: url(../images/all-images.png);
+	vertical-align: bottom;
+}
+
+.content .css-sprite {
+	width: 22px;
+	height: 22px;
+	margin-right: 5px;
+}
+
+.css-sprite.retire {
+	background-position: -36px 0px;
+}
+
+.css-sprite.work {
+	background-position: -36px -22px;
+}
 
 
 
