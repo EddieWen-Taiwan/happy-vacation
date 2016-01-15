@@ -10,7 +10,7 @@
 		<div class="css-sprite arrow_down"></div>
 	</div>
 	<div class="circle-btn setting-btn">
-		<img src="images/setting.png" />
+		<div class="css-sprite setting"></div>
 	</div>
 
 </header>
