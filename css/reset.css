@@ -31,59 +31,11 @@ body {
 	font-size: 14px;
 	color: #000000;
 	font-family: "Open Sans";
-	/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, "LiHei Pro", "Microsoft JhengHei";*/
-}
-
-.f-left {
-	float: left;
-}
-
-.f-right {
-	float: right;
-}
-
-.clear {
-	clear: both;
-}
-
-.stop-scrolling {
-	height: 100%;
-	overflow: hidden;
-}
-
-.v-mid {
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: -moz-box;
-	display: flex;
-
-	-webkit-align-items: center;
-	   -moz-align-items: center;
-		-ms-align-items: center;
-			align-items: center;
-}
-
-.center {
-	text-align: center;
-}
-
-.more_height {
-	height: 100px;
 }
 
 :focus {
 	outline: none !important;
 }
-
-/*::selection {
-	background: transparent;
-	color: #9E0360;
-}
-
-::-moz-selection {
-	background: transparent;
-	color: #9E0360;
-}*/
 
 h1 {
 	font-size: 44px;
