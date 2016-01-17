@@ -56,7 +56,7 @@
 		</div>
 	</div>
 
-	<div class="mobile v-mid">
+	<div class="mobile">
 		<div class="text">
 			<img src="images/warning.png" />
 			手機禁止
