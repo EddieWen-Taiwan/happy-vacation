@@ -1,14 +1,8 @@
 #替代役男與他的快樂假期
 
-＃你媽知道你在這當爽兵嗎
-
----
-
 現行版本: v1.3
 
-純屬娛樂性質帶點實用
-
-[http://github.eddiewen.me/happy-vacation/](http://github.eddiewen.me/happy-vacation/)
+http://github.eddiewen.me/happy-vacation/
 
 ---
 
@@ -17,7 +11,7 @@
 
 1. 使用者需要知道自己哪天退伍。（可以用[阿替倒數中](http://smscount.lol)試算
 2. 所屬役別週六日正常休假，不上勤。
-3. 所屬役別沒有無視「不能連續十天不上勤」這規定。
+3. 所屬役別需遵守「不能連續十天不上勤」這規定。
 
 ---
 
