@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<!--
+
+	EEEEEEEEEEEE             DDD             DDD
+	EEEEEEEEEEEE             DDD             DDD     II
+	EEEE                     DDD             DDD
+	EEEE                     DDD             DDD
+	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII	 EEEEEEEEEE
+	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII	EEE      EEE
+	EEEE            DDD      DDD    DDD      DDD    IIII	EEE      EEE
+	EEEE            DDD      DDD    DDD      DDD    IIII	EEEEEEEEEEEE
+	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII	EEE
+	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII     EEEEEEEEEE
+
+
+	WWWW            WWWW
+	WWWW    WWWW    WWWW
+	WWWW    WWWW    WWWW
+	WWWW    WWWW    WWWW
+	WWWW    WWWW    WWWW     EEEEEEEEEE     NN  NNNNNN
+	WWWW    WWWW    WWWW    EEE      EEE    NN NNNNNNNN
+	WWWW    WWWW    WWWW    EEE      EEE    NNNNN  NNNNN
+	 WWWW WWWWWWWW WWWW     EEEEEEEEEEEE    NNNN    NNNN
+	  WWWWWWW  WWWWWWW      EEE             NNNN    NNNN
+	   WWWWW    WWWWW        EEEEEEEEEE     NNNN    NNNN    from TAIWAN
+
+-->
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+	<meta name="description" content="＃你媽知道你在這當爽兵嗎？" />
+	<meta name="author" content="Eddie Wen | 溫奕書" />
+	<meta name="URL" content="http://github.eddiewen.me/happy-vacation/" />
+	<meta name="image" content="http://github.eddiewen.me/happy-vacation/images/website-image.png" />
+
+	<!-- Open Graph -->
+	<meta property="og:site_name" content="替代役男與他的快樂假期" />
+	<meta property="og:title" content="替代役男與他的快樂假期" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://github.eddiewen.me/happy-vacation/"  />
+	<meta property="og:image" content="http://github.eddiewen.me/happy-vacation/images/website-image.png" />
+	<meta property="og:description" content="＃你媽知道你在這當爽兵嗎？" />
+
+	<title>替代役男與他的快樂假期</title>
+	<link rel="Shortcut Icon" type="image/x-icon" href="images/favicon.png" />
+	<link rel="apple-touch-icon" href="images/favicon.png" />
+
+	<!-- google font -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="library/jquery.min.js"></script>
+
+	<!-- FullCalendar -->
+	<script type="text/javascript" src="library/moment/moment.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.js"></script>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.print.css" />
+
+	<!-- Pikaday -->
+	<link rel="stylesheet" href="library/Pikaday/pikaday.css" />
+	<script type="text/javascript" src="library/Pikaday/pikaday.js"></script>
+
+	<!-- my CSS -->
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/main.css" />
+
+	<script type="text/javascript" src="js/main.js"></script>
+
+</head>
+
+
+<body>
+
+	<header>
+
+		<h2>替代役男與他的快樂假期</h2>
+		<div class="subtitle">＃你媽知道你在這當爽兵嗎？</div>
+
+		<div class="circle-btn month-btn prev">
+			<div class="css-sprite arrow_up"></div>
+		</div>
+		<div class="circle-btn month-btn next">
+			<div class="css-sprite arrow_down"></div>
+		</div>
+		<div class="circle-btn setting-btn">
+			<div class="css-sprite setting"></div>
+		</div>
+
+	</header>
+
+	<div id="calendar"></div>
+	<div class="document">
+		<a href="https://github.com/EddieWen-Taiwan/happy-vacation" target="_blank">使用文件</a>
+	</div>
+
+	<div class="overlay">
+		<div class="card">
+			<div class="title">
+				<div class="welcome">歡迎來到快樂假期</div>
+			</div>
+			<div class="content">
+				<div class="question"><div class="css-sprite retire"></div>退伍日期：</div>
+				<input type="text" id="datepicker" />
+				<div class="question"><div class="css-sprite work"></div>每次回來上勤我要上<div class="day-value">整天</div>班</div>
+				<div class="radio-btns">
+					<div class="options all-day valuable" data-day="all-day">
+						<div class="radio">
+							<div class="wave"></div>
+							<div class="real-circle"></div>
+						</div>
+						<span class="text">整天</span>
+					</div>
+					<div class="options half-day" data-day="half-day">
+						<div class="radio">
+							<div class="wave"></div>
+							<div class="real-circle"></div>
+						</div>
+						<span class="text">半天</span>
+					</div>
+				</div>
+			</div>
+			<div class="ok">確 定</div>
+		</div>
+	</div>
+
+	<div class="alert">
+		<div class="dialog animated">
+			<div class="title">
+				<div class="bad">不可以</div>
+				<div class="good">提示</div>
+			</div>
+			<div class="content">
+				<span class="not-allow-to-right">上勤日會重疊啦。</span>
+				<span class="not-allow-to-left">這樣會連放太多假喔。</span>
+				<span class="need-hours">共需要 <span class="value"></span> 小時的假。</span>
+			</div>
+			<div class="btn-row">
+				<div class="fine">確定</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="mobile">
+		<div class="text">
+			<img src="images/warning.png" />
+			手機禁止
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+
