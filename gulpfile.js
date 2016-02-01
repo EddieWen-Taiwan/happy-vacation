@@ -7,30 +7,30 @@ var htmlReplace = require('gulp-html-replace');
 gulp.task( 'default', [ 'html', 'style', 'js', 'libraryJS' ] );
 
 gulp.task( 'style', function() {
-	return gulp.src('master/css/*.css')
+	return gulp.src('css/*.css')
 		.pipe( concat('main.min.css') )
 		.pipe( minifycss() )
-		.pipe( gulp.dest('gh-pages/css/') );
+		.pipe( gulp.dest('../gh-pages/css/') );
 });
 
 gulp.task( 'js', function() {
-	return gulp.src('master/js/main.js')
+	return gulp.src('js/main.js')
 		.pipe( uglify() )
-		.pipe( gulp.dest('gh-pages/js/') );
+		.pipe( gulp.dest('../gh-pages/js/') );
 });
 
 gulp.task( 'libraryJS', function() {
-	return gulp.src(['master/library/jquery.min.js', 'master/library/moment/moment.min.js', 'master/library/Pikaday/pikaday.js'])
+	return gulp.src(['library/jquery.min.js', 'library/moment/moment.min.js', 'library/Pikaday/pikaday.js'])
 		.pipe( concat('all.min.js') )
 		.pipe( uglify() )
-		.pipe( gulp.dest('gh-pages/library/') );
+		.pipe( gulp.dest('../gh-pages/library/') );
 });
 
 gulp.task( 'html', function() {
-	return gulp.src('master/index.html')
+	return gulp.src('index.html')
 		.pipe( htmlReplace({
 			'css': 'css/main.min.css',
 			'libraryJS': 'library/all.min.js'
 		}) )
-		.pipe( gulp.dest('gh-pages/') );
+		.pipe( gulp.dest('../gh-pages/') );
 });
