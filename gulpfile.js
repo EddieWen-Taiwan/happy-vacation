@@ -7,6 +7,9 @@ var htmlReplace = require('gulp-html-replace');
 gulp.task( 'default', [ 'html', 'style', 'js', 'libraryJS' ] );
 
 gulp.task( 'style', function() {
+	gulp.src('library/Pikaday/pikaday.css')
+		.pipe( minifycss() )
+		.pipe( gulp.dest('../gh-pages/library/Pikaday/') );
 	return gulp.src('css/*.css')
 		.pipe( concat('main.min.css') )
 		.pipe( minifycss() )
