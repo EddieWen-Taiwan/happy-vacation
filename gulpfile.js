@@ -14,7 +14,8 @@ gulp.task( 'style', function() {
 });
 
 gulp.task( 'js', function() {
-	return gulp.src('js/main.js')
+	return gulp.src(['js/holiday.js', 'js/main.js'])
+		.pipe( concat('main.min.js') )
 		.pipe( uglify() )
 		.pipe( gulp.dest('../gh-pages/js/') );
 });
@@ -30,6 +31,7 @@ gulp.task( 'html', function() {
 	return gulp.src('index.html')
 		.pipe( htmlReplace({
 			'css': 'css/main.min.css',
+			'js': 'js/main.min.js',
 			'libraryJS': 'library/all.min.js'
 		}) )
 		.pipe( gulp.dest('../gh-pages/') );
