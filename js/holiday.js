@@ -135,3 +135,6 @@ var national_holiday = [
 		className: "national"
 	}
 ];
+var weekend_workday = [
+	'2016-06-04', '2016-09-10'
+];

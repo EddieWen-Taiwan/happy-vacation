@@ -97,7 +97,15 @@ $(document).ready( function(){
 			// Should not be before this date
 			var limitDate = moment(eventArray[eventOrdering-1].start).add( -10, 'days' );
 
-			preDate = moment(preDate).add( preDate.day() == 1 ? -3 : -1, 'days' );
+			if( preDate.day() == 1 ) {
+				if( meetWeekendWorkDay( moment(preDate).add( -2, 'days' ) ) == true ) {
+					preDate = moment(preDate).add( -2, 'days' );
+				} else {
+					preDate = moment(preDate).add( -3, 'days' );
+				}
+			} else {
+				preDate = moment(preDate).add( -1, 'days' );
+			}
 			var checkingHoliday = true;
 			while( checkingHoliday ) {
 				checkingHoliday = false;
@@ -222,7 +230,7 @@ function setHourArray( hourStart ) {
 
 			if( isThisHoliday == false ) {
 				var newEvent = {
-					title: newStart.day() == 0 || newStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
+					title: (newStart.day() == 0 || newStart.day() == 6) && !meetWeekendWorkDay(newStart) ? "＊＊＊＊＊" : "8hr",
 					start: newStart,
 					className: "hourDay"
 				}
@@ -237,10 +245,12 @@ function setHourArray( hourStart ) {
 moment.fn.makeOnWorkDay = function() {
 	// Just plus day
 	// 0 -> Sun. // 6 -> Sat.
-	if( this.day() == 0 )
-		this.add( 1, 'days' );
-	else if ( this.day() == 6 )
-		this.add( 2, 'days' );
+	if( meetWeekendWorkDay(this) == false ) {
+		if( this.day() == 0 )
+			this.add( 1, 'days' );
+		else if ( this.day() == 6 )
+			this.add( 2, 'days' );
+	}
 
 	for( k = 0; k < national_holiday.length; k++ ) {
 		if( this.isSame( national_holiday[k].start ) ) {
@@ -257,8 +267,10 @@ moment.fn.makeOnWorkDay = function() {
 moment.fn.isThislegal = function() {
 
 	// Weekend
-	if( this.day() == 0 || this.day() == 6 ) {
-		return false;
+	if( meetWeekendWorkDay(this) == false ) {
+		if( this.day() == 0 || this.day() == 6 ) {
+			return false;
+		}
 	}
 
 	// National holidays
@@ -270,5 +282,9 @@ moment.fn.isThislegal = function() {
 
 	return true;
 
+}
+
+function meetWeekendWorkDay( day ) {
+	return weekend_workday.indexOf(day.format("YYYY-MM-DD")) > -1 ? true : false;
 }
 
