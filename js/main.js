@@ -237,10 +237,12 @@ function setHourArray( hourStart ) {
 moment.fn.makeOnWorkDay = function() {
 	// Just plus day
 	// 0 -> Sun. // 6 -> Sat.
-	if( this.day() == 0 )
-		this.add( 1, 'days' );
-	else if ( this.day() == 6 )
-		this.add( 2, 'days' );
+	if( meetWeekendWorkDay(this) == false ) {
+		if( this.day() == 0 )
+			this.add( 1, 'days' );
+		else if ( this.day() == 6 )
+			this.add( 2, 'days' );
+	}
 
 	for( k = 0; k < national_holiday.length; k++ ) {
 		if( this.isSame( national_holiday[k].start ) ) {
@@ -257,8 +259,10 @@ moment.fn.makeOnWorkDay = function() {
 moment.fn.isThislegal = function() {
 
 	// Weekend
-	if( this.day() == 0 || this.day() == 6 ) {
-		return false;
+	if( meetWeekendWorkDay(this) == false ) {
+		if( this.day() == 0 || this.day() == 6 ) {
+			return false;
+		}
 	}
 
 	// National holidays
@@ -270,5 +274,9 @@ moment.fn.isThislegal = function() {
 
 	return true;
 
+}
+
+function meetWeekendWorkDay( day ) {
+	return weekend_workday.indexOf(day.format("YYYY-MM-DD")) > -1 ? true : false;
 }
 
