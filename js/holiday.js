@@ -136,5 +136,5 @@ var national_holiday = [
 	}
 ];
 var weekend_workday = [
-	'2016-06-04'
+	'2016-06-04', '2016-09-16'
 ];
