@@ -230,7 +230,7 @@ function setHourArray( hourStart ) {
 
 			if( isThisHoliday == false ) {
 				var newEvent = {
-					title: newStart.day() == 0 || newStart.day() == 6 ? "＊＊＊＊＊" : "8hr",
+					title: (newStart.day() == 0 || newStart.day() == 6) && !meetWeekendWorkDay(newStart) ? "＊＊＊＊＊" : "8hr",
 					start: newStart,
 					className: "hourDay"
 				}
