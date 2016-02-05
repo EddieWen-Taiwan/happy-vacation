@@ -97,7 +97,15 @@ $(document).ready( function(){
 			// Should not be before this date
 			var limitDate = moment(eventArray[eventOrdering-1].start).add( -10, 'days' );
 
-			preDate = moment(preDate).add( preDate.day() == 1 ? -3 : -1, 'days' );
+			if( preDate.day() == 1 ) {
+				if( meetWeekendWorkDay( moment(preDate).add( -2, 'days' ) ) == true ) {
+					preDate = moment(preDate).add( -2, 'days' );
+				} else {
+					preDate = moment(preDate).add( -3, 'days' );
+				}
+			} else {
+				preDate = moment(preDate).add( -1, 'days' );
+			}
 			var checkingHoliday = true;
 			while( checkingHoliday ) {
 				checkingHoliday = false;
