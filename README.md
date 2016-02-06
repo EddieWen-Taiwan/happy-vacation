@@ -2,9 +2,10 @@
 
 部分役男在服役時有積了一些榮譽假及補休，打算在最後退役前一次放完，但由於有不能連續十天不上勤的規定，所以在排假時會有點小麻煩。因此寫了這個程式來幫助役男規劃他的休退假期。
 
-現行版本: v1.4
-
 http://github.eddiewen.me/happy-vacation/
+
+線上版本: v1.4<br/>
+修改記錄如 [Releases](https://github.com/EddieWen-Taiwan/happy-vacation/releases)
 
 ---
 
