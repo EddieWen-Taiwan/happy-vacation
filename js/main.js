@@ -16,6 +16,11 @@ $(document).ready( function(){
 			$.each( $('.tenDays'), function(){
 				$(this).children('.fc-content').append('<div class="arrow minus" data-move="minus"></div><div class="arrow plus" data-move="plus"></div><div class="event-background"></div>');
 			});
+			$('.fc-day-number.fc-sat').each( function() {
+				if( weekend_workday.indexOf( $(this).attr('data-date') ) > -1 ) {
+					$(this).html( "<span class='weekendWork'>補班</span> " + parseInt( $(this).attr('data-date').substr(-2) ) );
+				}
+			});
 		}
 	});
 
