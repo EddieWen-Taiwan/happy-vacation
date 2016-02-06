@@ -21,7 +21,8 @@ $(document).ready( function(){
 				// Check whethe it's on the list
 				if( weekend_workday.indexOf( $(this).attr('data-date') ) > -1 && !$(this).hasClass('markWork') ) {
 					// Mark it with .markWrok
-					$(this).html( "<span class='weekendWork'>補班</span> " + parseInt( $(this).attr('data-date').substr(-2) ) ).addClass('markWork');
+					$(this).html( "<span class='weekendWork'>補班</span> "+parseInt($(this).attr('data-date').substr(-2)) )
+						.addClass('markWork');
 				}
 			});
 		}
