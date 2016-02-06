@@ -76,6 +76,16 @@ var national_holiday = [
 	},
 	{
 		title: "新年",
+		start: moment('2017-01-28'),
+		className: "national"
+	},
+	{
+		title: "新年",
+		start: moment('2017-01-29'),
+		className: "national"
+	},
+	{
+		title: "新年",
 		start: moment('2017-01-30'),
 		className: "national"
 	},
