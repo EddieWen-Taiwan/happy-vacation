@@ -7,9 +7,9 @@ var htmlReplace = require('gulp-html-replace');
 gulp.task( 'default', [ 'html', 'style', 'js', 'libraryJS' ] );
 
 gulp.task( 'style', function() {
-	gulp.src('library/Pikaday/pikaday.css')
+	gulp.src('node_modules/pikaday/css/pikaday.css')
 		.pipe( minifycss() )
-		.pipe( gulp.dest('../gh-pages/library/Pikaday/') );
+		.pipe( gulp.dest('../gh-pages/node_modules/pikaday/css/') );
 	return gulp.src('css/*.css')
 		.pipe( concat('main.min.css') )
 		.pipe( minifycss() )
@@ -24,10 +24,10 @@ gulp.task( 'js', function() {
 });
 
 gulp.task( 'libraryJS', function() {
-	return gulp.src(['library/jquery.min.js', 'library/moment/moment.min.js', 'library/Pikaday/pikaday.js'])
+	return gulp.src( ['node_modules/jquery/dist/jquery.min.js', 'node_modules/moment/min/moment.min.js', 'node_modules/pikaday/pikaday.js'] )
 		.pipe( concat('all.min.js') )
 		.pipe( uglify() )
-		.pipe( gulp.dest('../gh-pages/library/') );
+		.pipe( gulp.dest('../gh-pages/node_modules/') );
 });
 
 gulp.task( 'html', function() {
@@ -35,7 +35,7 @@ gulp.task( 'html', function() {
 		.pipe( htmlReplace({
 			'css': 'css/main.min.css',
 			'js': 'js/main.min.js',
-			'libraryJS': 'library/all.min.js'
+			'libraryJS': 'node_modules/all.min.js'
 		}) )
 		.pipe( gulp.dest('../gh-pages/') );
 });

@@ -230,6 +230,11 @@ header .subtitle {
 	margin-top: 28px;
 }
 
+.weekendWork {
+	font-size: 12px;
+	color: rgba( 0, 0, 0, 0.38 );
+}
+
 /********************/
 /*      OVERLAY     */
 /********************/
