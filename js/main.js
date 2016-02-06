@@ -16,9 +16,12 @@ $(document).ready( function(){
 			$.each( $('.tenDays'), function(){
 				$(this).children('.fc-content').append('<div class="arrow minus" data-move="minus"></div><div class="arrow plus" data-move="plus"></div><div class="event-background"></div>');
 			});
+			// Workday on the weekend
 			$('.fc-day-number.fc-sat').each( function() {
-				if( weekend_workday.indexOf( $(this).attr('data-date') ) > -1 ) {
-					$(this).html( "<span class='weekendWork'>補班</span> " + parseInt( $(this).attr('data-date').substr(-2) ) );
+				// Check whethe it's on the list
+				if( weekend_workday.indexOf( $(this).attr('data-date') ) > -1 && !$(this).hasClass('markWork') ) {
+					// Mark it with .markWrok
+					$(this).html( "<span class='weekendWork'>補班</span> " + parseInt( $(this).attr('data-date').substr(-2) ) ).addClass('markWork');
 				}
 			});
 		}
