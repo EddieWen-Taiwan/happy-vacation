@@ -497,6 +497,14 @@ header .subtitle {
 	display: inline-block;
 }
 
+.need-hours::before {
+	content: '共需要 ';
+}
+
+.need-hours::after {
+	content: ' 小時的假。';
+}
+
 .btn-row {
 	text-align: right;
 }

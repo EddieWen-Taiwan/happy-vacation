@@ -194,7 +194,7 @@ $(document).ready( function(){
 			}
 		}
 
-		$('.need-hours .value').text(neededHours);
+		$('.need-hours').text(neededHours);
 		showDialog('hour');
 
 	});
