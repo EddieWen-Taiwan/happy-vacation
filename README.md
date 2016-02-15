@@ -4,7 +4,8 @@
 
 http://github.eddiewen.me/happy-vacation/
 
-線上版本: v1.4<br/>
+線上版本: v1.4.1<br/>
+~~沒新增功能只是偷玩一下 ES2015~~<br/>
 修改記錄如 [Releases](https://github.com/EddieWen-Taiwan/happy-vacation/releases)
 
 ---
