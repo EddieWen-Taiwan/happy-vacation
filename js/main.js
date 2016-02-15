@@ -1,148 +1,148 @@
 const national_holiday = [
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2016-02-08'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2016-02-09'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2016-02-10'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2016-02-11'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2016-02-12'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "二二八補假",
+		title: '二二八補假',
 		start: moment('2016-02-29'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "清明節",
+		title: '清明節',
 		start: moment('2016-04-04'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "兒童節補假",
+		title: '兒童節補假',
 		start: moment('2016-04-05'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "端午節",
+		title: '端午節',
 		start: moment('2016-06-09'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "彈性放假",
+		title: '彈性放假',
 		start: moment('2016-06-10'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "中秋節",
+		title: '中秋節',
 		start: moment('2016-09-15'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "彈性放假",
+		title: '彈性放假',
 		start: moment('2016-09-16'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "雙十節",
+		title: '雙十節',
 		start: moment('2016-10-10'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "元旦補假",
+		title: '元旦補假',
 		start: moment('2017-01-02'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2017-01-27'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2017-01-28'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2017-01-29'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2017-01-30'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2017-01-31'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "新年",
+		title: '新年',
 		start: moment('2017-02-01'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "彈性放假",
+		title: '彈性放假',
 		start: moment('2017-02-27'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "二二八",
+		title: '二二八',
 		start: moment('2017-02-28'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "彈性放假",
+		title: '彈性放假',
 		start: moment('2017-04-03'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "兒童節",
+		title: '兒童節',
 		start: moment('2017-04-04'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "清明節",
+		title: '清明節',
 		start: moment('2017-04-05'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "彈性放假",
+		title: '彈性放假',
 		start: moment('2017-05-29'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "端午節",
+		title: '端午節',
 		start: moment('2017-05-30'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "彈性放假",
+		title: '彈性放假',
 		start: moment('2017-10-09'),
-		className: "national"
+		className: 'national'
 	},
 	{
-		title: "雙十節",
+		title: '雙十節',
 		start: moment('2017-10-10'),
-		className: "national"
+		className: 'national'
 	}
 ];
 const weekend_workday = [
@@ -152,7 +152,7 @@ const weekend_workday = [
 var eventArray;
 var hourArray;
 var targetEvent;
-var back2workStatus = "all-day";
+var back2workStatus = 'all-day';
 
 $(document).ready( function(){
 
@@ -172,7 +172,7 @@ $(document).ready( function(){
 				// Check whethe it's on the list
 				if( weekend_workday.indexOf( $(this).attr('data-date') ) > -1 && !$(this).hasClass('markWork') ) {
 					// Mark it with .markWrok
-					$(this).html( "<span class='weekendWork'>補班</span> "+parseInt($(this).attr('data-date').substr(-2)) )
+					$(this).html( '<span class="weekendWork">補班</span> '+parseInt($(this).attr('data-date').substr(-2)) )
 						.addClass('markWork');
 				}
 			});
@@ -191,23 +191,23 @@ $(document).ready( function(){
 		$(this).addClass('valuable');
 		$(this).find('.wave').addClass('show');
 
-		$('.day-value').text( $(this).attr('data-day') == "all-day" ? "整天" : "半天" );
+		$('.day-value').text( $(this).attr('data-day') == 'all-day' ? '整天' : '半天' );
 		back2workStatus = $(this).attr('data-day');
 	});
 
 	$('.ok').on( 'click', function(){
 
-		if( $('#datepicker').val() == "" ) {
-			alert("跟我說哪天退伍麻~");
+		if( $('#datepicker').val() == '' ) {
+			alert('跟我說哪天退伍麻~');
 		} else {
 
 			// Get this from user
 			let finalDay = moment( $('#datepicker').val() );
 			eventArray = [
 				{
-					title: "退伍日",
+					title: '退伍日',
 					start: finalDay,
-					className: "retireDate"
+					className: 'retireDate'
 				}
 			];
 
@@ -219,9 +219,9 @@ $(document).ready( function(){
 				lastEvent.makeOnWorkDay();
 
 				let newEvent = {
-					title: "*該上勤了吧",
+					title: '*該上勤了吧',
 					start: lastEvent,
-					className: "tenDays event-"+i
+					className: 'tenDays event-'+i
 				};
 				eventArray.push(newEvent);
 
@@ -247,9 +247,9 @@ $(document).ready( function(){
 		let move = $(this).attr('data-move');
 
 		// Check minus or plus too much
-		let actionPermission = "OK";
+		let actionPermission = 'OK';
 		let preDate = eventArray[eventOrdering].start;
-		if( move == "minus" ) {
+		if( move == 'minus' ) {
 			// Prevent more then ten days
 			// Should not be before this date
 			let limitDate = moment(eventArray[eventOrdering-1].start).add( -10, 'days' );
@@ -278,7 +278,7 @@ $(document).ready( function(){
 				preDate = moment(preDate).add( -2, 'days' );
 
 			if( preDate.isBefore(limitDate) ) {
-				actionPermission = "NOT ALLOWED";
+				actionPermission = 'NOT ALLOWED';
 				showDialog('left');
 			}
 		} else {
@@ -286,12 +286,12 @@ $(document).ready( function(){
 			preDate = moment(preDate).add( 1, 'days' );
 			preDate.makeOnWorkDay();
 			if( preDate.isSame(eventArray[eventOrdering-1].start) ) {
-				actionPermission = "NOT ALLOWED";
+				actionPermission = 'NOT ALLOWED';
 				showDialog('right');
 			}
 		}
 
-		if( actionPermission == "OK" ) {
+		if( actionPermission == 'OK' ) {
 			for( let i = eventOrdering; i < 9+1; i++ ) {
 
 				let updatedDate = eventArray[i].start;
@@ -323,7 +323,7 @@ $(document).ready( function(){
 		// How many back-to-work events
 		for( let i = 1; i < eventArray.length; i++ ) {
 			if( targetEvent.start.isSameOrBefore( eventArray[i].start, 'day' ) ) {
-				if( back2workStatus == "half-day" ) {
+				if( back2workStatus == 'half-day' ) {
 					neededHours += 4;
 				}
 				// Don't plus (all-day work)
@@ -334,7 +334,7 @@ $(document).ready( function(){
 
 		for( let i = 0; i < hourArray.length; i++ ) {
 			if( targetEvent.start.isSameOrBefore( hourArray[i].start, 'day' ) ) {
-				if( hourArray[i].title == "8hr" ) {
+				if( hourArray[i].title == '8hr' ) {
 					neededHours += 8;
 				}
 			} else {
@@ -387,9 +387,9 @@ function setHourArray( hourStart ) {
 
 			if( isThisHoliday == false ) {
 				let newEvent = {
-					title: (newStart.day() == 0 || newStart.day() == 6) && !meetWeekendWorkDay(newStart) ? "＊＊＊＊＊" : "8hr",
+					title: (newStart.day() == 0 || newStart.day() == 6) && !meetWeekendWorkDay(newStart) ? '＊＊＊＊＊' : '8hr',
 					start: newStart,
-					className: "hourDay"
+					className: 'hourDay'
 				}
 				hourArray.push(newEvent);
 			}
@@ -442,6 +442,6 @@ moment.fn.isThislegal = function() {
 }
 
 function meetWeekendWorkDay( day ) {
-	return weekend_workday.indexOf(day.format("YYYY-MM-DD")) > -1 ? true : false;
+	return weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
 }
 
