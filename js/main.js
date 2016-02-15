@@ -199,7 +199,8 @@ $(document).ready( function(){
 
 		if( $('#datepicker').val() == '' ) {
 			alert('跟我說哪天退伍麻~');
-		} else {
+		}
+		else {
 
 			// Get this from user
 			let finalDay = moment( $('#datepicker').val() );
@@ -257,10 +258,12 @@ $(document).ready( function(){
 			if( preDate.day() == 1 ) {
 				if( meetWeekendWorkDay( moment(preDate).add( -2, 'days' ) ) == true ) {
 					preDate = moment(preDate).add( -2, 'days' );
-				} else {
+				}
+				else {
 					preDate = moment(preDate).add( -3, 'days' );
 				}
-			} else {
+			}
+			else {
 				preDate = moment(preDate).add( -1, 'days' );
 			}
 			let checkingHoliday = true;
@@ -274,14 +277,16 @@ $(document).ready( function(){
 				}
 			}
 			// Perhaps it's Sunday
-			if( preDate.day() == 0 )
+			if( preDate.day() == 0 ) {
 				preDate = moment(preDate).add( -2, 'days' );
+			}
 
 			if( preDate.isBefore(limitDate) ) {
 				actionPermission = 'NOT ALLOWED';
 				showDialog('left');
 			}
-		} else {
+		}
+		else {
 			// Prevent conflicts
 			preDate = moment(preDate).add( 1, 'days' );
 			preDate.makeOnWorkDay();
@@ -297,7 +302,8 @@ $(document).ready( function(){
 				let updatedDate = eventArray[i].start;
 				if( i == eventOrdering ) {
 					updatedDate = preDate;
-				} else {
+				}
+				else {
 					// after that event
 					updatedDate = moment(eventArray[i-1].start).add( -10, 'days' );
 				}
@@ -327,9 +333,8 @@ $(document).ready( function(){
 					neededHours += 4;
 				}
 				// Don't plus (all-day work)
-			} else {
-				break;
 			}
+			else { break; }
 		}
 
 		for( let i = 0; i < hourArray.length; i++ ) {
@@ -337,9 +342,8 @@ $(document).ready( function(){
 				if( hourArray[i].title == '8hr' ) {
 					neededHours += 8;
 				}
-			} else {
-				break;
 			}
+			else { break; }
 		}
 
 		$('.need-hours').text(neededHours);
@@ -381,8 +385,9 @@ var setHourArray = () => {
 			let newStart = moment(eventHead).add( j*(-1), 'days' );
 			let isThisHoliday = false;
 			national_holiday.map( function(holiday) {
-				if( newStart.isSame( holiday.start ) )
+				if( newStart.isSame( holiday.start ) ) {
 					isThisHoliday = true;
+				}
 			});
 
 			if( isThisHoliday == false ) {
@@ -407,10 +412,12 @@ Object.assign( moment.prototype, {
 		// Just plus day
 		// 0 -> Sun. // 6 -> Sat.
 		if( meetWeekendWorkDay(this) == false ) {
-			if( this.day() == 0 )
+			if( this.day() == 0 ) {
 				this.add( 1, 'days' );
-			else if ( this.day() == 6 )
+			}
+			else if ( this.day() == 6 ) {
 				this.add( 2, 'days' );
+			}
 		}
 
 		for( let k = 0; k < national_holiday.length; k++ ) {
@@ -420,8 +427,9 @@ Object.assign( moment.prototype, {
 			}
 		}
 
-		if( this.isThislegal() == false )
+		if( this.isThislegal() == false ) {
 			this.makeOnWorkDay();
+		}
 	},
 
 	isThislegal() {
