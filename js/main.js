@@ -172,7 +172,7 @@ $(document).ready( function(){
 				// Check whethe it's on the list
 				if( weekend_workday.indexOf( $(this).attr('data-date') ) > -1 && !$(this).hasClass('markWork') ) {
 					// Mark it with .markWrok
-					$(this).html( '<span class="weekendWork">補班</span> '+parseInt($(this).attr('data-date').substr(-2)) )
+					$(this).html( `<span class="weekendWork">補班</span> ${parseInt($(this).attr('data-date').substr(-2))}` )
 						.addClass('markWork');
 				}
 			});
@@ -221,7 +221,7 @@ $(document).ready( function(){
 				let newEvent = {
 					title: '*該上勤了吧',
 					start: lastEvent,
-					className: 'tenDays event-'+i
+					className: `tenDays event-${i}`
 				};
 				eventArray.push(newEvent);
 
@@ -359,7 +359,7 @@ $(document).ready( function(){
 });
 
 function showDialog( action ) {
-	$('.alert').addClass('show ' + action);
+	$('.alert').addClass(`show ${action}`);
 	$('.dialog').addClass('bounceIn');
 
 	$('.dialog .fine').on( 'click', function(){
