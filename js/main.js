@@ -242,17 +242,17 @@ $(document).ready( function(){
 	// Arrows in Calendar
 	$calendar.on( 'click', '.arrow', function(e){
 		e.stopPropagation();
-		var eventOrdering = parseInt( targetEvent.className[1].substring(6,7) )+1;
+		let eventOrdering = parseInt( targetEvent.className[1].substring(6,7) )+1;
 
-		var move = $(this).attr('data-move');
+		let move = $(this).attr('data-move');
 
 		// Check minus or plus too much
-		var actionPermission = "OK";
-		var preDate = eventArray[eventOrdering].start;
+		let actionPermission = "OK";
+		let preDate = eventArray[eventOrdering].start;
 		if( move == "minus" ) {
 			// Prevent more then ten days
 			// Should not be before this date
-			var limitDate = moment(eventArray[eventOrdering-1].start).add( -10, 'days' );
+			let limitDate = moment(eventArray[eventOrdering-1].start).add( -10, 'days' );
 
 			if( preDate.day() == 1 ) {
 				if( meetWeekendWorkDay( moment(preDate).add( -2, 'days' ) ) == true ) {
@@ -263,7 +263,7 @@ $(document).ready( function(){
 			} else {
 				preDate = moment(preDate).add( -1, 'days' );
 			}
-			var checkingHoliday = true;
+			let checkingHoliday = true;
 			while( checkingHoliday ) {
 				checkingHoliday = false;
 				for( let i = 0; i < national_holiday.length; i++ ) {
@@ -294,7 +294,7 @@ $(document).ready( function(){
 		if( actionPermission == "OK" ) {
 			for( let i = eventOrdering; i < 9+1; i++ ) {
 
-				var updatedDate = eventArray[i].start;
+				let updatedDate = eventArray[i].start;
 				if( i == eventOrdering ) {
 					updatedDate = preDate;
 				} else {
@@ -374,19 +374,19 @@ function setHourArray( hourStart ) {
 	// Reset hourArray
 	hourArray = [];
 	for( let i = 0; i < eventArray.length-1; i++ ) {
-		var eventHead = eventArray[i].start;
-		var eventTail = eventArray[i+1].start;
+		let eventHead = eventArray[i].start;
+		let eventTail = eventArray[i+1].start;
 
 		for( let j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
-			var newStart = moment(eventHead).add( j*(-1), 'days' );
-			var isThisHoliday = false;
+			let newStart = moment(eventHead).add( j*(-1), 'days' );
+			let isThisHoliday = false;
 			national_holiday.map( function(holiday) {
 				if( newStart.isSame( holiday.start ) )
 					isThisHoliday = true;
 			});
 
 			if( isThisHoliday == false ) {
-				var newEvent = {
+				let newEvent = {
 					title: (newStart.day() == 0 || newStart.day() == 6) && !meetWeekendWorkDay(newStart) ? "＊＊＊＊＊" : "8hr",
 					start: newStart,
 					className: "hourDay"
