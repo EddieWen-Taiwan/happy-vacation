@@ -157,7 +157,7 @@ var back2workStatus = "all-day";
 $(document).ready( function(){
 
 	// Initialize FullCalendar
-	var $calendar = $('#calendar');
+	const $calendar = $('#calendar');
 	$calendar.fullCalendar({
 		allDayDefault: true,
 		eventClick: function( thisEvent, jsEvent, view ) {
@@ -180,7 +180,7 @@ $(document).ready( function(){
 	});
 
 	// Initialize Pikaday
-	var picker = new Pikaday({
+	let picker = new Pikaday({
 		field: $('#datepicker')[0],
 		format: 'YYYY-MM-DD'
 	});
@@ -202,7 +202,7 @@ $(document).ready( function(){
 		} else {
 
 			// Get this from user
-			var finalDay = moment( $('#datepicker').val() );
+			let finalDay = moment( $('#datepicker').val() );
 			eventArray = [
 				{
 					title: "退伍日",
@@ -211,17 +211,14 @@ $(document).ready( function(){
 				}
 			];
 
-			var lastEvent = finalDay;
+			let lastEvent = finalDay;
 			hourArray = [];
 			for( let i = 0; i < 9; i++ ) {
 
-				// * Stort lastEvent first.
-				var hourStart = moment(lastEvent);
-
 				lastEvent = moment(lastEvent).add( -10, 'days' );
-				var fixedDays = lastEvent.makeOnWorkDay();
+				lastEvent.makeOnWorkDay();
 
-				var newEvent = {
+				let newEvent = {
 					title: "*該上勤了吧",
 					start: lastEvent,
 					className: "tenDays event-"+i
@@ -321,7 +318,7 @@ $(document).ready( function(){
 	// Get how many hours does user need
 	$('#calendar').on( 'click', '.fc-event', function(){
 
-		var neededHours = 0;
+		let neededHours = 0;
 
 		// How many back-to-work events
 		for( let i = 1; i < eventArray.length; i++ ) {
