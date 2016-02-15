@@ -20,7 +20,7 @@ gulp.task( 'style', function() {
 gulp.task( 'js', function() {
 	return gulp.src( 'js/*.js' )
 		.pipe( concat('main.min.js') )
-		.pipr( babel({
+		.pipe( babel({
 			presets: 'es2015'
 		}) )
 		.pipe( uglify() )
