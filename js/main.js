@@ -401,45 +401,45 @@ var setHourArray = () => {
 
 var meetWeekendWorkDay = day => weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
 
-moment.fn.makeOnWorkDay = function() {
-	// Just plus day
-	// 0 -> Sun. // 6 -> Sat.
-	if( meetWeekendWorkDay(this) == false ) {
-		if( this.day() == 0 )
-			this.add( 1, 'days' );
-		else if ( this.day() == 6 )
-			this.add( 2, 'days' );
-	}
+Object.assign( moment.prototype, {
 
-	for( let k = 0; k < national_holiday.length; k++ ) {
-		if( this.isSame( national_holiday[k].start ) ) {
-			this.add( 1, 'days' );
-			break;
+	makeOnWorkDay() {
+		// Just plus day
+		// 0 -> Sun. // 6 -> Sat.
+		if( meetWeekendWorkDay(this) == false ) {
+			if( this.day() == 0 )
+				this.add( 1, 'days' );
+			else if ( this.day() == 6 )
+				this.add( 2, 'days' );
 		}
-	}
 
-	if( this.isThislegal() == false )
-		this.makeOnWorkDay();
-
-}
-
-moment.fn.isThislegal = function() {
-
-	// Weekend
-	if( meetWeekendWorkDay(this) == false ) {
-		if( this.day() == 0 || this.day() == 6 ) {
-			return false;
+		for( let k = 0; k < national_holiday.length; k++ ) {
+			if( this.isSame( national_holiday[k].start ) ) {
+				this.add( 1, 'days' );
+				break;
+			}
 		}
-	}
 
-	// National holidays
-	for( let k = 0; k < national_holiday.length; k++ ) {
-		if( this.isSame( national_holiday[k].start ) ) {
-			return false;
+		if( this.isThislegal() == false )
+			this.makeOnWorkDay();
+	},
+
+	isThislegal() {
+		// Weekend
+		if( meetWeekendWorkDay(this) == false ) {
+			if( this.day() == 0 || this.day() == 6 ) {
+				return false;
+			}
 		}
+
+		// National holidays
+		for( let k = 0; k < national_holiday.length; k++ ) {
+			if( this.isSame( national_holiday[k].start ) ) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
-	return true;
-
-}
-
+});
