@@ -18,7 +18,7 @@ gulp.task( 'style', function() {
 });
 
 gulp.task( 'js', function() {
-	return gulp.src(['js/holiday.js', 'js/main.js'])
+	return gulp.src( 'js/*.js' )
 		.pipe( concat('main.min.js') )
 		.pipr( babel({
 			presets: 'es2015'
