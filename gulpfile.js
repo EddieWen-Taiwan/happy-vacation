@@ -3,6 +3,7 @@ var minifycss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var htmlReplace = require('gulp-html-replace');
+var babel = require('gulp-babel');
 
 gulp.task( 'default', [ 'html', 'style', 'js', 'libraryJS' ] );
 
@@ -19,6 +20,9 @@ gulp.task( 'style', function() {
 gulp.task( 'js', function() {
 	return gulp.src(['js/holiday.js', 'js/main.js'])
 		.pipe( concat('main.min.js') )
+		.pipr( babel({
+			presets: 'es2015'
+		}) )
 		.pipe( uglify() )
 		.pipe( gulp.dest('../gh-pages/js/') );
 });
