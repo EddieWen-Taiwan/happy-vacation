@@ -148,5 +148,3 @@ const national_holiday = [
 const weekend_workday = [
 	'2016-06-04', '2016-09-10'
 ];
-
-export { national_holiday, weekend_workday };

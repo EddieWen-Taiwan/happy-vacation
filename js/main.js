@@ -1,5 +1,3 @@
-import { national_holiday, weekend_workday } from './holiday.js';
-
 var eventArray;
 var hourArray;
 var targetEvent;
