@@ -213,7 +213,7 @@ $(document).ready( function(){
 
 			var lastEvent = finalDay;
 			hourArray = [];
-			for( i = 0; i < 9; i++ ) {
+			for( let i = 0; i < 9; i++ ) {
 
 				// * Stort lastEvent first.
 				var hourStart = moment(lastEvent);
@@ -269,7 +269,7 @@ $(document).ready( function(){
 			var checkingHoliday = true;
 			while( checkingHoliday ) {
 				checkingHoliday = false;
-				for( i = 0; i < national_holiday.length; i++ ) {
+				for( let i = 0; i < national_holiday.length; i++ ) {
 					if( preDate.isSame( national_holiday[i].start ) ) {
 						preDate = moment(preDate).add( -1, 'days' );
 						checkingHoliday = true;
@@ -295,7 +295,7 @@ $(document).ready( function(){
 		}
 
 		if( actionPermission == "OK" ) {
-			for( i = eventOrdering; i < 9+1; i++ ) {
+			for( let i = eventOrdering; i < 9+1; i++ ) {
 
 				var updatedDate = eventArray[i].start;
 				if( i == eventOrdering ) {
@@ -324,7 +324,7 @@ $(document).ready( function(){
 		var neededHours = 0;
 
 		// How many back-to-work events
-		for( i = 1; i < eventArray.length; i++ ) {
+		for( let i = 1; i < eventArray.length; i++ ) {
 			if( targetEvent.start.isSameOrBefore( eventArray[i].start, 'day' ) ) {
 				if( back2workStatus == "half-day" ) {
 					neededHours += 4;
@@ -335,7 +335,7 @@ $(document).ready( function(){
 			}
 		}
 
-		for( i = 0; i < hourArray.length; i++ ) {
+		for( let i = 0; i < hourArray.length; i++ ) {
 			if( targetEvent.start.isSameOrBefore( hourArray[i].start, 'day' ) ) {
 				if( hourArray[i].title == "8hr" ) {
 					neededHours += 8;
@@ -376,11 +376,11 @@ function setHourArray( hourStart ) {
 
 	// Reset hourArray
 	hourArray = [];
-	for( i = 0; i < eventArray.length-1; i++ ) {
+	for( let i = 0; i < eventArray.length-1; i++ ) {
 		var eventHead = eventArray[i].start;
 		var eventTail = eventArray[i+1].start;
 
-		for( j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
+		for( let j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
 			var newStart = moment(eventHead).add( j*(-1), 'days' );
 			var isThisHoliday = false;
 			national_holiday.map( function(holiday) {
@@ -412,7 +412,7 @@ moment.fn.makeOnWorkDay = function() {
 			this.add( 2, 'days' );
 	}
 
-	for( k = 0; k < national_holiday.length; k++ ) {
+	for( let k = 0; k < national_holiday.length; k++ ) {
 		if( this.isSame( national_holiday[k].start ) ) {
 			this.add( 1, 'days' );
 			break;
@@ -434,7 +434,7 @@ moment.fn.isThislegal = function() {
 	}
 
 	// National holidays
-	for( k = 0; k < national_holiday.length; k++ ) {
+	for( let k = 0; k < national_holiday.length; k++ ) {
 		if( this.isSame( national_holiday[k].start ) ) {
 			return false;
 		}
