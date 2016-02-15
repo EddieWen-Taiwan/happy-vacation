@@ -358,7 +358,7 @@ $(document).ready( function(){
 
 });
 
-function showDialog( action ) {
+var showDialog = action => {
 	$('.alert').addClass(`show ${action}`);
 	$('.dialog').addClass('bounceIn');
 
@@ -369,7 +369,7 @@ function showDialog( action ) {
 	});
 }
 
-function setHourArray( hourStart ) {
+var setHourArray = hourStart => {
 
 	// Reset hourArray
 	hourArray = [];
@@ -398,6 +398,8 @@ function setHourArray( hourStart ) {
 	$('#calendar').fullCalendar( 'addEventSource', hourArray );
 
 }
+
+var meetWeekendWorkDay = day => weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
 
 moment.fn.makeOnWorkDay = function() {
 	// Just plus day
@@ -439,9 +441,5 @@ moment.fn.isThislegal = function() {
 
 	return true;
 
-}
-
-function meetWeekendWorkDay( day ) {
-	return weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
 }
 
