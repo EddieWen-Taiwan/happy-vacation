@@ -369,7 +369,7 @@ var showDialog = action => {
 	});
 }
 
-var setHourArray = hourStart => {
+var setHourArray = () => {
 
 	// Reset hourArray
 	hourArray = [];
