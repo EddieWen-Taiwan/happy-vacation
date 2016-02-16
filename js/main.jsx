@@ -368,10 +368,10 @@ var showDialog = (action) => {
 	$('.alert').addClass(`show ${action}`);
 	$('.dialog').addClass('bounceIn');
 
-	$('.dialog .fine').on( 'click', () => {
+	$('.dialog .fine').on( 'click', (e) => {
 		$('.alert').removeClass('show left right hour');
 		$('.dialog').removeClass('bounceIn');
-		$(this).off('click');
+		$(e.currentTarget).off('click');
 	});
 }
 
