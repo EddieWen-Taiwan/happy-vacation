@@ -160,19 +160,19 @@ $(document).ready( () => {
 	const $calendar = $('#calendar');
 	$calendar.fullCalendar({
 		allDayDefault: true,
-		eventClick( thisEvent, jsEvent, view ) {
+		eventClick(thisEvent,jsEvent,view) {
 			targetEvent = thisEvent;
 		},
 		eventAfterAllRender(event) {
-			$.each( $('.tenDays'), function(){
-				$(this).children('.fc-content').append('<div class="arrow minus" data-move="minus"></div><div class="arrow plus" data-move="plus"></div><div class="event-background"></div>');
+			$.each( $('.tenDays'), (index,element) => {
+				$(element).children('.fc-content').append('<div class="arrow minus" data-move="minus"></div><div class="arrow plus" data-move="plus"></div><div class="event-background"></div>');
 			});
 			// Workday on the weekend
-			$('.fc-day-number.fc-sat').each( function() {
+			$('.fc-day-number.fc-sat').each( (index,element) => {
 				// Check whethe it's on the list
-				if( weekend_workday.indexOf( $(this).attr('data-date') ) > -1 && !$(this).hasClass('markWork') ) {
+				if( weekend_workday.indexOf( $(element).attr('data-date') ) > -1 && !$(element).hasClass('markWork') ) {
 					// Mark it with .markWrok
-					$(this).html( `<span class="weekendWork">補班</span> ${parseInt($(this).attr('data-date').substr(-2))}` )
+					$(element).html( `<span class="weekendWork">補班</span> ${parseInt($(element).attr('data-date').substr(-2))}` )
 						.addClass('markWork');
 				}
 			});
@@ -241,11 +241,11 @@ $(document).ready( () => {
 	});
 
 	// Arrows in Calendar
-	$calendar.on( 'click', '.arrow', function(e) {
+	$calendar.on( 'click', '.arrow', (e) => {
 		e.stopPropagation();
 		let eventOrdering = parseInt( targetEvent.className[1].substring(6,7) )+1;
 
-		let move = $(this).attr('data-move');
+		let move = $(e.currentTarget).attr('data-move');
 
 		// Check minus or plus too much
 		let actionPermission = 'OK';
@@ -352,8 +352,10 @@ $(document).ready( () => {
 	});
 
 	// Trigger calendar to next/prev month
-	$('.month-btn').on( 'click', function() {
-		$calendar.fullCalendar( $(this).hasClass('prev') ? 'prev' : 'next' );
+	$('.month-btn').on( 'click', (event) => {
+		console.log(event);
+		console.log(event.currentTarget);
+		$calendar.fullCalendar( $(event.currentTarget).hasClass('prev') ? 'prev' : 'next' );
 	});
 
 	$('.setting-btn').on( 'click', () => {
