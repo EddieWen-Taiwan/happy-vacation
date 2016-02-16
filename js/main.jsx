@@ -154,7 +154,7 @@ var hourArray;
 var targetEvent;
 var back2workStatus = 'all-day';
 
-$(document).ready( function(){
+$(document).ready( () => {
 
 	// Initialize FullCalendar
 	const $calendar = $('#calendar');
@@ -185,7 +185,7 @@ $(document).ready( function(){
 		format: 'YYYY-MM-DD',
 	});
 
-	$('.options').on( 'click', function(){
+	$('.options').on( 'click', () => {
 		$('.options').removeClass('valuable');
 		$('.wave').removeClass('show');
 		$(this).addClass('valuable');
@@ -195,7 +195,7 @@ $(document).ready( function(){
 		back2workStatus = $(this).attr('data-day');
 	});
 
-	$('.ok').on( 'click', function(){
+	$('.ok').on( 'click', () => {
 
 		if( $('#datepicker').val() == '' ) {
 			alert('跟我說哪天退伍麻~');
@@ -241,7 +241,7 @@ $(document).ready( function(){
 	});
 
 	// Arrows in Calendar
-	$calendar.on( 'click', '.arrow', function(e){
+	$calendar.on( 'click', '.arrow', function(e) {
 		e.stopPropagation();
 		let eventOrdering = parseInt( targetEvent.className[1].substring(6,7) )+1;
 
@@ -322,7 +322,7 @@ $(document).ready( function(){
 	}); // Arrows in Calendar -----
 
 	// Get how many hours does user need
-	$('#calendar').on( 'click', '.fc-event', function(){
+	$('#calendar').on( 'click', '.fc-event', () => {
 
 		let neededHours = 0;
 
@@ -352,11 +352,11 @@ $(document).ready( function(){
 	});
 
 	// Trigger calendar to next/prev month
-	$('.month-btn').on( 'click', function(){
+	$('.month-btn').on( 'click', function() {
 		$calendar.fullCalendar( $(this).hasClass('prev') ? 'prev' : 'next' );
 	});
 
-	$('.setting-btn').on( 'click', function(){
+	$('.setting-btn').on( 'click', () => {
 		$('.overlay').fadeIn(500);
 	});
 
@@ -366,7 +366,7 @@ var showDialog = (action) => {
 	$('.alert').addClass(`show ${action}`);
 	$('.dialog').addClass('bounceIn');
 
-	$('.dialog .fine').on( 'click', function(){
+	$('.dialog .fine').on( 'click', () => {
 		$('.alert').removeClass('show left right hour');
 		$('.dialog').removeClass('bounceIn');
 		$(this).off('click');
@@ -384,7 +384,7 @@ var setHourArray = () => {
 		for( let j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
 			let newStart = moment(eventHead).add( j*(-1), 'days' );
 			let isThisHoliday = false;
-			national_holiday.map( function(holiday) {
+			national_holiday.map( (holiday) => {
 				if( newStart.isSame( holiday.start ) ) {
 					isThisHoliday = true;
 				}
