@@ -160,10 +160,10 @@ $(document).ready( function(){
 	const $calendar = $('#calendar');
 	$calendar.fullCalendar({
 		allDayDefault: true,
-		eventClick: function( thisEvent, jsEvent, view ) {
+		eventClick( thisEvent, jsEvent, view ) {
 			targetEvent = thisEvent;
 		},
-		eventAfterAllRender: function(event) {
+		eventAfterAllRender(event) {
 			$.each( $('.tenDays'), function(){
 				$(this).children('.fc-content').append('<div class="arrow minus" data-move="minus"></div><div class="arrow plus" data-move="plus"></div><div class="event-background"></div>');
 			});
