@@ -362,7 +362,7 @@ $(document).ready( function(){
 
 });
 
-var showDialog = action => {
+var showDialog = (action) => {
 	$('.alert').addClass(`show ${action}`);
 	$('.dialog').addClass('bounceIn');
 
@@ -404,7 +404,7 @@ var setHourArray = () => {
 
 }
 
-var meetWeekendWorkDay = day => weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
+var meetWeekendWorkDay = (day) => weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
 
 Object.assign( moment.prototype, {
 
