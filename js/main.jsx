@@ -1,30 +1,5 @@
 const national_holiday = [
 	{
-		title: '新年',
-		start: moment('2016-02-08'),
-		className: 'national',
-	},
-	{
-		title: '新年',
-		start: moment('2016-02-09'),
-		className: 'national',
-	},
-	{
-		title: '新年',
-		start: moment('2016-02-10'),
-		className: 'national',
-	},
-	{
-		title: '新年',
-		start: moment('2016-02-11'),
-		className: 'national',
-	},
-	{
-		title: '新年',
-		start: moment('2016-02-12'),
-		className: 'national',
-	},
-	{
 		title: '二二八補假',
 		start: moment('2016-02-29'),
 		className: 'national',
