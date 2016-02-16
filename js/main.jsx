@@ -185,14 +185,14 @@ $(document).ready( () => {
 		format: 'YYYY-MM-DD',
 	});
 
-	$('.options').on( 'click', () => {
+	$('.options').on( 'click', (e) => {
 		$('.options').removeClass('valuable');
 		$('.wave').removeClass('show');
-		$(this).addClass('valuable');
-		$(this).find('.wave').addClass('show');
+		$(e.currentTarget).addClass('valuable');
+		$(e.currentTarget).find('.wave').addClass('show');
 
-		$('.day-value').text( $(this).attr('data-day') == 'all-day' ? '整天' : '半天' );
-		back2workStatus = $(this).attr('data-day');
+		$('.day-value').text( $(e.currentTarget).attr('data-day') == 'all-day' ? '整天' : '半天' );
+		back2workStatus = $(e.currentTarget).attr('data-day');
 	});
 
 	$('.ok').on( 'click', () => {
