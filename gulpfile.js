@@ -18,7 +18,7 @@ gulp.task( 'style', function() {
 });
 
 gulp.task( 'js', function() {
-	return gulp.src( 'js/*.js' )
+	return gulp.src( 'js/*.jsx' )
 		.pipe( concat('main.min.js') )
 		.pipe( babel({
 			presets: 'es2015'
