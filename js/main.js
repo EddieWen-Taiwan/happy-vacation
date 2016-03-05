@@ -353,13 +353,17 @@ $(document).ready( () => {
 
 	// Trigger calendar to next/prev month
 	$('.month-btn').on( 'click', (event) => {
-		console.log(event);
-		console.log(event.currentTarget);
 		$calendar.fullCalendar( $(event.currentTarget).hasClass('prev') ? 'prev' : 'next' );
 	});
 
 	$('.setting-btn').on( 'click', () => {
 		$('.overlay').fadeIn(500);
+	});
+
+	$(document).on( 'keypress', (e) => {
+		if( $('.alert').hasClass('show') && e.keyCode == 13 ) {
+			$('.dialog .fine').trigger('click');
+		}
 	});
 
 });
