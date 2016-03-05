@@ -353,8 +353,6 @@ $(document).ready( () => {
 
 	// Trigger calendar to next/prev month
 	$('.month-btn').on( 'click', (event) => {
-		console.log(event);
-		console.log(event.currentTarget);
 		$calendar.fullCalendar( $(event.currentTarget).hasClass('prev') ? 'prev' : 'next' );
 	});
 
@@ -368,10 +366,17 @@ var showDialog = (action) => {
 	$('.alert').addClass(`show ${action}`);
 	$('.dialog').addClass('bounceIn');
 
+	$(document).on( 'keypress', (e) => {
+		if( $('.alert').hasClass('show') && e.keyCode == 13 ) {
+			$('.dialog .fine').trigger('click');
+		}
+	});
+
 	$('.dialog .fine').on( 'click', (e) => {
+		$(e.currentTarget).off('click');
+		$(document).off('keypress');
 		$('.alert').removeClass('show left right hour');
 		$('.dialog').removeClass('bounceIn');
-		$(e.currentTarget).off('click');
 	});
 }
 
