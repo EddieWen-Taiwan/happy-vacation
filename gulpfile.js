@@ -4,8 +4,13 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var htmlReplace = require('gulp-html-replace');
 var babel = require('gulp-babel');
+var connect = require('gulp-connect');
 
 gulp.task( 'default', [ 'html', 'style', 'js', 'libraryJS' ] );
+
+gulp.task( 'server', function(){
+	connect.server();
+});
 
 gulp.task( 'style', function() {
 	gulp.src('node_modules/pikaday/css/pikaday.css')
