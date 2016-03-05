@@ -360,22 +360,23 @@ $(document).ready( () => {
 		$('.overlay').fadeIn(500);
 	});
 
-	$(document).on( 'keypress', (e) => {
-		if( $('.alert').hasClass('show') && e.keyCode == 13 ) {
-			$('.dialog .fine').trigger('click');
-		}
-	});
-
 });
 
 var showDialog = (action) => {
 	$('.alert').addClass(`show ${action}`);
 	$('.dialog').addClass('bounceIn');
 
+	$(document).on( 'keypress', (e) => {
+		if( $('.alert').hasClass('show') && e.keyCode == 13 ) {
+			$('.dialog .fine').trigger('click');
+		}
+	});
+
 	$('.dialog .fine').on( 'click', (e) => {
+		$(e.currentTarget).off('click');
+		$(document).off('keypress');
 		$('.alert').removeClass('show left right hour');
 		$('.dialog').removeClass('bounceIn');
-		$(e.currentTarget).off('click');
 	});
 }
 
