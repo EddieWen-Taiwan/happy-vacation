@@ -1,5 +1,7 @@
-import * as Days from './Days.js';
+var $ = require('jquery');
+var Pikaday = require('pikaday');
 
+import * as Days from './Days.js';
 var eventArray;
 var hourArray;
 var targetEvent;
