@@ -6,20 +6,22 @@ var htmlReplace = require('gulp-html-replace');
 var babel = require('gulp-babel');
 var connect = require('gulp-connect');
 
+var __targte_path__ = '../xxx-pages/';
+
 gulp.task( 'default', [ 'html', 'style', 'js', 'libraryJS' ] );
 
-gulp.task( 'server', function(){
+gulp.task( 'server', function() {
 	connect.server();
 });
 
 gulp.task( 'style', function() {
 	gulp.src('node_modules/pikaday/css/pikaday.css')
 		.pipe( minifycss() )
-		.pipe( gulp.dest('../gh-pages/node_modules/pikaday/css/') );
+		.pipe( gulp.dest(__targte_path__+'node_modules/pikaday/css/') );
 	return gulp.src('css/*.css')
 		.pipe( concat('main.min.css') )
 		.pipe( minifycss() )
-		.pipe( gulp.dest('../gh-pages/css/') );
+		.pipe( gulp.dest(__targte_path__+'css/') );
 });
 
 gulp.task( 'js', function() {
@@ -27,14 +29,14 @@ gulp.task( 'js', function() {
 		.pipe( concat('main.min.js') )
 		.pipe( babel() )
 		.pipe( uglify() )
-		.pipe( gulp.dest('../gh-pages/js/') );
+		.pipe( gulp.dest(__targte_path__+'js/') );
 });
 
 gulp.task( 'libraryJS', function() {
 	return gulp.src( ['node_modules/jquery/dist/jquery.min.js', 'node_modules/moment/min/moment.min.js', 'node_modules/pikaday/pikaday.js'] )
 		.pipe( concat('all.min.js') )
 		.pipe( uglify() )
-		.pipe( gulp.dest('../gh-pages/node_modules/') );
+		.pipe( gulp.dest(__targte_path__+'node_modules/') );
 });
 
 gulp.task( 'html', function() {
@@ -44,5 +46,5 @@ gulp.task( 'html', function() {
 			'js': 'js/main.min.js',
 			'libraryJS': 'node_modules/all.min.js'
 		}) )
-		.pipe( gulp.dest('../gh-pages/') );
+		.pipe( gulp.dest(__targte_path__) );
 });
