@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var Pikaday = require('pikaday');
+var fullCalendar = require('fullcalendar');
 
 import * as Days from './Days.js';
 var eventArray;
