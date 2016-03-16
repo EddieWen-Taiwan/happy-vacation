@@ -24,9 +24,8 @@ gulp.task( 'style', function() {
 });
 
 gulp.task( 'js', function() {
-	return gulp.src( 'js/*.js' )
-		.pipe( concat('main.min.js') )
-		.pipe( babel() )
+	return gulp.src( 'js/bundle.js' )
+		.pipe( concat('bundle.min.js') )
 		.pipe( uglify() )
 		.pipe( gulp.dest(__targte_path__+'js/') );
 });
@@ -35,7 +34,7 @@ gulp.task( 'html', function() {
 	return gulp.src('index.html')
 		.pipe( htmlReplace({
 			'css': 'css/all.min.css',
-			'js': 'js/main.min.js',
+			'js': 'js/bundle.min.js',
 		}) )
 		.pipe( gulp.dest(__targte_path__) );
 });
