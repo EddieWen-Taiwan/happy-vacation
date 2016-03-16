@@ -8,7 +8,7 @@ var connect = require('gulp-connect');
 
 var __targte_path__ = '../xxx-pages/';
 
-gulp.task( 'default', [ 'html', 'style', 'js', 'libraryJS' ] );
+gulp.task( 'default', [ 'html', 'style', 'js' ] );
 
 gulp.task( 'server', function() {
 	connect.server();
@@ -29,13 +29,6 @@ gulp.task( 'js', function() {
 		.pipe( babel() )
 		.pipe( uglify() )
 		.pipe( gulp.dest(__targte_path__+'js/') );
-});
-
-gulp.task( 'libraryJS', function() {
-	return gulp.src( ['node_modules/jquery/dist/jquery.min.js', 'node_modules/moment/min/moment.min.js', 'node_modules/pikaday/pikaday.js'] )
-		.pipe( concat('all.min.js') )
-		.pipe( uglify() )
-		.pipe( gulp.dest(__targte_path__+'node_modules/') );
 });
 
 gulp.task( 'html', function() {
