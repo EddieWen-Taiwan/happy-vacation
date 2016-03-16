@@ -73,7 +73,7 @@
 				// Workday on the weekend
 				$('.fc-day-number.fc-sat').each(function (index, element) {
 					// Check whethe it's on the list
-					if (weekend_workday.indexOf($(element).attr('data-date')) > -1 && !$(element).hasClass('markWork')) {
+					if (Days.weekend_workday.indexOf($(element).attr('data-date')) > -1 && !$(element).hasClass('markWork')) {
 						// Mark it with .markWrok
 						$(element).html('<span class="weekendWork">補班</span> ' + parseInt($(element).attr('data-date').substr(-2))).addClass('markWork');
 					}
@@ -127,7 +127,7 @@
 				};
 				$calendar.fullCalendar('removeEvents');
 				$calendar.fullCalendar('addEventSource', eventArray);
-				$calendar.fullCalendar('addEventSource', national_holiday);
+				$calendar.fullCalendar('addEventSource', Days.national_holiday);
 				setHourArray();
 
 				$calendar.fullCalendar('gotoDate', finalDay);
@@ -163,8 +163,8 @@
 				var checkingHoliday = true;
 				while (checkingHoliday) {
 					checkingHoliday = false;
-					for (var i = 0; i < national_holiday.length; i++) {
-						if (preDate.isSame(national_holiday[i].start)) {
+					for (var i = 0; i < Days.national_holiday.length; i++) {
+						if (preDate.isSame(Days.national_holiday[i].start)) {
 							preDate = moment(preDate).add(-1, 'days');
 							checkingHoliday = true;
 						}
@@ -205,7 +205,7 @@
 				}
 				$calendar.fullCalendar('removeEvents');
 				$calendar.fullCalendar('addEventSource', eventArray);
-				$calendar.fullCalendar('addEventSource', national_holiday);
+				$calendar.fullCalendar('addEventSource', Days.national_holiday);
 
 				setHourArray();
 			}
@@ -281,7 +281,7 @@
 			var _loop = function _loop(j) {
 				var newStart = moment(eventHead).add(j * -1, 'days');
 				var isThisHoliday = false;
-				national_holiday.map(function (holiday) {
+				Days.national_holiday.map(function (holiday) {
 					if (newStart.isSame(holiday.start)) {
 						isThisHoliday = true;
 					}
@@ -305,7 +305,7 @@
 	};
 
 	var meetWeekendWorkDay = function meetWeekendWorkDay(day) {
-		return weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
+		return Days.weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
 	};
 
 	Object.assign(moment.prototype, {
@@ -320,8 +320,8 @@
 				}
 			}
 
-			for (var k = 0; k < national_holiday.length; k++) {
-				if (this.isSame(national_holiday[k].start)) {
+			for (var k = 0; k < Days.national_holiday.length; k++) {
+				if (this.isSame(Days.national_holiday[k].start)) {
 					this.add(1, 'days');
 					break;
 				}
@@ -340,8 +340,8 @@
 			}
 
 			// National holidays
-			for (var k = 0; k < national_holiday.length; k++) {
-				if (this.isSame(national_holiday[k].start)) {
+			for (var k = 0; k < Days.national_holiday.length; k++) {
+				if (this.isSame(Days.national_holiday[k].start)) {
 					return false;
 				}
 			}
