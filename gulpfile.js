@@ -6,7 +6,7 @@ var htmlReplace = require('gulp-html-replace');
 var babel = require('gulp-babel');
 var connect = require('gulp-connect');
 
-var __targte_path__ = '../xxx-pages/';
+var __targte_path__ = '../gh-pages/';
 
 gulp.task( 'default', [ 'html', 'style', 'js' ] );
 
