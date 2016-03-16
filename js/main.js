@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var moment = require('moment');
 var Pikaday = require('pikaday');
 var fullCalendar = require('fullcalendar');
 

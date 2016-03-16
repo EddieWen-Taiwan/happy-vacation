@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 export const national_holiday = [
 	{
 		title: '新年',
