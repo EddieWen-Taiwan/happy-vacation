@@ -7,6 +7,12 @@ module.exports = {
 	module: {
 		loaders: [
 			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
-		]
+		],
+		noParse: [/moment/]
+	},
+	resolve: {
+		alias: {
+			moment: 'moment/min/moment.min.js'
+		}
 	}
 }
