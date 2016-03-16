@@ -1,4 +1,4 @@
-
+import * as Days from './Days.js';
 
 var eventArray;
 var hourArray;
@@ -21,7 +21,7 @@ $(document).ready( () => {
 			// Workday on the weekend
 			$('.fc-day-number.fc-sat').each( (index,element) => {
 				// Check whethe it's on the list
-				if( weekend_workday.indexOf( $(element).attr('data-date') ) > -1 && !$(element).hasClass('markWork') ) {
+				if( Days.weekend_workday.indexOf( $(element).attr('data-date') ) > -1 && !$(element).hasClass('markWork') ) {
 					// Mark it with .markWrok
 					$(element).html( `<span class="weekendWork">補班</span> ${parseInt($(element).attr('data-date').substr(-2))}` )
 						.addClass('markWork');
@@ -80,7 +80,7 @@ $(document).ready( () => {
 			};
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
-			$calendar.fullCalendar( 'addEventSource', national_holiday );
+			$calendar.fullCalendar( 'addEventSource', Days.national_holiday );
 			setHourArray();
 
 			$calendar.fullCalendar( 'gotoDate', finalDay );
@@ -120,8 +120,8 @@ $(document).ready( () => {
 			let checkingHoliday = true;
 			while( checkingHoliday ) {
 				checkingHoliday = false;
-				for( let i = 0; i < national_holiday.length; i++ ) {
-					if( preDate.isSame( national_holiday[i].start ) ) {
+				for( let i = 0; i < Days.national_holiday.length; i++ ) {
+					if( preDate.isSame( Days.national_holiday[i].start ) ) {
 						preDate = moment(preDate).add( -1, 'days' );
 						checkingHoliday = true;
 					}
@@ -165,7 +165,7 @@ $(document).ready( () => {
 			}
 			$calendar.fullCalendar( 'removeEvents' );
 			$calendar.fullCalendar( 'addEventSource', eventArray );
-			$calendar.fullCalendar( 'addEventSource', national_holiday );
+			$calendar.fullCalendar( 'addEventSource', Days.national_holiday );
 
 			setHourArray();
 
@@ -242,7 +242,7 @@ var setHourArray = () => {
 		for( let j = 1; j < eventHead.diff(eventTail, 'days'); j++ ) {
 			let newStart = moment(eventHead).add( j*(-1), 'days' );
 			let isThisHoliday = false;
-			national_holiday.map( (holiday) => {
+			Days.national_holiday.map( (holiday) => {
 				if( newStart.isSame( holiday.start ) ) {
 					isThisHoliday = true;
 				}
@@ -262,7 +262,7 @@ var setHourArray = () => {
 
 }
 
-var meetWeekendWorkDay = (day) => weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
+var meetWeekendWorkDay = (day) => Days.weekend_workday.indexOf(day.format('YYYY-MM-DD')) > -1 ? true : false;
 
 Object.assign( moment.prototype, {
 
@@ -278,8 +278,8 @@ Object.assign( moment.prototype, {
 			}
 		}
 
-		for( let k = 0; k < national_holiday.length; k++ ) {
-			if( this.isSame( national_holiday[k].start ) ) {
+		for( let k = 0; k < Days.national_holiday.length; k++ ) {
+			if( this.isSame( Days.national_holiday[k].start ) ) {
 				this.add( 1, 'days' );
 				break;
 			}
@@ -299,8 +299,8 @@ Object.assign( moment.prototype, {
 		}
 
 		// National holidays
-		for( let k = 0; k < national_holiday.length; k++ ) {
-			if( this.isSame( national_holiday[k].start ) ) {
+		for( let k = 0; k < Days.national_holiday.length; k++ ) {
+			if( this.isSame( Days.national_holiday[k].start ) ) {
 				return false;
 			}
 		}

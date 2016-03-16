@@ -1,4 +1,4 @@
-const national_holiday = [
+export const national_holiday = [
 	{
 		title: '新年',
 		start: moment('2016-02-08'),
@@ -146,6 +146,6 @@ const national_holiday = [
 	}
 ];
 
-const weekend_workday = [
+export const weekend_workday = [
 	'2016-06-04', '2016-09-10'
 ];
