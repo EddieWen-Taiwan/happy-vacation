@@ -15,11 +15,10 @@ gulp.task( 'server', function() {
 });
 
 gulp.task( 'style', function() {
-	gulp.src('node_modules/pikaday/css/pikaday.css')
-		.pipe( minifycss() )
-		.pipe( gulp.dest(__targte_path__+'node_modules/pikaday/css/') );
-	return gulp.src('css/*.css')
-		.pipe( concat('main.min.css') )
+	var pika = 'node_modules/pikaday/css/pikaday.css';
+	var fc = 'node_modules/fullcalendar/dist/';
+	return gulp.src([pika, fc+'fullcalendar.min.css', fc+'/fullcalendar.print.css', 'css/reset.css', 'css/main.css'])
+		.pipe( concat('all.min.css') )
 		.pipe( minifycss() )
 		.pipe( gulp.dest(__targte_path__+'css/') );
 });
@@ -42,7 +41,7 @@ gulp.task( 'libraryJS', function() {
 gulp.task( 'html', function() {
 	return gulp.src('index.html')
 		.pipe( htmlReplace({
-			'css': 'css/main.min.css',
+			'css': 'css/all.min.css',
 			'js': 'js/main.min.js',
 			'libraryJS': 'node_modules/all.min.js'
 		}) )
