@@ -43,7 +43,6 @@ gulp.task( 'html', function() {
 		.pipe( htmlReplace({
 			'css': 'css/all.min.css',
 			'js': 'js/main.min.js',
-			'libraryJS': 'node_modules/all.min.js'
 		}) )
 		.pipe( gulp.dest(__targte_path__) );
 });
