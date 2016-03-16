@@ -11,6 +11,7 @@
     "gulp-uglify": "^1.5.1"
   },
   "dependencies": {
+    "fullcalendar": "^2.5.0",
     "jquery": "^2.2.0",
     "moment": "^2.11.2",
     "pikaday": "^1.4.0"
