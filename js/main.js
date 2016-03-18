@@ -1,7 +1,7 @@
-var $ = require('jquery');
-var moment = require('moment');
-var Pikaday = require('pikaday');
-var fullCalendar = require('fullcalendar');
+import $ from 'jquery';
+import moment from 'moment';
+import Pikaday from 'pikaday';
+import fullCalendar from 'fullcalendar';
 
 import * as Days from './Days.js';
 var eventArray;

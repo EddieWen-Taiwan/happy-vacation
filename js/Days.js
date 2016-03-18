@@ -1,4 +1,4 @@
-var moment = require('moment');
+import moment from 'moment';
 
 export const national_holiday = [
 	{
