@@ -31,10 +31,11 @@ gulp.task( 'js', function() {
 });
 
 gulp.task( 'html', function() {
+	const r = Math.floor(Math.random()*1000);
 	return gulp.src('index.html')
 		.pipe( htmlReplace({
 			'css': 'css/all.min.css',
-			'js': 'js/bundle.min.js',
+			'js': `js/bundle.min.js?r=${r}`
 		}) )
 		.pipe( gulp.dest(__targte_path__) );
 });
