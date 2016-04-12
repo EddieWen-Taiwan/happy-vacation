@@ -3,7 +3,6 @@ var minifycss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var htmlReplace = require('gulp-html-replace');
-var babel = require('gulp-babel');
 var connect = require('gulp-connect');
 
 var __targte_path__ = '../gh-pages/';
