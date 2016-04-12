@@ -112,18 +112,13 @@ export const national_holiday = [
 		className: 'national',
 	},
 	{
-		title: '彈性放假',
+		title: '清明連假',
 		start: moment('2017-04-03'),
 		className: 'national',
 	},
 	{
-		title: '兒童節',
+		title: '清明連假',
 		start: moment('2017-04-04'),
-		className: 'national',
-	},
-	{
-		title: '清明節',
-		start: moment('2017-04-05'),
 		className: 'national',
 	},
 	{
@@ -134,6 +129,11 @@ export const national_holiday = [
 	{
 		title: '端午節',
 		start: moment('2017-05-30'),
+		className: 'national',
+	},
+	{
+		title: '中秋節',
+		start: moment('2017-10-04'),
 		className: 'national',
 	},
 	{
@@ -149,5 +149,5 @@ export const national_holiday = [
 ];
 
 export const weekend_workday = [
-	'2016-06-04', '2016-09-10'
+	'2016-06-04', '2016-09-10', '2017-02-18', '2017-05-20', '2017-09-30'
 ];

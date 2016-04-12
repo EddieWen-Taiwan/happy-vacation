@@ -22916,16 +22916,12 @@
 		start: (0, _moment2.default)('2017-02-28'),
 		className: 'national'
 	}, {
-		title: '彈性放假',
+		title: '清明連假',
 		start: (0, _moment2.default)('2017-04-03'),
 		className: 'national'
 	}, {
-		title: '兒童節',
+		title: '清明連假',
 		start: (0, _moment2.default)('2017-04-04'),
-		className: 'national'
-	}, {
-		title: '清明節',
-		start: (0, _moment2.default)('2017-04-05'),
 		className: 'national'
 	}, {
 		title: '彈性放假',
@@ -22934,6 +22930,10 @@
 	}, {
 		title: '端午節',
 		start: (0, _moment2.default)('2017-05-30'),
+		className: 'national'
+	}, {
+		title: '中秋節',
+		start: (0, _moment2.default)('2017-10-04'),
 		className: 'national'
 	}, {
 		title: '彈性放假',
@@ -22945,7 +22945,7 @@
 		className: 'national'
 	}];
 
-	var weekend_workday = exports.weekend_workday = ['2016-06-04', '2016-09-10'];
+	var weekend_workday = exports.weekend_workday = ['2016-06-04', '2016-09-10', '2017-02-18', '2017-05-20', '2017-09-30'];
 
 /***/ }
 /******/ ]);
