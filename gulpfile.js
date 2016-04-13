@@ -19,22 +19,22 @@ gulp.task( 'style', function() {
 	return gulp.src([pika, fc+'fullcalendar.min.css', fc+'/fullcalendar.print.css', 'css/reset.css', 'css/main.css'])
 		.pipe( concat('all.min.css') )
 		.pipe( minifycss() )
-		.pipe( gulp.dest(__targte_path__+'css/') );
+		.pipe( gulp.dest(__targte_path__+'build/') );
 });
 
 gulp.task( 'js', function() {
-	return gulp.src( 'js/bundle.js' )
+	return gulp.src( 'build/bundle.js' )
 		.pipe( concat('bundle.min.js') )
 		.pipe( uglify() )
-		.pipe( gulp.dest(__targte_path__+'js/') );
+		.pipe( gulp.dest(__targte_path__+'build/') );
 });
 
 gulp.task( 'html', function() {
 	const r = Math.floor(Math.random()*1000);
 	return gulp.src('index.html')
 		.pipe( htmlReplace({
-			'css': 'css/all.min.css',
-			'js': `js/bundle.min.js?r=${r}`
+			'css': 'build/all.min.css',
+			'js': `build/bundle.min.js?r=${r}`
 		}) )
 		.pipe( gulp.dest(__targte_path__) );
 });
