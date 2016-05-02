@@ -4,7 +4,7 @@
 
 <http://github.eddiewen.me/happy-vacation/>
 
-線上版本: v1.5.1  
+線上版本: v1.5.2(留言板)  
 修改記錄如 [Releases](https://github.com/EddieWen-Taiwan/happy-vacation/releases)
 
 ---
