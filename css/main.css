@@ -572,6 +572,13 @@ header .css-sprite {
 	margin-left: 13px;
 }
 
+/*  DISQUS  */
+
+#disqus_thread {
+	width: 88%;
+	margin: 30px auto;
+}
+
 
 
 /*  Animate.css  */
