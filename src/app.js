@@ -3,7 +3,13 @@ import moment from 'moment';
 import Pikaday from 'pikaday';
 import fullCalendar from 'fullcalendar';
 
-import * as Days from './Days.js';
+require('../node_modules/pikaday/css/pikaday.css');
+require('../node_modules/fullcalendar/dist/fullcalendar.min.css');
+require('../node_modules/fullcalendar/dist/fullcalendar.print.css');
+require('css/reset.css');
+require('css/main.css');
+
+import * as Days from 'js/Days.js';
 var eventArray;
 var hourArray;
 var targetEvent;
