@@ -1,16 +1,23 @@
+const path = require('path');
+
 module.exports = {
-	entry: './js/main.js',
+	entry: path.resolve(__dirname, 'src', 'app.js'),
 	output: {
-		path: __dirname,
-		filename: 'build/bundle.js'
+		path: path.resolve(__dirname, 'build'),
+		publicPath: '/',
+		filename: 'bundle.js'
 	},
 	module: {
 		loaders: [
-			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
+			{ test: /\.js$/, include: /src/, loader: 'babel-loader' },
+			{ test: /\.css$/, loader: 'style-loader!css-loader' },
+			{ test: /\.(png|jpg)$/, loader: 'file-loader?name=img/[hash:7].[ext]' }
 		],
 		noParse: [/moment/]
 	},
 	resolve: {
+		root: path.resolve(__dirname, 'src'),
+		extensions: ['', '.js'],
 		alias: {
 			moment: 'moment/min/moment.min.js'
 		}
