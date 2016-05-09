@@ -5,7 +5,7 @@ module.exports = {
 	entry: path.resolve(__dirname, 'src', 'app.js'),
 	output: {
 		path: path.resolve(__dirname, 'build'),
-		publicPath: 'http://localhost/happy-vacation/master/build/',
+		publicPath: 'http://github.eddiewen.me/happy-vacation/',
 		filename: 'bundle.js'
 	},
 	module: {
