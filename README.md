@@ -19,7 +19,7 @@
 ---
 
 ### 使用說明：
-![demo-image-1](images/demo-image-1.png)
+![demo-image-1](src/images/demo-image-1.png)
 
 1. 首先輸入退伍日期，再來可以選擇第十天回來上勤時只要上半天還是上全天
 	* 這影響到所需時數的計算，不過目前只能全部統一，不能這天要上整天那天又只上半天  
@@ -29,7 +29,7 @@
 
 4. 最後，可以任意點擊這三個月內的某日，系統會計算從這天開始休退的話（包含點擊該日）所需的時數。但這計算結果不包含退伍日當天，也就是退伍日當天不請假。
 
-![demo-image-2](images/demo-image-2.png)
+![demo-image-2](src/images/demo-image-2.png)
 
 ---
 
