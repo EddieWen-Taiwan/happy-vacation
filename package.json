@@ -1,4 +1,14 @@
 {
+  "name": "happy-vacation",
+  "version": "1.5.2",
+  "description": "部分役男在服役時會積一些榮譽假及補休，打算在最後退役前一次放完。但由於有不能連續十天沒上勤的規定，所以在排假時會有點小麻煩，因此寫了這個程式來輔助規劃休退假期。",
+  "main": "src/app.js",
+  "dependencies": {
+    "fullcalendar": "^2.5.0",
+    "jquery": "^2.2.0",
+    "moment": "^2.11.2",
+    "pikaday": "^1.4.0"
+  },
   "devDependencies": {
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.5.0",
@@ -8,14 +18,25 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0"
   },
-  "dependencies": {
-    "fullcalendar": "^2.5.0",
-    "jquery": "^2.2.0",
-    "moment": "^2.11.2",
-    "pikaday": "^1.4.0"
-  },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --devtool eval --process --colors --content-base build/",
     "build": "webpack --config webpack.config.build.js -p"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddieWen-Taiwan/happy-vacation.git"
+  },
+  "keywords": [
+    "SMS",
+    "NIA",
+    "happy-vacation",
+    "A-Ti"
+  ],
+  "author": "Eddie Wen <m20021991y@gmail.com> (http://eddiewen.me)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EddieWen-Taiwan/happy-vacation/issues"
+  },
+  "homepage": "https://github.com/EddieWen-Taiwan/happy-vacation#readme"
 }
