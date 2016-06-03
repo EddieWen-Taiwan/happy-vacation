@@ -3,14 +3,14 @@ const htmlReplace = require('gulp-html-replace');
 
 gulp.task( 'default', function() {
 
-	const tmp = Math.floor( Math.random()*721 );
+	gulp.src('build/**')
+		.pipe( gulp.dest('../gh-pages/') );
 
+	const tmp = Math.floor( Math.random()*573 );
 	return gulp.src('build/index.html')
 		.pipe( htmlReplace({
 			'js': `bundle.js?v=${tmp}`
-		}, {
-			keepBlockTags: true
 		}) )
-		.pipe( gulp.dest('build') );
+		.pipe( gulp.dest('../gh-pages/') );
 
 });
