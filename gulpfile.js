@@ -3,7 +3,7 @@ const htmlReplace = require('gulp-html-replace');
 
 gulp.task( 'default', function() {
 
-	gulp.src('build/**')
+	gulp.src(['build/**', '!build/index.html'])
 		.pipe( gulp.dest('../gh-pages/') );
 
 	const tmp = Math.floor( Math.random()*573 );
