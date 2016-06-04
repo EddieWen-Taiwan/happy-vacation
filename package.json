@@ -23,7 +23,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --devtool eval --process --colors --content-base build/",
-    "build": "webpack --config webpack.config.build.js -p && gulp"
+    "build": "webpack --config webpack.config.build.js -p && gulp",
+    "clean": "rm -rf build/img/ ../gh-pages/img/"
   },
   "repository": {
     "type": "git",
